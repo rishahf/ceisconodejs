@@ -1,0 +1,705 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Shared Module With MongoDB Api Documentation",
+        "description": "Shared Module With MongoDB",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3004/",
+            "description": "local server"
+        },
+        {
+            "url": "http://67.205.182.28:3004/",
+            "description": "production server"
+        },
+        {
+            "url": "https://sharedecommerce.henceforthsolutions.com:3004/",
+            "description": "production server"
+        },
+        {
+            "url":"https://demo.ecommerce.henceforthsolutions.com:3006/",
+            "description": "Demo server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Order",
+            "description": "Order Module"
+        }
+    ],
+    "paths": {
+        "/Order": {
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "User create order",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/create_order"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "User list Orders Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/order_status"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Order/{_id}": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "order details",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Order/cancel": {
+            "put": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "User Cancel Order",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/cancel_order"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Order/cancellation/request": {
+            "put": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "User Cancellation Request of Cancel Order",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/cancellation_request"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Order/payment_status": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "check order payment status",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/order_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Order/products/{_id}": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "ordered products details",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Order/invoice/detail/{_id}": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "order invoice details",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Order/coupon/availablity": {
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Check Coupon availability",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/coupon_check"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Order/address/delivery/{_id}": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Check address delivery availability",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "create_order": {
+                "type": "object",
+                "properties": {
+                    "products": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "product_id": {
+                                    "type": "string"
+                                },
+                                "quantity": {
+                                    "type": "number"
+                                },
+                                "delivery_price" : { 
+                                    "type": "number" 
+                                },
+                                "shipment_id": {
+                                    "description": "shippo shipment_id",
+                                    "type": "string",
+                                    "format": "string"
+                                },
+                                "transaction_id": {
+                                    "description": "shippo transaction_id",
+                                    "type": "string",
+                                    "format": "string"
+                                }
+                            }
+                        }
+                    },
+                    "address_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "card_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "coupon_code": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "payment_mode": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "CASH_ON_DELIVERY",
+                            "BY_CARD"
+                        ],
+                        "default": "CASH_ON_DELIVERY"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "products",
+                    "address_id",
+                    "payment_mode",
+                    "language"
+                ]
+            },
+            "cancel_order" : {
+                "type": "object",
+                "properties": {
+                    "_id" : {
+                        "type": "string",
+                        "format": "string"   
+                    },
+                    "order_id" : {
+                        "type": "string",
+                        "format": "string"   
+                    },
+                    "cancellation_reason": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "DO_NOT_LIKE_THE_ITEM", 
+                            "DEFFECTIVE_ITEM", 
+                            "ADDRESS_ISSUE", 
+                            "FOR_OTHER_REASON", 
+                            "ORDER_CANCELLED_BY_SELLER"
+                        ],
+                        "default": "DO_NOT_LIKE_THE_ITEM"
+                    },
+                    "description":{
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "cancellation_reason",
+                    "language"
+                ]
+            },
+            "cancellation_request" : {
+                "type": "object",
+                "properties": {
+                    "_id" : {
+                        "type": "string",
+                        "format": "string"   
+                    }
+                },
+                "required": [
+                    "_id"
+                ]
+            },
+            "coupon_check" : {
+                "type": "object",
+                "properties": {
+                    "name" : {
+                        "type": "string",
+                        "format": "string"   
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "language"
+                ]
+            },
+            "address_check" : {
+                "type": "object",
+                "properties": {
+                    "_id" : {
+                        "description":"Enter here address _id",
+                        "type": "string",
+                        "format": "string"   
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "language"
+                ]
+            }
+        },
+        "parameters": {
+            "access_token": {
+                "name": "access_token",
+                "in": "header",
+                "description": "access_token to be passed as a header",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "find_by_id": {
+                "name": "_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "find_by_id_optional": {
+                "name": "_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "product_id_optional": {
+                "name": "product_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "style_for_id": {
+                "name": "style_for_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "delete_by_id": {
+                "name": "_id",
+                "in": "path",
+                "description": "Pass here _id",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            
+            "position": {
+                "name": "position",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "TOP",
+                        "MIDDLE",
+                        "BOTTOM"
+                    ],
+                    "default": "TOP"
+                }
+            },
+            "language": {
+                "name": "language",
+                "in": "query",
+                "description": "valid languages are ENGLISH & ARABIC",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ARABIC",
+                        "ENGLISH"
+                    ],
+                    "default": "ENGLISH"
+                }
+            },
+            "search": {
+                "name": "search",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "pagination": {
+                "name": "pagination",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "start_date": {
+                "name": "start_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in format DD/MM/YYYY",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "end_date": {
+                "name": "end_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in format DD/MM/YYYY",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "limit": {
+                "name": "limit",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "timezone": {
+                "name": "timezone",
+                "in": "query",
+                "required": false,
+                "description": "pass here timezone like Asia/Kolkata",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "list_content": {
+                "name": "type",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ABOUT_US",
+                        "PRIVACY_POLICY",
+                        "TERMS_AND_CONDITIONS"
+                    ]
+                },
+                "style": "form",
+                "explode": true
+            },
+            "order_status" : {
+                "name": "order_status",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ALL",
+                        "PLACED",
+                        "CONFIRMED",
+                        "DELIVERED",
+                        "CANCELLED"
+                    ]
+                },
+                "style": "form",
+                "explode": true
+            },
+            "order_id" : {
+                "name": "order_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            }
+        },
+        "securitySchemes": {
+            "access_token": {
+                "type": "apiKey",
+                "name": "token",
+                "in": "header"
+            }
+        }
+    }
+}

@@ -1,0 +1,1040 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Shared Module With MongoDB Api Documentation",
+        "description": "Shared Module With MongoDB",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3004/",
+            "description": "local server"
+        },
+        {
+            "url": "http://67.205.182.28:3004/",
+            "description": "production server"
+        },
+        {
+            "url": "https://sharedecommerce.henceforthsolutions.com:3004/",
+            "description": "production server"
+        },
+        {
+            "url":"https://demo.ecommerce.henceforthsolutions.com:3006/",
+            "description": "Demo server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Product",
+            "description": "Product related apis"
+        }
+    ],
+    "paths": {
+        "/Product/": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/min_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/max_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/related": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "List related Products",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/product_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/details": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Details Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/token"
+                    },
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/products/variants": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product Variants List Details Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/reviews": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product Listing of Reviews Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/faqs": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Faqs list Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/product_faqs": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Faqs Product list Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/brands": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Brands  Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/categories": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Categories  Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/subcategories": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List SubCategories  Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/find_by_category_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/sub_subcategories": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Product_type Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/find_by_subcategory_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/banners": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Banners Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/deals_of_the_day": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Deals of the day Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/deals_of_the_day/products": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Deals Products Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/hot_deals": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Deals of the day Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/hot_deals/products": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Hot Deals Products Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/fashion_deals": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Deals of the day Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/fashion_deals/products": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Fashion Deals Products Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/check/delivery": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/token"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/lat"
+                    },
+                    {
+                        "$ref": "#/components/parameters/lng"
+                    },
+                    {
+                        "$ref": "#/components/parameters/country"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Product/filters": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Product List Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/token"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/cat_level_1"
+                    },
+                    {
+                        "$ref": "#/components/parameters/cat_level_2"
+                    },
+                    {
+                        "$ref": "#/components/parameters/cat_level_3"
+                    },
+                    {
+                        "$ref": "#/components/parameters/brand_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/min_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/max_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/discount_available"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ratings"
+                    },
+                    {
+                        "$ref": "#/components/parameters/availablity"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sort_by"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "add_products": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Pass Product Name Here",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Pass Product Description",
+                        "type": "string"
+                    },
+                    "brand_id":{
+                        "description": "Pass Here Brand Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "subcategory_id":{
+                        "description": "Pass Here sub_category Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "product_type_id":{
+                        "description": "Pass Here type Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "images": {
+                        "description": "Pass Images of Product",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "product_details": {
+                        "description": "Pass details of Product",
+                        "type": "array",
+                        "items": {
+                                "type": "object"
+                        }
+                    },
+                    "quantity":{
+                        "description": "Pass Quantity here",
+                        "type": "number"
+                    },
+                    "price": {
+                        "description": "Pass Product  Price",
+                        "type": "number"
+                    },
+                    "sold": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "is_blocked": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "is_deleted": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "description",
+                    "quantity",
+                    "price"
+                ]
+            }
+        },
+        "parameters": {
+            "access_token": {
+                "name": "access_token",
+                "in": "header",
+                "description": "access_token to be passed as a header",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "find_by_id": {
+                "name": "_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "find_by_id_optional": {
+                "name": "_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "find_by_category_id" : {
+                "name": "category_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "find_by_subcategory_id" : {
+                "name": "subcategory_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "sub_subcategory_id_req" : {
+                "name": "sub_subcategory_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "product_id" : {
+                "name": "product_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+
+            "delete_by_id": {
+                "name": "_id",
+                "in": "path",
+                "description": "Pass here _id",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "language": {
+                "name": "language",
+                "in": "query",
+                "description": "valid languages are ENGLISH & ARABIC",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ARABIC",
+                        "ENGLISH"
+                    ],
+                    "default": "ENGLISH"
+                }
+            },
+            "search": {
+                "name": "search",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "brand_id": {
+                "name": "brand_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "array",
+                    "items":{
+                        "type": "string"
+                    }
+                },
+                "style": "form",
+                "explode": true
+            },
+
+            "cat_level_1" : {
+                "name": "category_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "cat_level_2" : {
+                "name": "subcategory_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "cat_level_3" : {
+                "name": "sub_subcategory_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "subcategory_id": {
+                "name": "subcategory_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "array",
+                    "items":{
+                        "type": "string"
+                    }
+                }
+            },
+            "sub_subcategory_id": {
+                "name": "sub_subcategory_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "array",
+                    "items":{
+                        "type": "string"
+                    }
+                },
+                "style": "form",
+                "explode": true
+            },
+            "pagination": {
+                "name": "pagination",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "start_date": {
+                "name": "start_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in format DD/MM/YYYY",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "end_date": {
+                "name": "end_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in format DD/MM/YYYY",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "min_price": {
+                "name": "min_price",
+                "in": "query",
+                "required": false,
+                "description": "Enter here minimum price",
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "max_price": {
+                "name": "max_price",
+                "in": "query",
+                "required": false,
+                "description": "Enter here maximum price",
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "discount_available": {
+                "name": "discount_available",
+                "in": "query",
+                "required": false,
+                "description": "Enter here discount percantage",
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "availablity" : {
+                "name": "availablity",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "IN_STOCK"
+                    ],
+                    "default" : "IN_STOCK"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "sort_by" : {
+                "name": "sort_by",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "WHATS_NEW",
+                        "POPULAR",
+                        "PRICE_HIGH_TO_LOW",
+                        "PRICE_LOW_TO_HIGH"
+                    ],
+                    "default" : "WHATS_NEW"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "ratings": {
+                "name": "ratings",
+                "in": "query",
+                "required": false,
+                "description": "Enter here ratings",
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "limit": {
+                "name": "limit",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "timezone": {
+                "name": "timezone",
+                "in": "query",
+                "required": false,
+                "description": "pass here timezone like Asia/Kolkata",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "list_content": {
+                "name": "type",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ABOUT_US",
+                        "PRIVACY_POLICY",
+                        "TERMS_AND_CONDITIONS"
+                    ]
+                },
+                "style": "form",
+                "explode": true
+            },
+            "lat": {
+                "name": "lat",
+                "in": "query",
+                "required": false,
+                "description": "Enter here lat",
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "lng": {
+                "name": "lng",
+                "in": "query",
+                "required": false,
+                "description": "Enter here lng",
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "country": {
+                "name": "country",
+                "in": "query",
+                "required": false,
+                "description": "Enter here lng",
+                "schema": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "token": {
+                "name": "token",
+                "in": "header",
+                "description": "access_token to be passed as a header",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            }
+        }
+    }
+}

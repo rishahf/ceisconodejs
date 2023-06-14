@@ -1,0 +1,3950 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Shared Ecommerce Api Documentation",
+        "description": "Shared Ecommerce Api Documentation",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3004/",
+            "description": "local server"
+        },
+        {
+            "url": "http://67.205.182.28:3004/",
+            "description": "production server"
+        },
+        {
+            "url": "https://sharedecommerce.henceforthsolutions.com:3004/",
+            "description": "production server"
+        },
+        {
+            "url":"https://demo.ecommerce.henceforthsolutions.com:3006/",
+            "description": "Demo server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Seller",
+            "description": "Seller related apis"
+        }
+    ],
+    "paths": {
+        "/Seller/signup": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller signup Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/seller_signup"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/seller_signup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Seller/login": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Login Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/seller_login"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/seller_login"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Seller/email/verification": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller email verification Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/seller_email_verification"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/seller_email_verification"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/resend_otp": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "User resend email otp Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/seller_resend_otp"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/seller_resend_otp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Seller/edit_profile": {
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Edit Profile Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_profile"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_profile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/change_password": {
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Change Password Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/change_password"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/change_password"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/forgot_password": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Forgot Password Api",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_forgot_password"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Seller/forgot_password/resend_otp": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Resend Forgot Password OTPApi",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/resend_fp_otp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Seller/forgot_password/verify_otp": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Verify Forgot Password OTP",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/verify_fp_otp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Seller/forgot_password/set_password": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Set New Password Api",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/seller_set_new_password"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Seller/logout": {
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Logout Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/dashboard": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Dashboard Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/graph/product": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Product Graph",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/graph"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/graph/sales": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Sales Graph",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/graph"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/profile": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller View My Profile Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/shippo/parcel": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Admin List Parcels",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Seller/products": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller add a product",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_a_product"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller edit a product",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_a_product"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller List of all Products Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/category_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/subcategory_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sub_subcategory_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/brand_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/min_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/max_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/export_start_date"
+                    },
+                    {
+                        "$ref": "#/components/parameters/export_end_date"
+                    },
+                    {
+                        "$ref": "#/components/parameters/quantity"
+                    },
+                    {
+                        "$ref": "#/components/parameters/out_of_stock"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/products/{_id}": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Product Detail Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+        "/Seller/products/details": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller add product details",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_product_details"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller edit product details",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_product_details"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller List Product details",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/products/details/{_id}": {
+            "delete": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller delete product details",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+        "/Seller/products/services": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller add product services",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_product_services"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller edit product services",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_product_services"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller List Product services",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/products/services/{_id}": {
+            "delete": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller delete product services",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+        "/Seller/products/highlights": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller add product highlights",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_product_highlights"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller edit product highlights",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_product_highlights"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller List Product highlights Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/products/highlights/{_id}": {
+            "delete": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller delete product highlights",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+        "/Seller/products/variations": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller add product variations",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_product_variants"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller edit product variations",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_product_variants"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller list product variations",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_product_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/products/variations/{_id}": {
+            "delete": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller delete product variations",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/products/to/add": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller List of all Products to Add Variants Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/category_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/subcategory_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sub_subcategory_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/brand_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/min_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/max_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/export_start_date"
+                    },
+                    {
+                        "$ref": "#/components/parameters/export_end_date"
+                    },
+                    {
+                        "$ref": "#/components/parameters/quantity"
+                    },
+                    {
+                        "$ref": "#/components/parameters/out_of_stock"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+        "/Seller/products/faqs": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller add product faqs",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_product_faqs"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller edit product faqs",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_product_faqs"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller list product faqs",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/products/faqs/{_id}": {
+            "delete": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller delete product faqs",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+        "/Seller/products/delivery/location": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller add delivery location",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_delivery_location"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller edit delivery location",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_delivery_location"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller list delivery location",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/products/delivery/location/{_id}": {
+            "delete": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller delete delivery location",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+        "/Seller/coupon": {
+            "post": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller add coupon Api",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_a_coupon"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller edit coupon Api",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_a_coupon"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller list coupons Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/coupon/{_id}": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller list coupon details",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller delete coupons Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+        "/Seller/orders": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Orders lisiting Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/order_status"
+                    },
+                    {
+                        "$ref": "#/components/parameters/payment_status"
+                    },
+                    {
+                        "$ref": "#/components/parameters/stock"
+                    },
+                    {
+                        "$ref": "#/components/parameters/start_date_ms"
+                    },
+                    {
+                        "$ref": "#/components/parameters/end_date_ms"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/cat_level_1"
+                    },
+                    {
+                        "$ref": "#/components/parameters/cat_level_2"
+                    },
+                    {
+                        "$ref": "#/components/parameters/cat_level_3"
+                    },
+                    {
+                        "$ref": "#/components/parameters/brands"
+                    },
+                    {
+                        "$ref": "#/components/parameters/min_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/max_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Order Status Change API",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/order_status_change"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/order_status_change"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/orders/{_id}": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Order Detail lisiting Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/orders/invoice/{_id}": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Order Invoice Detail lisiting Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/orders/cancel": {
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller cancel Order Api",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/cancel_order"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/order/cancel/request": {
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Order cancel request accept Api",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/cancel_request"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/order/reviews": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Orders Reviews lisiting Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/start_date_ms"
+                    },
+                    {
+                        "$ref": "#/components/parameters/end_date_ms"
+                    },
+                    {
+                        "$ref": "#/components/parameters/min_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/max_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/transactions": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Orders lisiting Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/payment_status"
+                    },
+                    {
+                        "$ref": "#/components/parameters/start_date_ms"
+                    },
+                    {
+                        "$ref": "#/components/parameters/end_date_ms"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/cat_level_1"
+                    },
+                    {
+                        "$ref": "#/components/parameters/cat_level_2"
+                    },
+                    {
+                        "$ref": "#/components/parameters/cat_level_3"
+                    },
+                    {
+                        "$ref": "#/components/parameters/brands"
+                    },
+                    {
+                        "$ref": "#/components/parameters/min_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/max_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/notifications": {
+            "get": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Notifications lisiting Api",
+                "parameters": [
+                     {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Read Notifications Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Seller/notifications/clear": {
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller clear Notifications Api",
+                "parameters": [
+                    
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+         "/Seller/notification/read/{_id}": {
+            "put": {
+                "tags": [
+                    "Seller"
+                ],
+                "summary": "Seller Read a Notification APi",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        }
+       
+
+    },
+    "components": {
+        "schemas": {
+            "seller_login": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email",
+                        "default": "seller1@yopmail.com"
+                    },
+                    "password": {
+                        "description": "Enter your passowrd",
+                        "type": "string",
+                        "format": "password",
+                        "default": "12345"
+                    },
+                    "fcm_token": {
+                        "description": "Enter your fcm access_token here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "email",
+                    "password"
+                ]
+            },
+            "add_a_product": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Pass Product Name Here",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Pass Product Description",
+                        "type": "string"
+                    },
+                    "product_type": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "WAERABLE_PRODUCT",
+                            "ELECTRONIC_PRODUCT"
+                        ],
+                        "default": "WAERABLE_PRODUCT"
+                    },
+                    "parcel_id": {
+                        "description": "Pass here parcel _id",
+                        "type": "string"
+                    },
+                    "brand_id": {
+                        "description": "Pass Here Brand Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "category_id": {
+                        "description": "Pass Here category Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "subcategory_id": {
+                        "description": "Pass Here sub_category Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "sub_subcategory_id": {
+                        "description": "Pass Here sub_subcategory Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "images": {
+                        "description": "Pass Images of Product",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "product_details": {
+                        "description": "Pass details of Product",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "key": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "quantity": {
+                        "description": "Pass Quantity here",
+                        "type": "number"
+                    },
+                    "price": {
+                        "description": "Pass Product Price",
+                        "type": "number"
+                    },
+                    "tax_percentage": {
+                        "description": "Pass Product tax_percentage",
+                        "type": "number"
+                    },
+                    "discount_percantage": {
+                        "description": "Pass discount percantage in numbers",
+                        "type": "number"
+                    },
+                    "services": {
+                        "description": "Pass Services of Product",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "highlights": {
+                        "description": "Pass Highlights of Product",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "clone_product_id": {
+                        "description": "Pass Here clone's product Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "description",
+                    "product_type",
+                    "parcel_id",
+                    "brand_id",
+                    "subcategory_id",
+                    "sub_subcategory_id",
+                    "images",
+                    "quantity",
+                    "price",
+                    "discount_percantage",
+                    "language"
+                ]
+            },
+            "edit_a_product": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass Product Name Here",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Pass Product Name Here",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Pass Product Description",
+                        "type": "string"
+                    },
+                    "product_type": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "WAERABLE_PRODUCT",
+                            "ELECTRONIC_PRODUCT"
+                        ],
+                        "default": "WAERABLE_PRODUCT"
+                    },
+                    "parcel_id": {
+                        "description": "Pass here parcel _id",
+                        "type": "string"
+                    },
+                    "brand_id": {
+                        "description": "Pass Here Brand Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "category_id": {
+                        "description": "Pass Here category Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "subcategory_id": {
+                        "description": "Pass Here sub_category Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "sub_subcategory_id": {
+                        "description": "Pass Here sub_subcategory Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "images": {
+                        "description": "Pass Images of Product",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "quantity": {
+                        "description": "Pass Quantity here",
+                        "type": "number"
+                    },
+                    "price": {
+                        "description": "Pass Product  Price",
+                        "type": "number"
+                    },
+                    "discount_percantage": {
+                        "description": "Pass discount percantage in numbers",
+                        "type": "number"
+                    },
+                    "tax_percentage": {
+                        "description": "Pass Product tax_percentage",
+                        "type": "number"
+                    },
+                    "sold": {
+                        "type": "boolean",
+                        "default" : false
+                    },
+                    "is_blocked": {
+                        "type": "boolean",
+                        "default" : false
+                    },
+                    "is_deleted": {
+                        "type": "boolean",
+                        "default" : false
+                    },
+                    "is_delivery_available": {
+                        "type": "boolean",
+                        "default" : false
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "language"
+                ]
+            },
+
+            "add_product_details" : {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "product_details": {
+                        "description": "Pass details of Product",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "key": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "product_id",
+                    "product_details",
+                    "language"
+                ]
+            },
+
+            "edit_product_details" : {
+                "type": "object",
+                "properties": {
+                    "_id" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "product_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "key" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "value" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "language"
+                ]
+            },
+            "add_product_services" : {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "services": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "product_id",
+                    "services",
+                    "language"
+                ]
+            },
+            "edit_product_services" : {
+                "type": "object",
+                "properties": {
+                    "_id" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "product_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "content" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "language"
+                ]
+            },
+
+            "add_product_highlights" : {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "highlights": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "product_id",
+                    "highlights",
+                    "language"
+                ]
+            },
+            "edit_product_highlights" : {
+                "type": "object",
+                "properties": {
+                    "_id" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "product_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "content" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "language"
+                ]
+            },
+
+            "add_product_variants_1": {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "description": "Pass here product_id ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "variants_ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "product_id",
+                    "variants_ids",
+                    "language"
+                ]
+            },
+            "add_product_variants": {
+                "type": "object",
+                "properties": {
+                    "product_id_1": {
+                        "description": "Pass here product_id ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "product_id_2": {
+                        "description": "Pass here product_id ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "product_id_1",
+                    "product_id_2",
+                    "language"
+                ]
+            },
+            "edit_product_variants": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "variants_ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "variants_ids",
+                    "language"
+                ]
+            },
+            "add_edit_product_services": {
+                "type": "object",
+                "properties": {
+                    "service_id": {
+                        "description": "Pass here service_id to edit services",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "product_id": {
+                        "description": "Pass here product_id ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "content": {
+                        "description": "add new service here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "language"
+                ]
+            },
+            "add_edit_product_highlights": {
+                "type": "object",
+                "properties": {
+                    "highlights_id": {
+                        "description": "Pass here highlights id to edit highlights",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "product_id": {
+                        "description": "Pass here product_id ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "content": {
+                        "description": "add new highlight here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "language"
+                ]
+            },
+            "add_edit_productdetails": {
+                "type": "object",
+                "properties": {
+                    "product_detail_id": {
+                        "description": "Pass here product_detail_id to edit product_detail",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "product_id": {
+                        "description": "Pass here product_id ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "key": {
+                        "description": "Pass here key",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "value": {
+                        "description": "Pass here value",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "language"
+                ]
+            },
+            "user_forgot_password": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email",
+                        "default": "john_doe@gmail.com"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "email"
+                ]
+            },
+            "add_product_faqs": {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "description": "Pass here product_id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "question": {
+                        "description": "Pass here question",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "answer": {
+                        "description": "Pass here answer",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "product_id",
+                    "question",
+                    "answer",
+                    "language"
+                ]
+            },
+            "edit_product_faqs": {
+                "type": "object",
+                "properties": {
+                    "_id" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "product_id": {
+                        "description": "Pass here product_id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "question": {
+                        "description": "Pass here question",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "answer": {
+                        "description": "Pass here answer",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "product_id",
+                    "question",
+                    "answer",
+                    "language"
+                ]
+            },
+
+            "add_delivery_location": {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "description": "Pass here product_id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "address": {
+                        "description": "Pass here address",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "lat": {
+                        "description": "Enter your lat from",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "lng": {
+                        "description": "Enter your long from",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "radius": {
+                        "description": "Pass here radius",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "units": {
+                        "description": "Pass here units",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "delivery_time": {
+                        "description": "Pass here excepted delivery time",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "product_id",
+                    "units",
+                    "pin_code",
+                    "radius"
+                ]
+            },
+            "edit_delivery_location": {
+                "type": "object",
+                "properties": {
+                    "_id" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "address": {
+                        "description": "Pass here address",
+                        "type": "string",
+                        "format": "string"
+                    },
+                     "lat": {
+                        "description": "Enter your lat from",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "lng": {
+                        "description": "Enter your long from",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "radius": {
+                        "description": "Pass here radius",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "units": {
+                        "description": "Pass here units",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "delivery_time": {
+                        "description": "Pass here excepted delivery time",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id"
+                ]
+            },
+
+            "add_a_coupon": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "description" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "FIXED",
+                            "PERCENTAGE"
+                        ],
+                        "default": "FIXED"
+                    },
+                    "sub_type": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ONE_TIME",
+                            "FIXED_VALUE_TIME",
+                            "UNLIMITED_TIME"
+                        ],
+                        "default": "ONE_TIME"
+                    },
+                    "start_date": {
+                        "description": "Pass here milliseconds",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "end_date": {
+                        "description": "Pass here milliseconds",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "price": {
+                        "description": "Pass here price for fixed type ",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "percentage": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "max_discount": {
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "applicable_for": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ALL",
+                            "LIMITED"
+                        ],
+                        "default": "ALL"
+                    },
+                    "product_ids": {
+                        "description": "Pass product ids",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "type",
+                    "sub_type",
+                    "start_date",
+                    "end_date",
+                    "language"
+                ]
+            },
+            "edit_a_coupon": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "description" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "FIXED",
+                            "PERCENTAGE"
+                        ],
+                        "default": "FIXED"
+                    },
+                    "sub_type": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ONE_TIME",
+                            "FIXED_VALUE_TIME",
+                            "UNLIMITED_TIME"
+                        ],
+                        "default": "ONE_TIME"
+                    },
+                    "start_date": {
+                        "description": "Pass here milliseconds",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "end_date": {
+                        "description": "Pass here milliseconds",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "price": {
+                        "description": "Pass here price for fixed type ",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "percentage": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "max_discount": {
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "is_available": {
+                        "type": "boolean",
+                        "format": "boolean"
+                    },
+                    "is_deleted": {
+                        "type": "boolean",
+                        "format": "boolean"
+                    },
+                    "applicable_for": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ALL",
+                            "LIMITED"
+                        ],
+                        "default": "ALL"
+                    },
+                    "product_ids": {
+                        "description": "Pass product ids",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "language"
+                ]
+            },
+
+            "block_delete_data": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "is_blocked": {
+                        "type": "boolean"
+                    },
+                    "is_deleted": {
+                        "type": "boolean"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "language"
+                ]
+            },
+            "edit_profile": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "name comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                     "email": {
+                        "description": "name comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "image": {
+                        "description": "image comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "country_code": {
+                        "description": "country_code comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "phone_number": {
+                        "description": "phone_number comes here",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "company": {
+                        "description": "enter company name here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "country": {
+                        "description": "enter country name here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "state": {
+                        "description": "enter state name here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "city": {
+                        "description": "enter city name here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "pin_code": {
+                        "description": "pin_code comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "apartment_number": {
+                        "description": "apartment_number comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "full_address": {
+                        "description": "full_address comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                     "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                }
+            },
+            "change_password": {
+                "type": "object",
+                "properties": {
+                    "old_password": {
+                        "description": "Old Password Comes Here",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "new_password": {
+                        "description": "New Password Comes Here",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "old_password",
+                    "new_password",
+                    "language"
+                ]
+            },
+            "seller_signup": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Enter your name",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email",
+                        "default": "seller@yopmail.com"
+                    },
+                    "country_code": {
+                        "description": "Enter your phone number",
+                        "type": "string",
+                        "format": "string",
+                        "default": "+91"
+                    },
+                    "phone_number": {
+                        "description": "Enter your phone number",
+                        "type": "number",
+                        "format": "number",
+                        "default": "9876504321"
+                    },
+                    "password": {
+                        "description": "Enter your passowrd",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "image": {
+                        "description": "Pass your profile here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                     "fcm_token": {
+                        "description": "Pass fcm_token here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "email",
+                    "phone_number",
+                    "password",
+                    "language"
+                ]
+            },
+            "seller_email_verification": {
+                "type": "object",
+                "properties": {
+                    "otp": {
+                        "description": "OTP comes here",
+                        "type": "number",
+                        "format": "number",
+                        "default": "1234"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "otp",
+                    "language"
+                ]
+            },
+            "seller_resend_otp": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email",
+                        "default": "john_doe@gmail.com"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "email",
+                    "language"
+                ]
+            },
+            "resend_fp_otp": {
+                "type": "object",
+                "properties": {
+                    "unique_code" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "unique_code",
+                    "language"
+                ]
+            },
+            "verify_fp_otp": {
+                "type": "object",
+                "properties": {
+                    "unique_code" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "otp": {
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "unique_code",
+                    "otp",
+                    "language"
+                ]
+            },
+            "seller_set_new_password": {
+                "type": "object",
+                "properties": {
+                    "unique_code" : {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "password": {
+                        "description": "Enter your passowrd",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "unique_code",
+                    "password",
+                    "language"
+                ]
+            },
+            "product_edit": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "description": {
+                        "description": "Pass description here ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "price": {
+                        "description": "Pass Product Price Here",
+                        "type": "number"
+                    },
+                    "images": {
+                        "description": "Pass Images of Product",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "services": {
+                        "description": "Pass Images of Product",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "highlights": {
+                        "description": "Pass Images of Product",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "quantity": {
+                        "description": "Pass Quantity of product",
+                        "type": "number"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id"
+                ]
+            },
+            "cancelled_order_data": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here order id",
+                        "type": "string",
+                        "format": "string"
+                    }
+                },
+                "required": [
+                    "_id"
+                ]
+            },
+            "order_status_change": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here order id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "order_status": {
+                        "description": "Pass here order id",
+                        "type": "string",
+                        "enum": [
+                            "SHIPPED",
+                            "DELIVERED"
+                        ],
+                        "format": "string"
+                    },
+                    "tracking_link": {
+                        "description": "Pass here tracking link",
+                        "type": "string",
+                        "format": "string"
+                    }
+                },
+                "required": [
+                    "_id"
+                ]
+            },
+            "confirmed_order": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here order id ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "length": {
+                        "description": "Pass here length  ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "width": {
+                        "description": "Pass here width ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "height": {
+                        "description": "Pass here height  ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "distance_unit": {
+                        "description": "Pass here distance_unit  ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "weight": {
+                        "description": "Pass here weight  ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "mass_unit": {
+                        "description": "Pass here mass_unit  ",
+                        "type": "string",
+                        "format": "string"
+                    }
+                },
+                "required": [
+                    "_id"
+                ]
+            },
+            "cancel_order" : {
+                "type": "object",
+                "properties": {
+                    "_id" : {
+                        "type": "string",
+                        "format": "string"   
+                    },
+                    "order_id" : {
+                        "type": "string",
+                        "format": "string"   
+                    },
+                    "cancellation_reason": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "DEFFECTIVE_ITEM", 
+                            "ADDRESS_ISSUE", 
+                            "FOR_OTHER_REASON", 
+                            "ORDER_CANCELLED_BY_SELLER"
+                        ],
+                        "default": "FOR_OTHER_REASON"
+                    },
+                    "description" : {
+                        "type": "string",
+                        "format": "string"   
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "language"
+                ]
+            },
+             "cancel_request" : {
+                "type": "object",
+                "properties": {
+                    "_id" : {
+                        "type": "string",
+                        "format": "string"   
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "language"
+                ]
+            }
+        },
+        "parameters": {
+            "search": {
+                "name": "search",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "pagination": {
+                "name": "pagination",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "limit": {
+                "name": "limit",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "find_by_id": {
+                "name": "_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "find_by_product_id": {
+                "name": "product_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "find_by_id_optional": {
+                "name": "_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "list_content": {
+                "name": "type",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ABOUT_US",
+                        "PRIVACY_POLICY",
+                        "TERMS_AND_CONDITIONS"
+                    ]
+                },
+                "style": "form",
+                "explode": true
+            },
+            "start_date": {
+                "name": "start_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in format DD/MM/YYYY",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "end_date": {
+                "name": "end_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in format DD/MM/YYYY",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "start_date_ms": {
+                "name": "start_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in ms",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "end_date_ms": {
+                "name": "end_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in ms",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "timezone": {
+                "name": "timezone",
+                "in": "query",
+                "required": false,
+                "description": "pass here timezone like Asia/Kolkata",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "delete_by_id": {
+                "name": "_id",
+                "in": "path",
+                "description": "Pass here _id",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "graph_type": {
+                "name": "type",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "WEEKLY",
+                        "MONTHLY",
+                        "YEARLY"
+                    ]
+                },
+                "style": "form",
+                "explode": true
+            },
+            "order_status": {
+                "name": "order_status",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ALL",
+                        "CONFIRMED",
+                        "SHIPPED",
+                        "DELIVERED",
+                        "PENDING_CANCELLATION",
+                        "CANCELLED"
+                    ]
+                },
+                "style": "form",
+                "explode": true
+            },
+            "stock": {
+                "name": "stock",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "OUT_OF_STOCK",
+                        "ALERT_OF_STOCK"
+                    ]
+                },
+                "style": "form",
+                "explode": true
+            },
+             "payment_status": {
+                "name": "payment_status",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "SUCCESS",
+                        "REFUNDED",
+                        "REFUND_IN_PROGRESS"
+                    ]
+                },
+                "style": "form",
+                "explode": true
+            },
+            "language": {
+                "name": "language",
+                "in": "query",
+                "description": "valid languages are ENGLISH & ARABIC",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ARABIC",
+                        "ENGLISH"
+                    ],
+                    "default": "ENGLISH"
+                }
+            },
+            "product_id": {
+                "name": "product_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            
+            "category_id": {
+                "name": "category_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "subcategory_id": {
+                "name": "subcategory_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "sub_subcategory_id": {
+                "name": "sub_subcategory_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "brand_id": {
+                "name": "brand_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "min_price": {
+                "name": "min_price",
+                "in": "query",
+                "required": false,
+                "description": "Enter here minimum price",
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "max_price": {
+                "name": "max_price",
+                "in": "query",
+                "required": false,
+                "description": "Enter here maximum price",
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "quantity": {
+                "name": "qty",
+                "in": "query",
+                "required": false,
+                "description": "Enter here quantity",
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "out_of_stock": {
+                "name": "out_of_stock",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "boolean"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "graph": {
+                "name": "type",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "DAILY",
+                        "WEEKLY",
+                        "MONTHLY",
+                        "YEARLY"
+                    ],
+                    "default": "DAILY"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "export_start_date": {
+                "name": "start_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in milliseconds",
+                "schema": {
+                    "type": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "export_end_date": {
+                "name": "end_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in milliseconds",
+                "schema": {
+                    "type": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "cat_level_1" : {
+                "name": "category_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "cat_level_2" : {
+                "name": "subcategory_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "cat_level_3" : {
+                "name": "sub_subcategory_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "brands": {
+                "name": "brand_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "array",
+                    "items":{
+                        "type": "string"
+                    }
+                },
+                "style": "form",
+                "explode": true
+            }
+        },
+        "securitySchemes": {
+            "access_token": {
+                "type": "apiKey",
+                "name": "token",
+                "in": "header"
+            }
+        }
+    }
+}

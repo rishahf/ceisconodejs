@@ -1,0 +1,3388 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Shared Module With MongoDB Api Documentation",
+        "description": "Shared Module With MongoDB",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3004/",
+            "description": "local server"
+        },
+        {
+            "url": "http://67.205.182.28:3004/",
+            "description": "production server"
+        },
+        {
+            "url": "https://sharedecommerce.henceforthsolutions.com:3004/",
+            "description": "production server"
+        },
+        {
+            "url":"https://demo.ecommerce.henceforthsolutions.com:3006/",
+            "description": "Demo server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "User",
+            "description": "User related apis"
+        }
+    ],
+    "paths": {
+        "/User/signup": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Signup Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_signup"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_signup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/email_verification": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Login Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_email_verification"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_email_verification"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/resend_otp": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User resend otp Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_resend_otp"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_resend_otp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/verify/phone_no": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User verify phone_no",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/phone_no_verification"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/phone_no_verification"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/resend/phone_no/otp": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User resend otp Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/resend_phone_no_otp"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/resend_phone_no_otp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/social_login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Social Login Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_social_login"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_social_login"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Login Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_login"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_login"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/verify_otp": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Verify OTP Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_verify_otp"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_verify_otp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/forgot_password": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Forgot Password Api",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_forgot_password"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/forgot_password/resend_otp": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Resend Forgot Password OTP Api",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/resend_fp_otp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/forgot_password/verify_otp": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Verify Forgot Password OTP",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/verify_fp_otp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/forgot_password/set_password": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Set New Password Api",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_set_new_password"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/view_my_profile": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User View My Profile Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/edit_profile": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Edit Profile Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_edit_profile"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_edit_profile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/change_password": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Change Password Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_change_password"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_change_password"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/logout": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Logout Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/deactivate_account": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Deactivation Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deactivated_account"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deactivated_account"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/contact_us": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Contact Us Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/contact_us"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/contact_us"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/list_content": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User List Content Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/list_content"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/address": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Add Address",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_address"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_address"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Address Set default API",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Address Listing Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/address/delete/{_id}": {
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Address delete Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/card": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Add Card API",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_card"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_card"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ],
+                "deprecated": true
+            },
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Card Detail Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ],
+                "deprecated": true
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Set default Card API",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ],
+                "deprecated": true
+            }
+        },
+        "/User/cards": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Cards Listing Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ],
+                "deprecated": true
+            }
+        },
+        "/User/attach/payment": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Attach Card API",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/attach_payment"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/attach_payment"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ],
+                "deprecated": true
+            }
+        },
+        "/User/detach/payment": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Detach Card API",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/detach_payment"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/detach_payment"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ],
+                "deprecated": true
+            }
+        },
+        "/User/review/can_add": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "check user can add review or not",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/product_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/review": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Add a Review for Product",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_reviews"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_reviews"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update a Review for Product",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_reviews"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_reviews"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List Reviews",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/review/my": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List My Reviews",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/review/my/{_id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List My Reviews Details",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/review/delete/{_id}": {
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Review delete Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+        "/User/shipment": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Shipment API",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ship_product_id"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ship_product_id"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/order": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Place Order",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/place_order"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/place_order"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ],
+                "deprecated": true
+            },
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get all Orders",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ],
+                "deprecated": true
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Cancel Order Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/cancelled_order_data"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/cancelled_order_data"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ],
+                "deprecated": true
+            }
+        },
+        "/User/order/details": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Order Details Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ],
+                "deprecated": true
+            }
+        },
+        "/User/wishlist": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Add Products to Wishlist",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_wishlist"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_wishlist"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Wishlist Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/wishlists/delete/{_id}": {
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Wishlists delete Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/coupons": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List Coupons",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/coupons/{_id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List Used Coupon Details",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/coupons/used": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List Used Coupons",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/coupons/expired": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List Expired Coupons",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/search": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Search Data",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/categories": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "user list categories",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/categories/{_id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "user list categories details",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/sub_categories": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "user list sub categories",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/category_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/sub_categories/{_id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "user list sub categories details",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/sub_subcategories": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "user list sub subcategories",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/subcategory_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/sub_subcategories/{_id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "user list sub sub categories details",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/brands": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "user list brands",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/brands/{_id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "user list brands details",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/nested": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+
+                "summary": "Retrive nested data",
+                 "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/cart": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Add to Cart",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_cart"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Edit Cart Items",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_cart"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List Cart Items",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/cart/{_id}": {
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Remove Item Form Cart API",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/cart/price_details": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "price details API",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        
+        "/User/product/faqs": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User list product faqs",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/token"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/product/faqs/like-dislike": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User like dislike faq",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/like_dislike_faq_product"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+        "/User/check/delivery": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User check delivery location",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/check_delivery_location"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ],
+                "deprecated":true
+            }
+        },
+
+        "/User/notifications": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User notifications list Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User read notifications Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/notifications/clear": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User clear notifications Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/User/main-keys": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User List Keys Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/type"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/User/main-keys/{_id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User List Keys Detail Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        }
+
+    },
+    "components": {
+        "schemas": {
+            "user_signup": {
+                "type": "object",
+                "properties": {
+                    "profile_pic": {
+                        "description": "Pass here profile pic",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "name": {
+                        "description": "Enter your name",
+                        "type": "string",
+                        "format": "string",
+                        "default": "John Doe"
+                    },
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email",
+                        "default": "john_doe@gmail.com"
+                    },
+                    "country_code": {
+                        "description": "Enter your country code",
+                        "type": "string",
+                        "format": "string",
+                        "default": "+91"
+                    },
+                    "phone_no": {
+                        "description": "Enter your phone number",
+                        "type": "number",
+                        "format": "number",
+                        "default": "9192939495"
+                    },
+                    "password": {
+                        "description": "Enter your passowrd",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "device_type": {
+                        "description": "Select your device type",
+                        "type": "string",
+                        "enum": [
+                            "iOS",
+                            "Android"
+                        ]
+                    },
+                    "fcm_token": {
+                        "description": "Enter your fcm access_token here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "email",
+                    "password",
+                    "language"
+                ]
+            },
+            "ship_product_id": {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "description": "Enter product id to start shipment",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "address_id": {
+                        "description": "Enter address id to start shipment",
+                        "type": "string",
+                        "format": "string"
+                    }
+                },
+                "required": [
+                    "product_id",
+                    "address_id"
+                ]
+            },
+            "user_email_verification": {
+                "type": "object",
+                "properties": {
+                    "otp": {
+                        "description": "OTP comes here",
+                        "type": "number",
+                        "format": "number",
+                        "default": "1234"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "otp",
+                    "language"
+                ]
+            },
+            "user_resend_otp": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email",
+                        "default": "john_doe@gmail.com"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "email",
+                    "language"
+                ]
+            },
+            "phone_no_verification": {
+                "type": "object",
+                "properties": {
+                    "otp": {
+                        "description": "OTP comes here",
+                        "type": "number",
+                        "format": "number",
+                        "default": "1234"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "otp",
+                    "language"
+                ]
+            },
+            "resend_phone_no_otp": {
+                "type": "object",
+                "properties": {
+                    "country_code": {
+                        "description": "Enter your country_code",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "phone_no": {
+                        "description": "Enter your phone_no",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "country_code",
+                    "phone_no",
+                    "language"
+                ]
+            },
+            "user_social_login": {
+                "type": "object",
+                "properties": {
+                    "social_type": {
+                        "description": "social type comes here",
+                        "type": "string",
+                        "enum": [
+                            "GOOGLE",
+                            "FACEBOOK",
+                            "APPLE"
+                        ]
+                    },
+                    "social_token": {
+                        "description": "social access_token comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email",
+                        "default": "john_doe@gmail.com"
+                    },
+                    "country_code": {
+                        "description": "Enter your country code",
+                        "type": "string",
+                        "format": "string",
+                        "default": "+91"
+                    },
+                    "phone_no": {
+                        "description": "Enter your phone number",
+                        "type": "number",
+                        "format": "number",
+                        "default": "9192939495"
+                    },
+                    "name": {
+                        "description": "Name comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "device_type": {
+                        "description": "Select your device type",
+                        "type": "string",
+                        "enum": [
+                            "iOS",
+                            "Android"
+                        ]
+                    },
+                    "fcm_token": {
+                        "description": "Enter your fcm access_token here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "social_type",
+                   
+                    "social_access_token",
+                    "language"
+                ]
+            },
+            "add_reviews": {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "description": "Pass Product Id Here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "order_product_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                     "order_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "title": {
+                        "description": "Write Product Review Title",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "description": {
+                        "description": "Write Product Review Description",
+                        "type": "string"
+                    },
+                    "ratings": {
+                        "description": "Pass Rating for the product",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "images": {
+                        "description": "Pass Images of Product",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "product_id",
+                    
+                    "title",
+                    "description",
+                    "ratings"
+                ]
+            },
+            "edit_reviews": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Review _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "title": {
+                        "description": "Write Product Review Title",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "description": {
+                        "description": "Write Product Review Description",
+                        "type": "string"
+                    },
+                    "ratings": {
+                        "description": "Pass Rating for the product",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "images": {
+                        "description": "Pass Images of Product",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "language"
+                ]
+            },
+            "attach_payment": {
+                "type": "object",
+                "properties": {
+                    "payment_id": {
+                        "description": "Pass payment Id Here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "customer_id": {
+                        "description": "Pass Customer ID Here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "payment_id",
+                    "customer_id"
+                ]
+            },
+            "detach_payment": {
+                "type": "object",
+                "properties": {
+                    "payment_id": {
+                        "description": "Pass payment Id Here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "payment_id",
+                    "customer_id"
+                ]
+            },
+            "user_login": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email",
+                        "default": "john_doe@gmail.com"
+                    },
+                    "password": {
+                        "description": "Enter your passowrd",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "device_type": {
+                        "description": "Select your device type",
+                        "type": "string",
+                        "enum": [
+                            "iOS",
+                            "Android"
+                        ]
+                    },
+                    "fcm_token": {
+                        "description": "Enter your fcm access_token here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "email",
+                    "password",
+                    "language"
+                ]
+            },
+            "user_verify_otp": {
+                "type": "object",
+                "properties": {
+                    "otp": {
+                        "description": "Enter otp here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "otp",
+                    "language"
+                ]
+            },
+            "user_forgot_password": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "email",
+                    "language"
+                ]
+            },
+            "resend_fp_otp": {
+                "type": "object",
+                "properties": {
+                    "unique_code": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "unique_code",
+                    "language"
+                ]
+            },
+            "verify_fp_otp": {
+                "type": "object",
+                "properties": {
+                    "unique_code": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "otp": {
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "unique_code",
+                    "otp",
+                    "language"
+                ]
+            },
+            "user_set_new_password": {
+                "type": "object",
+                "properties": {
+                    "unique_code": {
+                        "description": "Enter your unique_code",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "password": {
+                        "description": "Enter your passowrd",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "unique_code",
+                    "password",
+                    "language"
+                ]
+            },
+            "user_edit_profile": {
+                "type": "object",
+                "properties": {
+                    "profile_pic": {
+                        "description": "Here comes profile pic",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "name": {
+                        "description": "Enter your name",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "country_code": {
+                        "description": "Enter your country code",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "phone_no": {
+                        "description": "Enter your phone number",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "about": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "language"
+                ]
+            },
+            "user_change_password": {
+                "type": "object",
+                "properties": {
+                    "old_password": {
+                        "description": "Old Password Comes Here",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "new_password": {
+                        "description": "New Password Comes Here",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "old_password",
+                    "new_password",
+                    "language"
+                ]
+            },
+            "logout": {
+                "type": "object",
+                "properties": {
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "language"
+                ]
+            },
+            "deactivated_account": {
+                "type": "object",
+                "properties": {
+                    "deactivation_reason": {
+                        "type": "number",
+                        "description": "1. Finding difficulty while using the service, 2. Not happy with the services, 3. Deactivating for temporary, 4. For other Reason"
+                    },
+                    "password": {
+                        "description": "Enter your passowrd",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "deactivation_reason",
+                    "password"
+                ]
+            },
+            "contact_us": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Name comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "email": {
+                        "description": "Email comes here",
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "country_code": {
+                        "description": "Country code comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "phone_no": {
+                        "description": "Phone number comes here",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "message": {
+                        "description": "Message comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "email",
+                    "country_code",
+                    "phone_no",
+                    "message",
+                    "language"
+                ]
+            },
+            "add_cart": {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "product_id",
+                    "language"
+                ]
+            },
+            "edit_cart": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "quantity": {
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "language"
+                ]
+            },
+            "place_order": {
+                "type": "object",
+                "properties": {
+                    "quantity": {
+                        "description": "Add Quantity of the Item",
+                        "type": "number",
+                        "format": "number",
+                        "default": "1"
+                    },
+                    "product": {
+                        "description": "Product ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "address_id": {
+                        "description": "Address Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "transaction_id": {
+                        "description": "Transaction_id ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "shipment_id": {
+                        "description": "Transaction_id ",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "card_id": {
+                        "description": "Card Id",
+                        "type": "string",
+                        "format": "string",
+                        "default": null
+                    },
+                    "delivery_charges": {
+                        "description": "Delivery Charges",
+                        "type": "number",
+                        "format": "number",
+                        "default": "50"
+                    },
+                    "coupon_code": {
+                        "description": "Apply Coupon here",
+                        "type": "string",
+                        "format": "string",
+                        "default": null
+                    },
+                    "order_status": {
+                        "description": "Your order status",
+                        "type": "string",
+                        "enum": [
+                            "PENDING",
+                            "CONFIRMED",
+                            "DELIVERED",
+                            "CANCELLED"
+                        ],
+                        "default": "PENDING"
+                    },
+                    "delivery_status": {
+                        "description": "Your delivery status",
+                        "type": "string",
+                        "enum": [
+                            "CONFIRMED",
+                            "PAID",
+                            "SHIPPED",
+                            "DISPACHED",
+                            "DELIVERED"
+                        ],
+                        "default": "CONFIRMED"
+                    },
+                    "payment_mode": {
+                        "description": "Confirm your Payment mode",
+                        "type": "string",
+                        "enum": [
+                            "CASH_ON_DELIVERY",
+                            "BY_CARD"
+                        ],
+                        "default": "CASH_ON_DELIVERY"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "quantity",
+                    "product",
+                    "address_id",
+                    "payment_mode",
+                    "language"
+                ]
+            },
+            "add_wishlist": {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "description": "Product ID",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "product_id"
+                ]
+            },
+            "remove_cart_item": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here product_id",
+                        "type": "string",
+                        "format": "string"
+                    }
+                },
+                "required": [
+                    "_id"
+                ]
+            },
+            "cancelled_order_data": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "cancellation_reason": {
+                        "description": "Cancellation Reason",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "DON'T LIKE THE ITEM",
+                            "DEFFECTIVE ITEM",
+                            "ADDRESS ISSUE",
+                            "FOR OTHER REASON"
+                        ]
+                    }
+                },
+                "required": [
+                    "_id",
+                    "cancellation_reason"
+                ]
+            },
+            "add_address": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Enter your name",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "country_code": {
+                        "description": "country_code",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "phone_no": {
+                        "description": "phone_no ",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "company": {
+                        "description": "company",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "country": {
+                        "description": "country",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "state": {
+                        "description": "state",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "city": {
+                        "description": "city",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "pin_code": {
+                        "description": "Enter pincode",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "apartment_number": {
+                        "description": "Enter apartment number",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "full_address": {
+                        "description": "Enter full address",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "address_type": {
+                        "description": "Your address type",
+                        "type": "string",
+                        "enum": [
+                            "HOME",
+                            "WORK"
+                        ],
+                        "default": "HOME"
+                    },
+                    "lng": {
+                        "description": "Enter your longitude",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "lat": {
+                        "description": "Enter your latitude",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "language"
+                ]
+            },
+            "add_card": {
+                "type": "object",
+                "properties": {
+                    "number": {
+                        "description": "Enter your card number",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "holder_name": {
+                        "description": "Enter card holder namr",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "exp_month": {
+                        "description": "Enter Card's expiry month ",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "exp_year": {
+                        "description": "Enter Card's expiry year ",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "cvv": {
+                        "description": "enter cvv",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "number",
+                    "holder_name",
+                    "exp_month",
+                    "exp_year",
+                    "language"
+                ]
+            },
+            "like_dislike_faq_product": {
+                "type": "object",
+                "properties": {
+                    "faq_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "LIKE",
+                            "DISLIKE"
+                        ],
+                        "default": "LIKE"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "faq_id",
+                    "type",
+                    "language"
+                ]
+            },
+            "like_dislike_faq" : {
+                "type": "object",
+                "properties": {
+                    "faq_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "faq_id",
+                    "language"
+                ]
+            },
+            "check_delivery_location": {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "lat": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "lng": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "lat",
+                    "lng",
+                    "language"
+                ]
+            }
+        },
+        "parameters": {
+            "access_token": {
+                "name": "access_token",
+                "in": "header",
+                "description": "access_token to be passed as a header",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "find_by_id": {
+                "name": "_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "find_by_id_optional": {
+                "name": "_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "product_id_optional": {
+                "name": "product_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "product_id": {
+                "name": "product_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "delete_by_id": {
+                "name": "_id",
+                "in": "path",
+                "description": "Pass here _id",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "category_id": {
+                "name": "category_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "subcategory_id": {
+                "name": "subcategory_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "language": {
+                "name": "language",
+                "in": "query",
+                "description": "valid languages are ENGLISH & ARABIC",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ARABIC",
+                        "ENGLISH"
+                    ],
+                    "default": "ENGLISH"
+                }
+            },
+            "search": {
+                "name": "search",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "type": {
+                "name": "type",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "enum": [ 
+                        "WEBSITE",
+                        "SELLER"
+                    ]
+                },
+                "style": "form",
+                "explode": true
+            },
+            "pagination": {
+                "name": "pagination",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "start_date": {
+                "name": "start_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in format DD/MM/YYYY",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "end_date": {
+                "name": "end_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in format DD/MM/YYYY",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "limit": {
+                "name": "limit",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "timezone": {
+                "name": "timezone",
+                "in": "query",
+                "required": false,
+                "description": "pass here timezone like Asia/Kolkata",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "list_content": {
+                "name": "type",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ABOUT_US",
+                        "PRIVACY_POLICY",
+                        "TERMS_AND_CONDITIONS"
+                    ]
+                },
+                "style": "form",
+                "explode": true
+            },
+            "token": {
+                "name": "token",
+                "in": "header",
+                "description": "access_token to be passed as a header",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            }
+        },
+        "securitySchemes": {
+            "access_token": {
+                "type": "apiKey",
+                "name": "token",
+                "in": "header"
+            }
+        }
+    }
+}

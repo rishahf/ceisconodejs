@@ -1,0 +1,239 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Shared Ecommerce Api Documentation",
+        "description": "Shared Ecommerce Api Documentation",
+        "version": "1.0.0"
+      },
+      "servers": [
+        {
+          "url": "http://localhost:3004/",
+          "description": "local server"
+        },
+        {
+          "url": "http://67.205.182.28:3004/",
+          "description": "production server"
+        },
+        {
+          "url": "https://sharedecommerce.henceforthsolutions.com:3004/",
+          "description": "production server"
+        },
+        {
+            "url":"https://demo.ecommerce.henceforthsolutions.com:3006/",
+            "description": "Demo server"
+        }
+      ],
+    "tags": [
+        {
+            "name": "Chat",
+            "description": "Chat realted apis"
+        }
+    ],
+    "paths": {
+        "/Chat/list_users": {
+            "get": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "User list users Api",
+                "parameters": [ 
+                    {
+                        "$ref": "#/components/parameters/search"
+                    }, 
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    } 
+
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Chat/list_chat_users": {
+            "get": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "User list chat users Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    }, 
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Chat/list_chat_details": {
+            "get": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "chat list_chat_details Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/message_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "chat_delete_message": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "description": "type",
+                        "type": "string",
+                        "enum": [
+                            "DELETE_FOR_ME",
+                            "DELETE_FOR_EVERYONE"
+                        ]
+                    },
+                    "message_id": {
+                        "description": "Pass here message _id",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "type",
+                    "message_id",
+                    "language"
+                ]
+            }
+        },
+        "parameters": {
+            "message_id": {
+                "name": "_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+
+            "search": {
+                "name": "search",
+                "in": "query", 
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+
+            "pagination": {
+                "name": "pagination",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "limit": {
+                "name": "limit",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "language": {
+                "name": "language",
+                "in": "query",
+                "description": "valid languages are ENGLISH & ARABIC",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ARABIC",
+                        "ENGLISH"
+                    ],
+                    "default": "ENGLISH"
+                }
+            }
+        },
+        "securitySchemes": {
+            "access_token": {
+                "type": "apiKey",
+                "name": "token",
+                "in": "header"
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "inputs": [
+        {
+            "inputFile": "./src/modules/admin/admin_openapi.json"
+        },
+        {
+            "inputFile": "./src/modules/product/product_openapi.json"
+        },
+        {
+            "inputFile": "./src/modules/user/user_openapi.json"
+        },
+        {
+            "inputFile": "./src/modules/seller/seller_openapi.json"
+        }, 
+        {
+            "inputFile": "./src/modules/chat/chat_openapi.json"
+        },
+        {
+            "inputFile": "./src/modules/uploads/upload.openapi.json"
+        },
+        {
+            "inputFile": "./src/modules/stripe/stripe_openapi.json"
+        },
+        {
+            "inputFile": "./src/modules/homepage/swagger.json"
+        },
+        {
+            "inputFile": "./src/modules/orders/swagger.json"
+        }
+    ],
+    "output": "./output.openapi.json"
+}

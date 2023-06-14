@@ -1,0 +1,3117 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Shared Module With MongoDB Api Documentation",
+    "description": "Shared Module With MongoDB",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3004/",
+      "description": "local server"
+    },
+    {
+      "url": "http://67.205.182.28:3004/",
+      "description": "production server"
+    },
+    {
+      "url": "https://sharedecommerce.henceforthsolutions.com:3004/",
+      "description": "production server"
+    },
+    {
+      "url":"https://demo.ecommerce.henceforthsolutions.com:3006/",
+      "description": "Demo server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Homepage",
+      "description": "Homepage Module"
+    }
+  ],
+  "paths": {
+    "/Homepage/coupon": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin homepage coupon",
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/Homepage/admin/sections": {
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin update sections",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/update_sections"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/banner": {
+      "post": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin add a banner",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_banner"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin update a banner",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/update_banner"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin List Banners Api",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/position"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/banner/{_id}": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin banner details Api",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin delete a banner Api",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/banners/enable-disable": {
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin all banners enable-disable Api",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/enable_disable"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/banner/enable-disable": {
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin banner enable-disable Api",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/update_enable_disable"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/user/banner": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "User List Banners Api",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/position"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/Homepage/admin/deal_of_the_day": {
+      "post": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin add deal of the day",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_deal_of_the_day"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin update deal of the day",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/update_deal_of_the_day"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin list deal of the day Api",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/deal_of_the_day/{_id}": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin deal of the day details Api",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin delete deal of the day Api",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/deals_of_the_day/enable-disable": {
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin all deal of the day enable-disable Api",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/enable_disable_deals"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/user/deal_of_the_day": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "User list deal of the day Api",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/Homepage/admin/deals_day/timer": {
+      "post": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin add deal of the day timer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_deal_of_the_day_timer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin update deal of the day timer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/update_deal_of_the_day_timer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin list deal of the day timer Api",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/deals_day/timer/{_id}": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin deal of the day timer details Api",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/Homepage/user/deals_day/timer": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "User deal of the day timer details Api",
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/Homepage/admin/top_deals": {
+      "post": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin add top deals",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_top_deals"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin update top deals",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/update_top_deals"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin list top deals",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/top_deals/{_id}": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin get top deals detail",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin delete top deals",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/top_deals/enable-disable": {
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin all top deals enable-disable Api",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/enable_disable_deals"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/user/top_deals": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "User list top deals",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/Homepage/admin/fashion_deals": {
+      "post": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin add fashion deals",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_fashion_deals"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin update fashion deals",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/update_fashion_deals"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin list fashion deals",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/fashion_deals/{_id}": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin get fashion deals detail",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin delete fashion deals",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/fashion_deals/enable-disable": {
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin all fashion deals enable-disable Api",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/enable_disable_deals"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/user/fashion_deals": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "User list fashion deals",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/Homepage/admin/style_for": {
+      "post": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin add style for",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_style_for"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin update style for",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/update_style_for"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin list style for",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/style_for/{_id}": {
+      "delete": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin delete style for",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/user/style_for": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "User list style for",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/Homepage/admin/style_for_categories": {
+      "post": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin add style for categories",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_sfc"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin update style for categories",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/update_sfc"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin list style for categories",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/style_for_id"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/style_for_categories/enable-disable": {
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin all styles enable-disable Api",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/update_enable_disable"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/style_for_categories/{_id}": {
+      "delete": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin delete style for categories",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/user/style_for_categories": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "User list style for categories",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/style_for_id"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/Homepage/admin/featured_categories": {
+      "post": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin add featured_categories",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_featured_categories"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin update featured categories",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/update_featured_categories"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin list featured categories",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/featured_categories/{_id}": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin get featured categories detail",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin delete featured categories",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/featured_categories/enable-disable": {
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin featured categories enable-disable Api",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/enable_disable_deals"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/user/featured_categories": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "User list featured categories",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/Homepage/admin/shop_with_us": {
+      "post": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin add shop with us",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_shop_with_us"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin update shop with us",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/update_shop_with_us"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin list shop with us",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/shop_with_us/enable-disable": {
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin shop with us enable-disable Api",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/enable_disable_deals"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/shop_with_us/{_id}": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin detail shop with us api",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin delete shop with us",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/user/shop_with_us": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "User list shop with us",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/Homepage/admin/best_on_ecom": {
+      "post": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin add best on ecom",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/add_best_on_ecom"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin update best on ecom",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/update_best_on_ecom"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin list best on ecom",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/best_on_ecom/enable-disable": {
+      "put": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin best on ecommerce enable-disable Api",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/enable_disable_deals"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/admin/best_on_ecom/{_id}": {
+        "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin details best on ecom",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "Admin delete best on ecom",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/delete_by_id"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "security": [
+          {
+            "access_token": [
+              "access_token"
+            ]
+          }
+        ]
+      }
+    },
+    "/Homepage/user/best_on_ecom": {
+      "get": {
+        "tags": [
+          "Homepage"
+        ],
+        "summary": "User list best on ecom",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/find_by_id_optional"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/language"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "update_sections": {
+        "type": "object",
+        "properties": {
+          "top_banners": {
+            "type": "boolean",
+            "format": "boolean"
+          },
+          "middle_banners": {
+            "type": "boolean",
+            "format": "boolean"
+          },
+          "bottom_banners": {
+            "type": "boolean",
+            "format": "boolean"
+          },
+          "deal_of_the_day": {
+            "type": "boolean",
+            "format": "boolean"
+          },
+          "top_deals": {
+            "type": "boolean",
+            "format": "boolean"
+          },
+          "fashion_deals": {
+            "type": "boolean",
+            "format": "boolean"
+          },
+          "style_for_categories": {
+            "type": "boolean",
+            "format": "boolean"
+          },
+          "featured_categories": {
+            "type": "boolean",
+            "format": "boolean"
+          },
+          "shop_with_us": {
+            "type": "boolean",
+            "format": "boolean"
+          },
+          "best_on_ecom": {
+            "type": "boolean",
+            "format": "boolean"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "language"
+        ]
+      },
+      "add_banner": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_title": {
+            "type": "string",
+            "format": "string"
+          },
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "brand_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "position": {
+            "description": "valid enums are TOP, MIDDLE & BOTTOM",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "TOP",
+              "MIDDLE",
+              "BOTTOM"
+            ],
+            "default": "TOP"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "title",
+          "sub_title",
+          "image",
+          "position",
+          "language"
+        ]
+      },
+      "update_banner": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_title": {
+            "type": "string",
+            "format": "string"
+          },
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "brand_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "position": {
+            "description": "valid enums are TOP, MIDDLE & BOTTOM",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "TOP",
+              "MIDDLE",
+              "BOTTOM"
+            ],
+            "default": "TOP"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "_id",
+          "language"
+        ]
+      },
+      "add_deal_of_the_day": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "number"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "brand_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "discount": {
+            "type": "number",
+            "format": "number"
+          },
+          "valid_till": {
+            "type": "string",
+            "format": "string"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "image",
+          "title",
+          "price",
+          "language"
+        ]
+      },
+      "update_deal_of_the_day": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "number"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "brand_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "discount": {
+            "type": "number",
+            "format": "number"
+          },
+          "valid_till": {
+            "type": "string",
+            "format": "string"
+          },
+          "is_enable": {
+            "type": "boolean"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "_id",
+          "language"
+        ]
+      },
+      "add_deal_of_the_day_timer": {
+        "type": "object",
+        "properties": {
+          "valid_till": {
+            "type": "number",
+            "format": "number"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "valid_till",
+          "language"
+        ]
+      },
+      "update_deal_of_the_day_timer": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "valid_till": {
+            "type": "string",
+            "format": "string"
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "_id",
+          "language"
+        ]
+      },
+      "add_top_deals": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "number"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "brand_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "discount": {
+            "type": "number",
+            "format": "number"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "image",
+          "title",
+          "price",
+          "language"
+        ]
+      },
+      "update_top_deals": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "number"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "brand_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "discount": {
+            "type": "number",
+            "format": "number"
+          },
+          "is_enable": {
+            "type": "boolean"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "_id",
+          "language"
+        ]
+      },
+      "add_fashion_deals": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "number"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "brand_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "discount": {
+            "type": "number",
+            "format": "number"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "image",
+          "title",
+          "price",
+          "language"
+        ]
+      },
+      "update_fashion_deals": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "number"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "brand_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "discount": {
+            "type": "number",
+            "format": "number"
+          },
+          "is_enable": {
+            "type": "boolean"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "_id",
+          "language"
+        ]
+      },
+      "add_style_for": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "format": "string"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "name",
+          "language"
+        ]
+      },
+      "update_style_for": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "name": {
+            "type": "string",
+            "format": "string"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "_id",
+          "language"
+        ]
+      },
+      "add_sfc": {
+        "type": "object",
+        "properties": {
+          "style_for_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "brand_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "style_for_id",
+          "image",
+          "language"
+        ]
+      },
+      "update_sfc": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "style_for_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "brand_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "_id",
+          "language"
+        ]
+      },
+      "add_featured_categories": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "number"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "image",
+          "title",
+          "price",
+          "language"
+        ]
+      },
+      "update_featured_categories": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "number"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "is_enable": {
+            "type": "boolean"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "_id",
+          "language"
+        ]
+      },
+      "add_shop_with_us": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "number"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "image",
+          "title",
+          "price",
+          "language"
+        ]
+      },
+      "update_shop_with_us": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "number"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "is_enable": {
+            "type": "boolean"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "_id",
+          "language"
+        ]
+      },
+      "add_best_on_ecom": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "number"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "brand_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "discount": {
+            "type": "number",
+            "format": "number"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "image",
+          "title",
+          "price",
+          "language"
+        ]
+      },
+      "update_best_on_ecom": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "image": {
+            "type": "string",
+            "format": "string"
+          },
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "number"
+          },
+          "category_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "sub_subcategory_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "brand_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "discount": {
+            "type": "number",
+            "format": "number"
+          },
+          "language": {
+            "description": "valid languages are ENGLISH & ARABIC",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "ARABIC",
+              "ENGLISH"
+            ],
+            "default": "ENGLISH"
+          }
+        },
+        "required": [
+          "_id",
+          "language"
+        ]
+      },
+      "update_enable_disable": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "string"
+          },
+          "is_enable": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "_id",
+          "is_enable"
+        ]
+      },
+      "enable_disable": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "description": "valid enums are TOP, MIDDLE & BOTTOM",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "TOP",
+              "MIDDLE",
+              "BOTTOM"
+            ],
+            "default": "TOP"
+          },
+          "is_enable": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "is_enable",
+          "position"
+        ]
+      },
+      "enable_disable_deals": {
+        "type": "object",
+        "properties": {
+          "is_enable": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "is_enable"
+        ]
+      }
+    },
+    "parameters": {
+      "access_token": {
+        "name": "access_token",
+        "in": "header",
+        "description": "access_token to be passed as a header",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "style": "simple"
+      },
+      "find_by_id": {
+        "name": "_id",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": true
+      },
+      "find_by_id_optional": {
+        "name": "_id",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": true
+      },
+      "product_id_optional": {
+        "name": "product_id",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": true
+      },
+      "style_for_id": {
+        "name": "style_for_id",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": true
+      },
+      "delete_by_id": {
+        "name": "_id",
+        "in": "path",
+        "description": "Pass here _id",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "is_enable_by_id": {
+        "name": "is_enable",
+        "in": "path",
+        "description": "Pass here _id",
+        "required": true,
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      "position": {
+        "name": "position",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "format": "string",
+          "enum": [
+            "TOP",
+            "MIDDLE",
+            "BOTTOM"
+          ],
+          "default": "TOP"
+        }
+      },
+      "language": {
+        "name": "language",
+        "in": "query",
+        "description": "valid languages are ENGLISH & ARABIC",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "string",
+          "enum": [
+            "ARABIC",
+            "ENGLISH"
+          ],
+          "default": "ENGLISH"
+        }
+      },
+      "search": {
+        "name": "search",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": true
+      },
+      "pagination": {
+        "name": "pagination",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "number"
+        },
+        "style": "form",
+        "explode": true
+      },
+      "start_date": {
+        "name": "start_date",
+        "in": "query",
+        "required": false,
+        "description": "must be in format DD/MM/YYYY",
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": true
+      },
+      "end_date": {
+        "name": "end_date",
+        "in": "query",
+        "required": false,
+        "description": "must be in format DD/MM/YYYY",
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": true
+      },
+      "limit": {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "number",
+          "format": "number"
+        },
+        "style": "form",
+        "explode": true
+      },
+      "timezone": {
+        "name": "timezone",
+        "in": "query",
+        "required": false,
+        "description": "pass here timezone like Asia/Kolkata",
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": true
+      },
+      "list_content": {
+        "name": "type",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "format": "string",
+          "enum": [
+            "ABOUT_US",
+            "PRIVACY_POLICY",
+            "TERMS_AND_CONDITIONS"
+          ]
+        },
+        "style": "form",
+        "explode": true
+      }
+    },
+    "securitySchemes": {
+      "access_token": {
+        "type": "apiKey",
+        "name": "token",
+        "in": "header"
+      }
+    }
+  }
+}

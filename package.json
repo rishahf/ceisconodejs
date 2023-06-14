@@ -1,0 +1,75 @@
+{
+    "name": "sharedecommercenodejs",
+    "version": "1.0.0",
+    "description": "shared ecmmerce backend",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "npx openapi-merge-cli && ts-node src/config/server.ts",
+        "prod": "node build/src/config/server.js",
+        "clean": "sudo rm -rf build",
+        "build": "rm -rf build &&  tsc --build && cp -r src/email_templates build/src && cp -r src/public build/src",
+        "openapi_merge": "npx openapi-merge-cli"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://abhishek_dhadwal@bitbucket.org/harman_henceforthsolutions/sharedecommercenodejs.git"
+    },
+    "keywords": [
+        "backend",
+        "apis"
+    ],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://bitbucket.org/harman_henceforthsolutions/sharedecommercenodejs/issues"
+    },
+    "homepage": "https://bitbucket.org/harman_henceforthsolutions/sharedecommercenodejs#readme",
+    "dependencies": {
+        "@aws-sdk/client-s3": "^3.54.0",
+        "@aws-sdk/lib-storage": "^3.54.0",
+        "@types/node": "^17.0.19",
+        "aws-sdk": "^2.1081.0",
+        "bcrypt": "^5.0.1",
+        "body-parser": "^1.19.2",
+        "cors": "^2.8.5",
+        "cron": "^2.1.0",
+        "dotenv": "^16.0.0",
+        "express": "^4.17.3",
+        "express-fileupload": "^1.3.1",
+        "fast-csv": "^4.3.6",
+        "fcm-node": "^1.6.1",
+        "fcm-push": "^1.1.3",
+        "firebase-admin": "^10.0.2",
+        "fs": "^0.0.1-security",
+        "hbs": "^4.2.0",
+        "http": "^0.0.1-security",
+        "https": "^1.0.0",
+        "india-pincode-lookup": "^1.0.3",
+        "joi": "^17.6.0",
+        "jsonwebtoken": "^8.5.1",
+        "lodash": "^4.17.21",
+        "moment-range": "^4.0.2",
+        "moment-timezone": "^0.5.37",
+        "mongoose": "^5.11.11",
+        "multer": "^1.4.4",
+        "nodemailer": "^6.7.2",
+        "nodemailer-smtp-transport": "^2.7.4",
+        "openapi-merge-cli": "^1.3.1",
+        "path": "^0.12.7",
+        "randomstring": "^1.2.2",
+        "resize-img": "^1.1.2",
+        "sharp": "^0.30.2",
+        "shippo": "^1.7.1",
+        "socket.io": "^4.5.0",
+        "stripe": "^8.218.0",
+        "sudo": "^1.0.3",
+        "swagger-ui-express": "^4.5.0",
+        "ts-mongoose": "^0.0.24",
+        "ts-node": "^10.6.0",
+        "typescript": "^4.5.4"
+    },
+    "devDependencies": {
+        "@types/hbs": "^4.0.1"
+    }
+}

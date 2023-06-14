@@ -1,0 +1,3740 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Shared Ecommerce Api Documentation",
+        "description": "Shared Ecommerce Api Documentation",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3004/",
+            "description": "local server"
+        },
+        {
+            "url": "http://67.205.182.28:3004/",
+            "description": "production server"
+        },
+        {
+            "url": "https://sharedecommerce.henceforthsolutions.com:3004/",
+            "description": "production server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Admin",
+            "description": "Admin related apis"
+        }
+    ],
+    "paths": {
+        "/Admin/login": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Login Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_login"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_login"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Admin/access_token_login": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Access access_token Login Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/profile": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin View Profile Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Edit Profile Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_profile"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_profile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/change_password": {
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Change Password Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/change_password"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/change_password"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/logout": {
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Logout Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/dashboard": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Dashboard Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/graph_type"
+                    },
+                    {
+                        "$ref": "#/components/parameters/timezone"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/graph/user": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin User Graph Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/graph"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/graph/seller": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Seller Graph Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/graph"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/graph/product": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Product Graph Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/graph"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/graph/sales": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Sales Graph Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/graph"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/staff_members/add": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin add  staff members Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_staff_members"
+                            },
+                            "encoding": {
+                                "roles": {
+                                    "style": "form",
+                                    "explode": true
+                                }
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_staff_members"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/staff_members/edit": {
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Edit staff Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_staff_members"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_staff_members"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/staff_members/listing": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin list staff members Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/staff_members/details": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin list staff members details Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/staff_members/block_delete": {
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Block Delete Staff members Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/block_delete_data"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/block_delete_data"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/users/listing": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List Users Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/start_date"
+                    },
+                    {
+                        "$ref": "#/components/parameters/end_date"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filter_users"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/timezone"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/users/details": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List Users Details Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/users/manage_users": {
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Manage Users Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/manage_users"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/manage_users"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/users/login_as_user": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Login As User Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/login_as_user"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/login_as_user"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/users/export": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Export List Users Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/start_date"
+                    },
+                    {
+                        "$ref": "#/components/parameters/end_date"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/timezone"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/users/{_id}": {
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin delete a user",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+
+        "/Admin/res_messages/add_edit": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add Edit Response Messages Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_edit_res_msgs"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_edit_res_msgs"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/res_messages/listing": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List Content Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/res_messages/delete/{_id}": {
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin delete res_messages Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/content/add_edit": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add Edit Content Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_edit_content"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_edit_content"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/content/listing": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List Content Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/list_content"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/faqs": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add Edit Faqs Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_edit_faqs"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_edit_faqs"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List Faqs Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/faqs/delete/{_id}": {
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin delete faqs Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/product_faqs": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Faqs Product list Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/contact_us/listing": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin users who conatcted us Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/contact_us/resolve_delete": {
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Resolve Delete Contact Us Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/resolve_delete_contact_us"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/resolve_delete_contact_us"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/notification/broadcast": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Send Broadcast Notification",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/send_notification"
+                            },
+                            "encoding": {
+                                "user_ids": {
+                                    "style": "form",
+                                    "explode": true
+                                }
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/send_notification"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/backup-database": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin backup database",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/backup_database"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/backup_database"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/category": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add Categories",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_category"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_category"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/subcategory": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add Sub_Categories",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_sub_category"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_sub_category"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/sub_subcategories": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add sub_subcategories ",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_sub_subcategories"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_sub_subcategories"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/brand": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add Brands",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_brands"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_brands"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/banner": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add Banners",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_banners"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_banners"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/deals_of_the_day": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add deals_of_the_day",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_deals"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_deals"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/deals_of_the_day/delete/{_id}": {
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin delete Deal of the day Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/listing/deals_of_the_day": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List Deals of the day Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/deals_of_the_day/products": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List Deals Products Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/hot_deals": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add hot_deals",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_hot_deals"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_hot_deals"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/hot_deals/delete/{_id}": {
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin delete Hot Deals Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/listing/hot_deals": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List hot Deals of the day Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/hot_deals/products": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List Deals Products Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/fashion_deals": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add fashion_deals",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_fashion_deals"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_fashion_deals"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/fashion_deals/delete/{_id}": {
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin delete Fashion deals Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/listing/fashion_deals": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List fashion_deals of the day Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/fashion_deals/products": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List fashion_deals Products Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/seller/create": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Seller Create Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/seller_signup"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/seller_signup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/sellers": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List Sellers Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filter_users"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/seller_details": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List Sellers Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/seller/manage_sellers": {
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Manage Seller Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/manage_sellers"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/manage_sellers"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/seller/login_as_seller": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Login As User Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/login_as_seller"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/login_as_seller"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/seller/export": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Export List Sellers Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/start_date"
+                    },
+                    {
+                        "$ref": "#/components/parameters/end_date"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/timezone"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/seller/{_id}": {
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin delete a seller",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+
+        "/Admin/products": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Products List Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/seller_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/subcategory_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sub_subcategory_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/brand_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/min_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/max_price"
+                    },
+                    {
+                        "$ref": "#/components/parameters/start_date"
+                    },
+                    {
+                        "$ref": "#/components/parameters/end_date"
+                    },
+                    {
+                        "$ref": "#/components/parameters/out_of_stock"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/product_details": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Product Details Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/products/variants": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Product Variants List Details Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/orders": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Orders lisiting Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/coupons": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add Edit Coupons Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_edit_coupons"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_edit_coupons"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Coupons listing Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/search"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/coupons/delete/{_id}": {
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin delete coupons Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/products/export": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List Products Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+
+
+        "/Admin/add_edit_language": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin  Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_edit_keys"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_edit_keys"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/list_language": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Access access_token Login Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/search"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/shippo/parcel": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add parcel",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_parcel"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_parcel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List Parcels",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_id_optional"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/shippo/parcel/{_id}": {
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin delete a parcels",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "admin_login": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email",
+                        "default": "admin@gmail.com"
+                    },
+                    "password": {
+                        "description": "Enter your passowrd",
+                        "type": "string",
+                        "format": "password",
+                        "default": "qwerty"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "email",
+                    "password",
+                    "language"
+                ]
+            },
+            "add_edit_keys": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "key": {
+                        "description": "key comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "english": {
+                        "description": "english name comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "arabic": {
+                        "description": "arabic name comes here",
+                        "type": "string",
+                        "format": "string"
+                    }
+                }
+            },
+            "seller_signup": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Enter your name",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email",
+                        "default": "seller@yopmail.com"
+                    },
+                    "country_code": {
+                        "description": "Enter your phone number",
+                        "type": "string",
+                        "format": "string",
+                        "default": "+91"
+                    },
+                    "phone_number": {
+                        "description": "Enter your phone number",
+                        "type": "number",
+                        "format": "number",
+                        "default": "9876504321"
+                    },
+                    "password": {
+                        "description": "Enter your passowrd",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "image": {
+                        "description": "Pass your profile here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "email",
+                    "phone_number",
+                    "password",
+                    "language"
+                ]
+            },
+            "manage_sellers": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "BLOCK/DELETE",
+                            "ACTIVATE/DEACTIVATE"
+                        ]
+                    },
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "is_blocked": {
+                        "type": "boolean"
+                    },
+                    "is_deleted": {
+                        "type": "boolean"
+                    },
+                    "account_status": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ACTIVATED",
+                            "DEACTIVATED"
+                        ]
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "type",
+                    "_id",
+                    "language"
+                ]
+            },
+            "login_as_seller": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "language"
+                ]
+            },
+            "add_staff_members": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Name comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "image": {
+                        "description": "Image comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "email": {
+                        "description": "Email comes here",
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "password": {
+                        "description": "Password comes here",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "phone_number": {
+                        "description": "Phone_number comes here",
+                        "type": "string",
+                        "format": "number"
+                    },
+                    "country_code": {
+                        "description": "country_code comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "roles": {
+                        "description": "['STAFF_MEMBERS', 'USERS', 'PRODUCTS', 'CONTENT', 'CONTACT_US', 'NOTIFICATION']",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "email",
+                    "roles",
+                    "language"
+                ]
+            },
+            "block_delete_data": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "is_blocked": {
+                        "type": "boolean"
+                    },
+                    "is_deleted": {
+                        "type": "boolean"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "language"
+                ]
+            },
+            "manage_users": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "BLOCK/DELETE",
+                            "VERIFY/UNVERIFY",
+                            "ACTIVATE/DEACTIVATE"
+                        ]
+                    },
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "is_blocked": {
+                        "type": "boolean"
+                    },
+                    "is_deleted": {
+                        "type": "boolean"
+                    },
+                    "admin_verified": {
+                        "type": "boolean"
+                    },
+                    "account_status": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ACTIVATED",
+                            "DEACTIVATED"
+                        ]
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "type",
+                    "_id",
+                    "language"
+                ]
+            },
+            "login_as_user": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "language"
+                ]
+            },
+            "add_edit_content": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ABOUT_US",
+                            "PRIVACY_POLICY",
+                            "TERMS_AND_CONDITIONS"
+                        ]
+                    },
+                    "description": {
+                        "description": "Pass here description",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "type",
+                    "description",
+                    "language"
+                ]
+            },
+            "resolve_delete_contact_us": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "RESOLVE",
+                            "DELETE"
+                        ]
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "type",
+                    "language"
+                ]
+            },
+            "send_notification": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "integer",
+                        "description": "1:Email , 2:Push "
+                    },
+                    "send_to": {
+                        "type": "integer",
+                        "description": "1: ALL_USERS , 2: SELECTED_USERS"
+                    },
+                    "user_ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "subject": {
+                        "description": "Pass here subject",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "message": {
+                        "description": "Pass here message",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "type",
+                    "send_to",
+                    "subject",
+                    "message",
+                    "language"
+                ]
+            },
+            "add_edit_faqs": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id to edit faq",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "question": {
+                        "description": "Pass here question",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "answer": {
+                        "description": "Pass here answer",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "language"
+                ]
+            },
+            "add_edit_res_msgs": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "type": {
+                        "description": "Pass here type",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "SUCCESS",
+                            "ERROR"
+                        ]
+                    },
+                    "status_code": {
+                        "description": "Pass here status code",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "message_type": {
+                        "description": "Pass in Upper Case only like INVALID_PASSWORD",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "msg_in_english": {
+                        "description": "Pass here message in english",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "msg_in_arabic": {
+                        "description": "Pass here message in arabic",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "type",
+                    "status_code",
+                    "message_type",
+                    "msg_in_english",
+                    "msg_in_arabic",
+                    "language"
+                ]
+            },
+            "add_edit_variables": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "name": {
+                        "description": "Pass here variable name like FULL_NAME",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "language"
+                ]
+            },
+            "add_edit_templates": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "title": {
+                        "description": "Pass here title",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "subject": {
+                        "description": "Pass here subject",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "html": {
+                        "description": "Pass here body",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "variables": {
+                        "description": "Pass here variable _ids",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "title",
+                    "subject",
+                    "html",
+                    "variables",
+                    "language"
+                ]
+            },
+            "backup_database": {
+                "type": "object",
+                "properties": {
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "language"
+                ]
+            },
+            "edit_profile": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "name comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "image": {
+                        "description": "Image comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "country_code": {
+                        "description": "country_code comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "phone_number": {
+                        "description": "phone_number comes here",
+                        "type": "number",
+                        "format": "number"
+                    }
+                }
+            },
+            "edit_staff_members": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "_id comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "name": {
+                        "description": "name comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "image": {
+                        "description": "Image comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "country_code": {
+                        "description": "country_code comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "phone_number": {
+                        "description": "phone_number comes here",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "roles": {
+                        "description": "['STAFF_MEMBERS', 'USERS', 'PRODUCTS', 'CONTENT', 'CONTACT_US', 'NOTIFICATION']",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "_id"
+                ]
+            },
+            "add_banners": {
+                "type": "object",
+                "properties": {
+                    "images": {
+                        "description": "Pass Images of Banner",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "description": {
+                        "description": "Pass Banner Description",
+                        "type": "string"
+                    },
+                    "image_place": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "TOP",
+                            "MIDDLE",
+                            "BOTTOM"
+                        ],
+                        "default": "TOP"
+                    },
+                    "is_deleted": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "images",
+                    "description"
+                ]
+            },
+            "add_deals": {
+                "type": "object",
+                "properties": {
+                    "subcategory_id": {
+                        "description": "Pass Sub_category  of Deals",
+                        "type": "string"
+                    },
+                    "image": {
+                        "description": "Pass deal image",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Pass deal title",
+                        "type": "string"
+                    },
+                    "sub_title": {
+                        "description": "Pass deal sub_title",
+                        "type": "string"
+                    },
+                    "price_description": {
+                        "description": "Pass deal price_description",
+                        "type": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "subcategory_id"
+                ]
+            },
+            "add_hot_deals": {
+                "type": "object",
+                "properties": {
+                    "subcategory_id": {
+                        "description": "Pass Sub_category  of Deals",
+                        "type": "string"
+                    },
+                    "image": {
+                        "description": "Pass deal image",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Pass deal title",
+                        "type": "string"
+                    },
+                    "sub_title": {
+                        "description": "Pass deal sub_title",
+                        "type": "string"
+                    },
+                    "price_description": {
+                        "description": "Pass deal price_description",
+                        "type": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "subcategory_id"
+                ]
+            },
+            "add_parcel": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "name comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "description": {
+                        "description": "description comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "length": {
+                        "description": "length comes here",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "width": {
+                        "description": "Pass here width",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "height": {
+                        "description": "Pass here height",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "distance_unit": {
+                        "description": "Pass here distance_unit",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "weight": {
+                        "description": "Pass here weight",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "mass_unit": {
+                        "description": "Pass here mass_unit",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "product_id"
+                ]
+            },
+            "add_fashion_deals": {
+                "type": "object",
+                "properties": {
+                    "subcategory_id": {
+                        "description": "Pass Sub_category  of Deals",
+                        "type": "string"
+                    },
+                    "brand_id": {
+                        "description": "Pass brand_id  of Deals",
+                        "type": "string"
+                    },
+                    "image": {
+                        "description": "Pass deal image",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Pass deal title",
+                        "type": "string"
+                    },
+                    "sub_title": {
+                        "description": "Pass deal sub_title",
+                        "type": "string"
+                    },
+                    "price_description": {
+                        "description": "Pass deal price_description",
+                        "type": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "subcategory_id"
+                ]
+            },
+            "add_category": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Add Category",
+                        "type": "string"
+                    },
+                    "is_deleted": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "add_sub_category": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Add Sub Category Name",
+                        "type": "string"
+                    },
+                    "category_id": {
+                        "description": "Category Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "is_deleted": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "category_id"
+                ]
+            },
+            "add_sub_subcategories": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Add product type here",
+                        "type": "string"
+                    },
+                    "subcategory_id": {
+                        "description": "subcategory Id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "is_deleted": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "subcategory_id"
+                ]
+            },
+            "add_brands": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Add brand Name",
+                        "type": "string"
+                    },
+                    "is_deleted": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "change_password": {
+                "type": "object",
+                "properties": {
+                    "old_password": {
+                        "description": "Old Password Comes Here",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "new_password": {
+                        "description": "New Password Comes Here",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "old_password",
+                    "new_password",
+                    "language"
+                ]
+            },
+            "add_edit_coupons": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "name": {
+                        "description": "Pass name of the coupon",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "start_date": {
+                        "description": "Pass valid start date in format DD/MM/YYYY",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "end_date": {
+                        "description": "Pass valid end date in format DD/MM/YYYY",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "coupon_type": {
+                        "description": "select the coupon type",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "FIXED",
+                            "PERCENTAGE"
+                        ],
+                        "default": "FIXED"
+                    },
+                    "price": {
+                        "description": "Pass here price for fixed type ",
+                        "type": "number",
+                        "format": "number",
+                        "default": null
+                    },
+                    "max_discount": {
+                        "description": "Pass here discount for percentage type",
+                        "type": "number",
+                        "format": "number",
+                        "default": null
+                    },
+                    "is_available": {
+                        "description": "Select Coupon is available",
+                        "type": "boolean",
+                        "format": "boolean",
+                        "enum": [
+                            "true",
+                            "false"
+                        ],
+                        "default": "true"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "coupon_type"
+                ]
+            }
+        },
+        "parameters": {
+            "search": {
+                "name": "search",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "pagination": {
+                "name": "pagination",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "limit": {
+                "name": "limit",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "find_by_id": {
+                "name": "_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "find_by_id_optional": {
+                "name": "_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "list_content": {
+                "name": "type",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ABOUT_US",
+                        "PRIVACY_POLICY",
+                        "TERMS_AND_CONDITIONS"
+                    ]
+                },
+                "style": "form",
+                "explode": true
+            },
+            "start_date": {
+                "name": "start_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in format DD/MM/YYYY",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "end_date": {
+                "name": "end_date",
+                "in": "query",
+                "required": false,
+                "description": "must be in format DD/MM/YYYY",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "timezone": {
+                "name": "timezone",
+                "in": "query",
+                "required": false,
+                "description": "pass here timezone like Asia/Kolkata",
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "delete_by_id": {
+                "name": "_id",
+                "in": "path",
+                "description": "Pass here _id",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "min_price": {
+                "name": "min_price",
+                "in": "query",
+                "required": false,
+                "description": "Enter here minimum price",
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "max_price": {
+                "name": "max_price",
+                "in": "query",
+                "required": false,
+                "description": "Enter here maximum price",
+                "schema": {
+                    "type": "number",
+                    "format": "number"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "graph_type": {
+                "name": "type",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "TODAY",
+                        "MONTHLY",
+                        "YEARLY"
+                    ]
+                },
+                "style": "form",
+                "explode": true
+            },
+            "graph": {
+                "name": "type",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "DAILY",
+                        "WEEKLY",
+                        "MONTHLY",
+                        "YEARLY"
+                    ],
+                    "default": "DAILY"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "language": {
+                "name": "language",
+                "in": "query",
+                "description": "valid languages are ENGLISH & ARABIC",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ARABIC",
+                        "ENGLISH"
+                    ],
+                    "default": "ENGLISH"
+                }
+            },
+            "filter_users" : {
+                "name": "filter",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ACTIVE_USERS",
+                        "DEACTIVE_USERS",
+                        "BLOCKED_USERS"
+                    ],
+                    "default": "ACTIVE_USERS"
+                }
+            },
+            "subcategory_id": {
+                "name": "subcategory_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "sub_subcategory_id": {
+                "name": "sub_subcategory_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "brand_id": {
+                "name": "brand_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "product_id" : {
+                "name": "product_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "seller_id" : {
+                "name": "seller_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "out_of_stock" : {
+                "name": "out_of_stock",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "boolean"
+                },
+                "style": "form",
+                "explode": true
+            }
+        },
+        "securitySchemes": {
+            "access_token": {
+                "type": "apiKey",
+                "name": "token",
+                "in": "header"
+            }
+        }
+    }
+}

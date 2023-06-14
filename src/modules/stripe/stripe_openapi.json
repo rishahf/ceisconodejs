@@ -1,0 +1,462 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Shared Ecommerce Api Documentation",
+        "description": "Shared Ecommerce Api Documentation",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3004/",
+            "description": "local server"
+        },
+        {
+            "url": "http://67.205.182.28:3004/",
+            "description": "production server"
+        },
+        {
+            "url": "https://sharedecommerce.henceforthsolutions.com:3004/",
+            "description": "production server"
+        },
+        {
+            "url":"https://demo.ecommerce.henceforthsolutions.com:3006/",
+            "description": "Demo server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Stripe",
+            "description": "Stripe Module"
+        }
+    ],
+    "paths": {
+        "/Stripe/token": {
+            "post": {
+                "tags": [
+                    "Stripe"
+                ],
+                "summary": "generate_token Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/Stripe/card": {
+            "post": {
+                "tags": [
+                    "Stripe"
+                ],
+                "summary": "create a card Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/create_a_card"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/create_a_card"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Stripe"
+                ],
+                "summary": "List Cards",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pagination"
+                    },
+                    {
+                        "$ref": "#/components/parameters/language"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Stripe/card/{_id}": {
+            "delete": {
+                "tags": [
+                    "Stripe"
+                ],
+                "summary": "Delete card",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id_required"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "create_a_card": {
+                "type": "object",
+                "properties": {
+                    "payment_method": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "is_saved":{
+                        "type":"boolean"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "payment_method",
+                    "language"
+                ]
+            },
+            "plans": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "description": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "name",
+                    "description"
+                ]
+            },
+            "price": {
+                "type": "object",
+                "properties": {
+                    "plan_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "currency": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "unit_amount": {
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "interval": {
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "week",
+                            "month",
+                            "year"
+                        ]
+                    },
+                    "interval_count": {
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "plan_id",
+                    "currency",
+                    "unit_amount",
+                    "interval",
+                    "interval_count",
+                    "language"
+                ]
+            },
+            "send_mobile_otp": {
+                "type": "object",
+                "properties": {
+                    "country_code": {
+                        "description": "Enter your country code",
+                        "type": "string",
+                        "format": "string",
+                        "default": "+91"
+                    },
+                    "phone_no": {
+                        "description": "Enter your phone no",
+                        "type": "number",
+                        "format": "number",
+                        "default": "9876543210"
+                    }
+                },
+                "required": [
+                    "country_code",
+                    "phone_no"
+                ]
+            },
+            "phone_verification": {
+                "type": "object",
+                "properties": {
+                    "phone_otp": {
+                        "description": "OTP comes here",
+                        "type": "number",
+                        "format": "number",
+                        "default": "1234"
+                    }
+                },
+                "required": [
+                    "phone_otp"
+                ]
+            },
+            "subscription": {
+                "type": "object",
+                "properties": {
+                    "price_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "price_id",
+                    "language"
+                ]
+            },
+            "update_subscription": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here subscription (purchased plan) _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "price_id": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "price_id",
+                    "language"
+                ]
+            },
+            "downgrade": {
+                "type": "object",
+                "properties": {
+                    "plan_id": {
+                        "description": "Pass here _id which you want to downgrade to",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "price_id": {
+                        "description": "Pass here price _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "plan_id",
+                    "price_id",
+                    "language"
+                ]
+            },
+            "cancel_downgrade": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Pass here _id",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "language": {
+                        "description": "valid languages are ENGLISH & ARABIC",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "ARABIC",
+                            "ENGLISH"
+                        ],
+                        "default": "ENGLISH"
+                    }
+                },
+                "required": [
+                    "_id"
+                ]
+            }
+        },
+        "parameters": {
+            "access_token": {
+                "name": "access_token",
+                "in": "header",
+                "description": "access_token to be passed as a header",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "language": {
+                "name": "language",
+                "in": "query",
+                "description": "valid languages are ENGLISH & ARABIC",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "ARABIC",
+                        "ENGLISH"
+                    ],
+                    "default": "ENGLISH"
+                }
+            },
+            "pagination": {
+                "name": "pagination",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number"
+                }
+            },
+            "limit": {
+                "name": "limit",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number"
+                }
+            },
+            "_id": {
+                "name": "_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "delete_by_id_required": {
+                "name": "_id",
+                "in": "path",
+                "description": "Pass here _id",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "interval": {
+                "name": "interval",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "format": "string",
+                    "enum": [
+                        "day",
+                        "week",
+                        "month",
+                        "year"
+                    ]
+                }
+            }
+        },
+        "securitySchemes": {
+            "access_token": {
+                "type": "apiKey",
+                "name": "authorization",
+                "in": "header"
+            }
+        }
+    }
+}
