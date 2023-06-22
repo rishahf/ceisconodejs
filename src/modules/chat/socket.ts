@@ -115,7 +115,7 @@ const connect_socket = async (server: any) => {
                                 name: user_data.user_id.name
                             }
                             // console.log("data --> ", data)
-                            
+
                             if (receiver_data && receiver_data.length && receiver_data[receiver_data.length - 1].user_id.push_notification == 1) {
                                 send_notification(data, receiver_data[receiver_data.length - 1].fcm_token)
                             }

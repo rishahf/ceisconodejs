@@ -19,7 +19,7 @@
             "description": "production server"
         },
         {
-            "url":"https://demo.ecommerce.henceforthsolutions.com:3006/",
+            "url": "https://demo.ecommerce.henceforthsolutions.com:3006/",
             "description": "Demo server"
         }
     ],
@@ -1102,7 +1102,7 @@
                 ]
             }
         },
-         "/Admin/content/{_id}": {
+        "/Admin/content/{_id}": {
             "get": {
                 "tags": [
                     "Admin"
@@ -1500,7 +1500,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/sellers": {
@@ -1543,7 +1544,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/seller_details": {
@@ -1571,7 +1573,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/seller/manage_sellers": {
@@ -1605,7 +1608,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/seller/login_as_seller": {
@@ -1708,7 +1712,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/products": {
@@ -1775,7 +1780,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/product_details": {
@@ -1803,7 +1809,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/products/variants": {
@@ -1831,7 +1838,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/product_faqs": {
@@ -1865,7 +1873,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/products/export": {
@@ -2020,7 +2029,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             },
             "put": {
                 "tags": [
@@ -2047,7 +2057,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             },
             "get": {
                 "tags": [
@@ -2079,7 +2090,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/coupon/{_id}": {
@@ -2104,7 +2116,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             },
             "delete": {
                 "tags": [
@@ -2127,17 +2140,17 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
-
         "/Admin/homepage/coupon/{_id}": {
             "put": {
                 "tags": [
                     "Admin"
                 ],
                 "summary": "Admin edit a coupon Api",
-               "parameters": [
+                "parameters": [
                     {
                         "$ref": "#/components/parameters/delete_by_id"
                     },
@@ -2156,10 +2169,10 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
-
         "/Admin/fees": {
             "post": {
                 "tags": [
@@ -2239,7 +2252,6 @@
                 ]
             }
         },
-
         "/Admin/contact_us/listing": {
             "get": {
                 "tags": [
@@ -2382,7 +2394,6 @@
                 ]
             }
         },
-
         "/Admin/orders": {
             "get": {
                 "tags": [
@@ -2456,7 +2467,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/orders/{_id}": {
@@ -2484,7 +2496,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/orders/cancel": {
@@ -2513,7 +2526,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/order/reviews": {
@@ -2532,7 +2546,6 @@
                     {
                         "$ref": "#/components/parameters/max_price"
                     },
-                    
                     {
                         "$ref": "#/components/parameters/export_start_date"
                     },
@@ -2560,7 +2573,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/order/invoice": {
@@ -2569,7 +2583,7 @@
                     "Admin"
                 ],
                 "summary": "Order Invoice Detail lisiting Api",
-                 "parameters": [
+                "parameters": [
                     {
                         "$ref": "#/components/parameters/invoice_type"
                     },
@@ -2594,7 +2608,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/notifications": {
@@ -2658,7 +2673,6 @@
                 ],
                 "summary": "Admin clear Notifications Api",
                 "parameters": [
-                    
                     {
                         "$ref": "#/components/parameters/language"
                     }
@@ -2676,9 +2690,8 @@
                     }
                 ]
             }
-            
         },
-         "/Admin/notifications/read/{_id}": {
+        "/Admin/notifications/read/{_id}": {
             "put": {
                 "tags": [
                     "Admin"
@@ -2731,7 +2744,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Admin/list_users_sellers": {
@@ -2957,7 +2971,8 @@
                     }
                 },
                 "required": [
-                    "name","type"
+                    "name",
+                    "type"
                 ]
             },
             "add_key_value": {
@@ -3119,11 +3134,6 @@
             "login_as_seller": {
                 "type": "object",
                 "properties": {
-                    "_id": {
-                        "description": "Pass here _id",
-                        "type": "string",
-                        "format": "string"
-                    },
                     "language": {
                         "description": "valid languages are ENGLISH & ARABIC",
                         "type": "string",
@@ -3136,7 +3146,6 @@
                     }
                 },
                 "required": [
-                    "_id",
                     "language"
                 ]
             },
@@ -3929,7 +3938,7 @@
                         "description": "Add Category",
                         "type": "string"
                     },
-                     "product_type": {
+                    "product_type": {
                         "description": "Add product_type",
                         "type": "string"
                     },
@@ -3959,9 +3968,8 @@
                     },
                     "product_type": {
                         "description": "Add product_type",
-                       "type": "string",
+                        "type": "string",
                         "format": "string"
-                    
                     },
                     "is_deleted": {
                         "type": "boolean"
@@ -4193,7 +4201,7 @@
                         "type": "string",
                         "format": "string"
                     },
-                    "description" : {
+                    "description": {
                         "type": "string",
                         "format": "string"
                     },
@@ -4286,7 +4294,7 @@
                         "type": "string",
                         "format": "string"
                     },
-                    "description" : {
+                    "description": {
                         "type": "string",
                         "format": "string"
                     },
@@ -4372,10 +4380,10 @@
                     "language"
                 ]
             },
-            "add_fees" : {
+            "add_fees": {
                 "type": "object",
                 "properties": {
-                    "fee_percent" : {
+                    "fee_percent": {
                         "type": "number",
                         "format": "number"
                     },
@@ -4395,10 +4403,10 @@
                     "language"
                 ]
             },
-            "edit_fees" : {
+            "edit_fees": {
                 "type": "object",
                 "properties": {
-                    "fee_percent" : {
+                    "fee_percent": {
                         "type": "number",
                         "format": "number"
                     },
@@ -4418,12 +4426,12 @@
                     "language"
                 ]
             },
-            "cancel_order" : {
+            "cancel_order": {
                 "type": "object",
                 "properties": {
-                    "_id" : {
+                    "_id": {
                         "type": "string",
-                        "format": "string"   
+                        "format": "string"
                     },
                     "language": {
                         "description": "valid languages are ENGLISH & ARABIC",
@@ -4441,16 +4449,16 @@
                     "language"
                 ]
             },
-            "edit_key_value" : {
+            "edit_key_value": {
                 "type": "object",
                 "properties": {
-                    "key" : {
+                    "key": {
                         "type": "string",
-                        "format": "string"   
+                        "format": "string"
                     },
-                    "value" : {
+                    "value": {
                         "type": "string",
-                        "format": "string"   
+                        "format": "string"
                     },
                     "language": {
                         "description": "valid languages are ENGLISH & ARABIC",
@@ -4616,7 +4624,6 @@
                     "type": "boolean"
                 }
             },
-            
             "min_price": {
                 "name": "min_price",
                 "in": "query",
@@ -4802,7 +4809,7 @@
                 "style": "form",
                 "explode": true
             },
-            "cat_level_1" : {
+            "cat_level_1": {
                 "name": "category_id",
                 "in": "query",
                 "required": false,
@@ -4812,7 +4819,7 @@
                 "style": "form",
                 "explode": true
             },
-            "cat_level_2" : {
+            "cat_level_2": {
                 "name": "subcategory_id",
                 "in": "query",
                 "required": false,
@@ -4822,7 +4829,7 @@
                 "style": "form",
                 "explode": true
             },
-            "cat_level_3" : {
+            "cat_level_3": {
                 "name": "sub_subcategory_id",
                 "in": "query",
                 "required": false,
@@ -4838,14 +4845,14 @@
                 "required": false,
                 "schema": {
                     "type": "array",
-                    "items":{
+                    "items": {
                         "type": "string"
                     }
                 },
                 "style": "form",
                 "explode": true
             },
-            "user_id_req" : {
+            "user_id_req": {
                 "name": "_id",
                 "in": "query",
                 "required": true,
@@ -4855,7 +4862,7 @@
                 "style": "form",
                 "explode": true
             },
-            "order_id" : {
+            "order_id": {
                 "name": "order_id",
                 "in": "query",
                 "required": false,
@@ -4865,7 +4872,7 @@
                 "style": "form",
                 "explode": true
             },
-            "ordProduct_id" : {
+            "ordProduct_id": {
                 "name": "_id",
                 "in": "query",
                 "required": false,
@@ -4884,10 +4891,10 @@
                     "format": "string",
                     "enum": [
                         "ALL",
-                        "PLACED", 
+                        "PLACED",
                         "CONFIRMED",
-                        "SHIPPED" ,
-                        "DELIVERED", 
+                        "SHIPPED",
+                        "DELIVERED",
                         "CANCELLED"
                     ],
                     "default": "PLACED"

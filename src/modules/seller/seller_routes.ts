@@ -5,19 +5,19 @@ import authenticator from "../../middlewares/authenticator";
 const router = express.Router();
 
 // signup profile
-router.post("/signup", seller_controller.seller_signup);
-router.post("/login", seller_controller.login);
-router.post("/email/verification", authenticator, seller_controller.email_verification)
-router.post("/resend_otp", seller_controller.resend_email_otp);
-router.get("/profile", authenticator, seller_controller.view_my_profile);
-router.put("/edit_profile", authenticator, seller_controller.edit_profile);
-router.put("/logout", authenticator, seller_controller.logout);
-router.put("/change_password",authenticator,seller_controller.change_password);
+// router.post("/signup", seller_controller.seller_signup);
+// router.post("/login", seller_controller.login);
+// router.post("/email/verification", authenticator, seller_controller.email_verification)
+// router.post("/resend_otp", seller_controller.resend_email_otp);
+// router.get("/profile", authenticator, seller_controller.view_my_profile);
+// router.put("/edit_profile", authenticator, seller_controller.edit_profile);
+// router.put("/logout", authenticator, seller_controller.logout);
+// router.put("/change_password",authenticator,seller_controller.change_password);
 
-router.post("/forgot_password", seller_controller.forgot_password);
-router.post("/forgot_password/resend_otp", seller_controller.resend_fp_otp);
-router.post("/forgot_password/verify_otp", seller_controller.verify_fp_otp);
-router.post("/forgot_password/set_password",seller_controller.set_new_password);
+// router.post("/forgot_password", seller_controller.forgot_password);
+// router.post("/forgot_password/resend_otp", seller_controller.resend_fp_otp);
+// router.post("/forgot_password/verify_otp", seller_controller.verify_fp_otp);
+// router.post("/forgot_password/set_password",seller_controller.set_new_password);
 
 // dashboard graph
 router.get("/dashboard", authenticator, controller.dashboard);

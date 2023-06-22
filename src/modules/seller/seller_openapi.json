@@ -54,7 +54,8 @@
                     "default": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "deprecated": true
             }
         },
         "/Seller/login": {
@@ -81,7 +82,8 @@
                     "default": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "deprecated": true
             }
         },
         "/Seller/email/verification": {
@@ -115,7 +117,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Seller/resend_otp": {
@@ -142,7 +145,8 @@
                     "default": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "deprecated": true
             }
         },
         "/Seller/edit_profile": {
@@ -176,7 +180,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Seller/change_password": {
@@ -210,7 +215,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Seller/forgot_password": {
@@ -232,7 +238,8 @@
                     "default": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "deprecated": true
             }
         },
         "/Seller/forgot_password/resend_otp": {
@@ -254,7 +261,8 @@
                     "default": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "deprecated": true
             }
         },
         "/Seller/forgot_password/verify_otp": {
@@ -276,7 +284,8 @@
                     "default": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "deprecated": true
             }
         },
         "/Seller/forgot_password/set_password": {
@@ -298,7 +307,8 @@
                     "default": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "deprecated": true
             }
         },
         "/Seller/logout": {
@@ -318,7 +328,8 @@
                             "access_token"
                         ]
                     }
-                ]
+                ],
+                "deprecated": true
             }
         },
         "/Seller/dashboard": {

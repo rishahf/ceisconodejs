@@ -11,7 +11,7 @@ class admin_style_for_module {
 
             // check total style for added
             let query = { is_deleted: false }
-            let total_count = await DAO.count_data(StyleFor, query)
+            let total_count : any = await DAO.count_data(StyleFor, query)
             if (total_count < 3) {
                 let data_to_save: any = {
                     name: name,

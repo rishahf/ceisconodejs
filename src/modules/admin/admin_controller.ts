@@ -40,7 +40,7 @@ const login = async (req: express.Request, res: express.Response) => {
                     throw await handle_custom_error("INCORRECT_PASSWORD", language);
                 } else {
                     // generate token
-                    let generate_token = await admin_services.generate_admin_token(_id,req.body);
+                    let generate_token = await admin_services.generate_admin_token(_id, req.body);
                     let response = await admin_services.make_admin_response(generate_token, language);
 
                     // return response
@@ -72,7 +72,7 @@ const view_profile = async (req: any, res: express.Response) => {
         // console.log(query);
 
         let options = { lean: true };
-        let projection = { name: 1, image: 1, email: 1, phone_number: 1, city:1, country:1, state:1, full_address:1,company:1 };
+        let projection = { name: 1, image: 1, email: 1, phone_number: 1, city: 1, country: 1, state: 1, full_address: 1, company: 1 };
 
         let response: any = await DAO.get_data(Models.Admin, query, projection, options);
 
@@ -106,24 +106,24 @@ const edit_profile = async (req: any, res: express.Response) => {
             set_data.company = company;
         }
         if (phone_number != undefined) {
-          set_data.phone_number = phone_number;
+            set_data.phone_number = phone_number;
         }
 
         if (country != undefined) {
             set_data.country = country;
         }
-        
+
         if (state != undefined) {
-          set_data.state = state;
+            set_data.state = state;
         }
 
         if (city != undefined) {
-          set_data.city = city;
+            set_data.city = city;
         }
         if (full_address != undefined) {
-          set_data.full_address = full_address;
+            set_data.full_address = full_address;
         }
-        
+
         let options = { new: true };
         let response = await DAO.find_and_update(Models.Admin, query, set_data, options);
         handle_success(res, response);
@@ -137,7 +137,7 @@ const change_password = async (req: any, res: express.Response) => {
         let { old_password, new_password, language } = req.body,
             { _id: admin_id } = req.user_data;
 
-        let query = { _id: admin_id,super_admin:false };
+        let query = { _id: admin_id, super_admin: false };
         let projection = { __v: 0 };
         let options = { lean: true };
         let fetch_data: any = await DAO.get_data(Models.Admin, query, projection, options);
@@ -211,9 +211,9 @@ const dashboard = async (req: any, res: express.Response) => {
             total_brands: total_brands,
             total_products: total_products,
             total_orders: total_orders,
-            total_earnings : total_earnings,
-            total_reviews:total_reviews,
-            total_ratings:total_ratings,
+            total_earnings: total_earnings,
+            total_reviews: total_reviews,
+            total_ratings: total_ratings,
             recent_users: recent_users,
             recent_products: recent_products
         };
@@ -346,7 +346,7 @@ const list_staff_members = async (req: any, res: express.Response) => {
             ]
         }
 
-        let projection = { __v: 0, password : 0 };
+        let projection = { __v: 0, password: 0 };
         let options = await helpers.set_options(pagination, limit);
         let fetch_data: any = await DAO.get_data(Models.Admin, query, projection, options);
         let total_count = await admin_services.fetch_total_count(Models.Admin, query);
@@ -368,7 +368,7 @@ const staff_members_details = async (req: any, res: express.Response) => {
         let query: any = { _id: _id };
         let options = { lean: true };
         let projection = { __v: 0 };
-        let response:any = await DAO.get_data(Models.Admin, query, projection, options);
+        let response: any = await DAO.get_data(Models.Admin, query, projection, options);
 
         // return response
         handle_success(res, response[0]);
@@ -531,15 +531,15 @@ const manage_users = async (req: any, res: express.Response) => {
             throw await handle_custom_error("INVALID_OBJECT_ID", language);
         }
         console.log('fe ', fetch_data);
-        
+
         // if (fetch_data) {
         //     let { _id } = fetch_data;
         //     let query: any = { _id: _id };
         //     let options = { lean: true };
         //     let response:any = await admin_services.fetch_user_data(query, options);
 
-            // return response
-            handle_success(res, fetch_data);
+        // return response
+        handle_success(res, fetch_data);
         // } else {
         //     throw await handle_custom_error("INVALID_OBJECT_ID", language);
         // }
@@ -552,15 +552,15 @@ const login_as_user = async (req: any, res: express.Response) => {
     try {
 
         let { _id, language } = req.body;
-        let device_type:any = req.headers['user-agent']
+        let device_type: any = req.headers['user-agent']
         let query = { _id: _id, is_deleted: false };
         let projection = {};
         let options = { lean: true };
         let fetch_data: any = await DAO.get_data(Models.Users, query, projection, options);
         if (fetch_data.length) {
-            let query_ss = { user_id:_id, device_type:device_type}
+            let query_ss = { user_id: _id, device_type: device_type }
             await DAO.remove_many(Models.Sessions, query_ss)
-            let generate_token: any = await admin_services.generate_user_token(_id, req.body,device_type);
+            let generate_token: any = await admin_services.generate_user_token(_id, req.body, device_type);
             let response = await admin_services.make_user_response(generate_token);
             handle_success(res, response);
         }
@@ -621,7 +621,7 @@ const add_edit_res_msgs = async (req: any, res: express.Response) => {
 
         // return response
         handle_success(res, response);
-    } 
+    }
     catch (err) {
         handle_catch(res, err);
     }
@@ -677,29 +677,29 @@ const delete_res_messages = async (req: any, res: express.Response) => {
 const add_edit_content = async (req: express.Request, res: express.Response) => {
     try {
         console.log('add_edit_content =---- ')
-        console.log('add_edit_content =---- ',req.body)
-        let { type, description,image_url,language } = req.body,
+        console.log('add_edit_content =---- ', req.body)
+        let { type, description, image_url, language } = req.body,
             response: any;
 
         let set_data: any = {
             type: type,
             description: description,
         };
-        if(!!image_url){
-            set_data.image_url= image_url
+        if (!!image_url) {
+            set_data.image_url = image_url
         }
         if (!!language) {
-          set_data.language = language;
+            set_data.language = language;
         }
 
         // check already added or not
         let fetch_content: any = await admin_services.check_content(type);
-        console.log('fetch_content -- ',fetch_content)
+        console.log('fetch_content -- ', fetch_content)
         // console.log('fetch_content -- ',fetch_content)
 
         if (fetch_content.length) {
             let { _id } = fetch_content[0];
-            console.log('[fetch_content[0].id -- ',_id)
+            console.log('[fetch_content[0].id -- ', _id)
 
             let query = { _id: _id };
             let options = { new: true };
@@ -718,19 +718,19 @@ const add_edit_content = async (req: express.Request, res: express.Response) => 
 
 const list_content = async (req: express.Request, res: express.Response) => {
     try {
-        let { type,language } = req.query,
-            query: any = {language:language};
-        let response:any;
+        let { type, language } = req.query,
+            query: any = { language: language };
+        let response: any;
         if (type != undefined) {
             query.type = type;
         }
-        
+
         let projection = { __v: 0 };
         let options = { lean: true };
         let fetch_data = await DAO.get_data(Models.Content, query, projection, options);
-        if(type != undefined){
+        if (type != undefined) {
             response = fetch_data[0];
-        }else{
+        } else {
             response = fetch_data
         }
         // return data
@@ -740,31 +740,31 @@ const list_content = async (req: express.Request, res: express.Response) => {
     }
 };
 
-const content_detail = async(req: express.Request, res: express.Response)=>{
-    try{
+const content_detail = async (req: express.Request, res: express.Response) => {
+    try {
         let { _id } = req.params;
-        if(_id != undefined){
-            let query:any = { _id: _id }
+        if (_id != undefined) {
+            let query: any = { _id: _id }
             let projection = { __v: 0 };
             let options = { lean: true };
-            let fetch_data:any = await DAO.get_data(Models.Content, query, projection, options);
+            let fetch_data: any = await DAO.get_data(Models.Content, query, projection, options);
             // return data
             handle_success(res, fetch_data[0]);
         }
-    }catch(err){
+    } catch (err) {
         handle_catch(res, err)
     }
 }
 
 const add_edit_faqs = async (req: express.Request, res: express.Response) => {
     try {
-        let { _id, question, answer,language } = req.body,
+        let { _id, question, answer, language } = req.body,
             response: any;
 
         let set_data: any = {
             question: question,
             answer: answer,
-            language:language
+            language: language
         };
 
         if (_id != undefined) {
@@ -1250,7 +1250,7 @@ const listing_deals_of_the_day_products = async (
         let query: any = { _id: _id };
         let options = { lean: true };
         let projection = { __v: 0 };
-        let response:any = await admin_services.get_deals_detail(query, options);
+        let response: any = await admin_services.get_deals_detail(query, options);
         let subCategories_id = response[0].subcategory_id._id;
         // console.log("-------check SUB-------", subCategories_id);
         let query_data = { subcategory_id: subCategories_id };
@@ -1292,7 +1292,7 @@ const listing_hot_deals_products = async (req: any, res: express.Response) => {
         let query: any = { _id: _id };
         let options = { lean: true };
         let projection = { __v: 0 };
-        let response:any = await admin_services.get_hotdeals_detail(query, options);
+        let response: any = await admin_services.get_hotdeals_detail(query, options);
         // console.log("response", response)
         let subCategories_id = response[0].subcategory_id._id;
         // console.log("-------check SUB-------", subCategories_id);
@@ -1340,7 +1340,7 @@ const listing_fashion_deals_products = async (
         let query: any = { _id: _id };
         let options = { lean: true };
         let projection = { __v: 0 };
-        let response:any = await admin_services.get_fashiondeals_detail(query,options);
+        let response: any = await admin_services.get_fashiondeals_detail(query, options);
         let brand_id = response[0].brand_id._id;
         // console.log("-------check SUB-------", brand_id);
         let query_data = { brand_id: brand_id };
@@ -1406,46 +1406,46 @@ const list_banners = async (req: any, res: express.Response) => {
     }
 };
 
-const seller_signup = async (req: express.Request, res: express.Response) => {
-    try {
-        let { email, password, phone_number, language } = req.body;
-        let device_type:any = req.headers["user-agent"]
-        // verify email address
-        let query_email = { email: email.toLowerCase() };
-        let fetch_data: any = await admin_services.verify_seller_info(query_email);
+// const seller_signup = async (req: express.Request, res: express.Response) => {
+//     try {
+//         let { email, password, phone_number, language } = req.body;
+//         let device_type: any = req.headers["user-agent"] 
+//         // verify email address
+//         let query_email = { email: email.toLowerCase() };
+//         let fetch_data: any = await admin_services.verify_seller_info(query_email);
 
-        if (fetch_data.length) {
-            throw await handle_custom_error("EMAIL_ALREADY_EXISTS", language);
-        } else {
-            // verify phone_no
-            let query_phone_no = { phone_number: phone_number };
-            let verify_data: any = await admin_services.verify_seller_info(query_phone_no);
-            if (verify_data.length) {
-                throw await handle_custom_error("PHONE_NO_ALREADY_EXISTS", language);
-            } else {
-                // create new user
-                let create_user = await admin_services.set_seller_data(req.body);
+//         if (fetch_data.length) {
+//             throw await handle_custom_error("EMAIL_ALREADY_EXISTS", language);
+//         } else {
+//             // verify phone_no
+//             let query_phone_no = { phone_number: phone_number };
+//             let verify_data: any = await admin_services.verify_seller_info(query_phone_no);
+//             if (verify_data.length) {
+//                 throw await handle_custom_error("PHONE_NO_ALREADY_EXISTS", language);
+//             } else {
+//                 // create new user
+//                 let create_user = await admin_services.set_seller_data(req.body);
 
-                let { _id } = create_user;
+//                 let { _id } = create_user;
 
-                // generate access token
-                let generate_token: any = await admin_services.generate_seller_token(_id,req.body,device_type);
+//                 // generate access token
+//                 let generate_token: any = await admin_services.generate_seller_token(_id, req.body, device_type);
 
-                // fetch user response
-                let response = await admin_services.make_seller_response(generate_token, language);
-                // console.log("seller-response--> ", response);
+//                 // fetch user response
+//                 let response = await admin_services.make_seller_response(generate_token, language);
+//                 // console.log("seller-response--> ", response);
 
-                // send welcome email to user
-                await email_seller.send_welcome_mail(create_user, password);
+//                 // send welcome email to user
+//                 await email_seller.send_welcome_mail(create_user, password);
 
-                // return response
-                handle_success(res, response);
-            }
-        }
-    } catch (err) {
-        handle_catch(res, err);
-    }
-};
+//                 // return response
+//                 handle_success(res, response);
+//             }
+//         }
+//     } catch (err) {
+//         handle_catch(res, err);
+//     }
+// };
 
 //seller_listing
 const seller_listing = async (req: any, res: express.Response) => {
@@ -1573,13 +1573,13 @@ const manage_sellers = async (req: any, res: express.Response) => {
 
         if (type == "BLOCK/DELETE") {
             fetch_data = await admin_services.block_delete_data(req.body, Models.Sellers);
-        } 
+        }
         else if (type == "VERIFY/UNVERIFY") {
             fetch_data = await admin_services.verify_unverify(req.body, Models.Sellers);
-        } 
+        }
         else if (type == "ACTIVATE/DEACTIVATE") {
             fetch_data = await admin_services.activate_deactivate(req.body, Models.Sellers);
-        } 
+        }
         else {
             throw await handle_custom_error("INVALID_OBJECT_ID", language);
         }
@@ -1590,14 +1590,14 @@ const manage_sellers = async (req: any, res: express.Response) => {
         //     let options = { lean: true };
         //     let projection = { password: 0, otp: 0, fp_otp: 0, unique_code: 0, __v: 0, forgot_otp: 0 }
         //     let response:any = await DAO.get_data(Models.Sellers, query, projection, options)
-            // return response
-            handle_success(res, fetch_data);
+        // return response
+        handle_success(res, fetch_data);
         // } 
         // else {
         //     throw await handle_custom_error("INVALID_OBJECT_ID", language);
         // }
 
-    } 
+    }
     catch (err) {
         handle_catch(res, err);
     }
@@ -1605,33 +1605,37 @@ const manage_sellers = async (req: any, res: express.Response) => {
 
 const login_as_seller = async (req: any, res: express.Response) => {
     try {
-        let { _id, language } = req.body;
+        let { language } = req.body;
+
         // console.log('req.headers ---', req.headers)
         // console.log("req.headers.[user-agent] ---", req.headers['user-agent']);
         let device_type: any = req.headers["user-agent"];
-        let query = { _id: _id, is_deleted: false };
-        let projection = { 
-            is_deleted : 0, 
-            unique_code : 0, 
-            fp_otp : 0, 
-            fp_otp_verified : 0,
-            password : 0,
-            is_blocked : 0 
+        let query = { email: "admin@gmail.com", is_deleted: false };
+        let projection = {
+            is_deleted: 0,
+            unique_code: 0,
+            fp_otp: 0,
+            fp_otp_verified: 0,
+            password: 0,
+            is_blocked: 0
         };
         let options = { lean: true };
         let fetch_data: any = await DAO.get_data(Models.Sellers, query, projection, options);
+        console.log(fetch_data);
+        let _id = fetch_data[0]._id
+        
         if (fetch_data.length) {
-            let query_ss: any = { seller_id: _id , device_type:device_type};
+            let query_ss: any = { seller_id: _id, device_type: device_type };
             await DAO.remove_many(Models.Sessions, query_ss)
 
             let generate_token: any = await admin_services.generate_seller_token(_id, req.body, device_type);
             let response = await admin_services.make_seller_response(generate_token, language);
             handle_success(res, response);
-        } 
+        }
         else {
             throw await handle_custom_error("INVALID_OBJECT_ID", language);
         }
-    } 
+    }
     catch (err) {
         handle_catch(res, err);
     }
@@ -1742,47 +1746,47 @@ const list_products = async (req: any, res: express.Response) => {
     try {
 
         let query = [
-          await fetch_products.match_data(),
-          await fetch_products.lookup_brands(),
-          await fetch_products.unwind_brands(),
-          await fetch_products.lookup_categories(),
-          await fetch_products.unwind_categories(),
-          await fetch_products.lookup_subcategories(),
-          await fetch_products.unwind_subcategories(),
-          await fetch_products.lookup_sub_subcategories(),
-          await fetch_products.unwind_sub_subcategories(),
-          await fetch_products.lookup_seller(),
-          await fetch_products.unwind_seller(),
-          await fetch_products.ratings(),
-          await fetch_products.product_highlights(),
-          await fetch_products.group_data(),
-          await fetch_products.filter_data(req.query),
-          await fetch_products.sort_data(req.query),
-          await fetch_products.skip_data(req.query),
-          await fetch_products.limit_data(req.query),
+            await fetch_products.match_data(),
+            await fetch_products.lookup_brands(),
+            await fetch_products.unwind_brands(),
+            await fetch_products.lookup_categories(),
+            await fetch_products.unwind_categories(),
+            await fetch_products.lookup_subcategories(),
+            await fetch_products.unwind_subcategories(),
+            await fetch_products.lookup_sub_subcategories(),
+            await fetch_products.unwind_sub_subcategories(),
+            await fetch_products.lookup_seller(),
+            await fetch_products.unwind_seller(),
+            await fetch_products.ratings(),
+            await fetch_products.product_highlights(),
+            await fetch_products.group_data(),
+            await fetch_products.filter_data(req.query),
+            await fetch_products.sort_data(req.query),
+            await fetch_products.skip_data(req.query),
+            await fetch_products.limit_data(req.query),
         ];
-        let {min_price , max_price} = req.query;
-        
+        let { min_price, max_price } = req.query;
+
         let options = { lean: true }
         let products = await DAO.aggregate_data(Models.Products, query, options)
 
         let query_count = [
-          await fetch_products.match_data(),
-          await fetch_products.lookup_brands(),
-          await fetch_products.unwind_brands(),
-          await fetch_products.lookup_categories(),
-          await fetch_products.unwind_categories(),
-          await fetch_products.lookup_subcategories(),
-          await fetch_products.unwind_subcategories(),
-          await fetch_products.lookup_sub_subcategories(),
-          await fetch_products.unwind_sub_subcategories(),
-          await fetch_products.lookup_seller(),
-          await fetch_products.unwind_seller(),
-          await fetch_products.ratings(),
-          await fetch_products.product_highlights(),
-          await fetch_products.group_data(),
-          await fetch_products.filter_data(req.query),
-          await fetch_products.sort_data(req.query),
+            await fetch_products.match_data(),
+            await fetch_products.lookup_brands(),
+            await fetch_products.unwind_brands(),
+            await fetch_products.lookup_categories(),
+            await fetch_products.unwind_categories(),
+            await fetch_products.lookup_subcategories(),
+            await fetch_products.unwind_subcategories(),
+            await fetch_products.lookup_sub_subcategories(),
+            await fetch_products.unwind_sub_subcategories(),
+            await fetch_products.lookup_seller(),
+            await fetch_products.unwind_seller(),
+            await fetch_products.ratings(),
+            await fetch_products.product_highlights(),
+            await fetch_products.group_data(),
+            await fetch_products.filter_data(req.query),
+            await fetch_products.sort_data(req.query),
         ];
         let count_products: any = await DAO.aggregate_data(Models.Products, query_count, options)
         let response = {
@@ -1854,9 +1858,9 @@ const product_details = async (req: any, res: express.Response) => {
     try {
 
         let { _id } = req.query;
-        let query: any = { _id: _id, is_deleted : false };
+        let query: any = { _id: _id, is_deleted: false };
         let options = { lean: true };
-        let response_product:any = await admin_services.get_product_detail(query, options);
+        let response_product: any = await admin_services.get_product_detail(query, options);
 
         let query_data = { product_id: _id }, projection = { __v: 0 }
         let populate_data = [
@@ -1871,7 +1875,7 @@ const product_details = async (req: any, res: express.Response) => {
         };
         // return response
         handle_success(res, response);
-    } 
+    }
     catch (err) {
         handle_catch(res, err);
     }
@@ -2068,218 +2072,218 @@ const delete_a_parcel = async (req: express.Request, res: express.Response) => {
 }
 
 const get_notifications = async (req: any, res: express.Response) => {
-  try {
-    let { _id: admin_id } = req.user_data;
-    let response: any = await admin_services.getNotifications(admin_id, req.query);
+    try {
+        let { _id: admin_id } = req.user_data;
+        let response: any = await admin_services.getNotifications(admin_id, req.query);
 
-    handle_return(res, response);
-  } catch (err) {
-    handle_catch(res, err);
-  }
+        handle_return(res, response);
+    } catch (err) {
+        handle_catch(res, err);
+    }
 };
 
 const marked_all_read_notifications = async (req: any, res: express.Response) => {
-  try {
-    let { _id: admin_id } = req.user_data;
-    let response: any = await admin_services.markReadNotifications(req);
-    
-    handle_return(res, response);
-  } catch (err) {
-    handle_catch(res, err);
-  }
+    try {
+        let { _id: admin_id } = req.user_data;
+        let response: any = await admin_services.markReadNotifications(req);
+
+        handle_return(res, response);
+    } catch (err) {
+        handle_catch(res, err);
+    }
 };
 
 const clear_all_notifications = async (req: any, res: express.Response) => {
-  try {
-    let { _id: admin_id } = req.user_data;
-    let response: any = await admin_services.clearNotifications(req);
-    
-    handle_return(res, response);
-  } catch (err) {
-    handle_catch(res, err);
-  }
+    try {
+        let { _id: admin_id } = req.user_data;
+        let response: any = await admin_services.clearNotifications(req);
+
+        handle_return(res, response);
+    } catch (err) {
+        handle_catch(res, err);
+    }
 };
 
 const read_notification = async (req: any, res: express.Response) => {
-  try {
-    console.log(' ====== ')
-    let { _id: admin_id } = req.user_data;
-    let response: any = await admin_services.ReadNotification(req);
-    
-    handle_return(res, response);
-  } catch (err) {
-    handle_catch(res, err);
-  }
+    try {
+        console.log(' ====== ')
+        let { _id: admin_id } = req.user_data;
+        let response: any = await admin_services.ReadNotification(req);
+
+        handle_return(res, response);
+    } catch (err) {
+        handle_catch(res, err);
+    }
 };
 
 const list_users_sellers = async (req: any, res: express.Response) => {
-  try {
-    console.log(" ====== ");
-    let { _id: admin_id } = req.user_data;
-    let response: any = await admin_services.listing_users_sellers(req);
+    try {
+        console.log(" ====== ");
+        let { _id: admin_id } = req.user_data;
+        let response: any = await admin_services.listing_users_sellers(req);
 
-    handle_return(res, response);
-  } catch (err) {
-    handle_catch(res, err);
-  }
+        handle_return(res, response);
+    } catch (err) {
+        handle_catch(res, err);
+    }
 };
 
 const mainKeys = async (req: any, res: express.Response) => {
     try {
-      console.log("req.body", req.body);
-    
-      let response: any = await admin_services.saveMainKey(req);
-  
-      handle_return(res, response);
-    } catch (err) {
-      handle_catch(res, err);
-    }
-  };
+        console.log("req.body", req.body);
 
-  const getMainKeys = async (req: any, res: express.Response) => {
+        let response: any = await admin_services.saveMainKey(req);
+
+        handle_return(res, response);
+    } catch (err) {
+        handle_catch(res, err);
+    }
+};
+
+const getMainKeys = async (req: any, res: express.Response) => {
     try {
-      console.log("req.body", req.body);
-    
-      let response: any = await admin_services.getMainKeys(req);
-  
-      handle_return(res, response);
-    } catch (err) {
-      handle_catch(res, err);
-    }
-  };
+        console.log("req.body", req.body);
 
-  const keyValues = async (req: any, res: express.Response) => {
+        let response: any = await admin_services.getMainKeys(req);
+
+        handle_return(res, response);
+    } catch (err) {
+        handle_catch(res, err);
+    }
+};
+
+const keyValues = async (req: any, res: express.Response) => {
     try {
-      console.log("req.body", req.body);
-    
-      let response: any = await admin_services.saveKeyValue(req);
-  
-      handle_return(res, response);
-    } catch (err) {
-      handle_catch(res, err);
-    }
-  };
+        console.log("req.body", req.body);
 
-  const editKeyValue = async (req: any, res: express.Response) => {
+        let response: any = await admin_services.saveKeyValue(req);
+
+        handle_return(res, response);
+    } catch (err) {
+        handle_catch(res, err);
+    }
+};
+
+const editKeyValue = async (req: any, res: express.Response) => {
     try {
-      console.log("edit req.param", req.params);
-      console.log("req.query", req.params);
-      console.log("req.body", req.body);
-    
-      let response: any = await admin_services.editKeyValue(req);
+        console.log("edit req.param", req.params);
+        console.log("req.query", req.params);
+        console.log("req.body", req.body);
 
-      console.log("rRESP", response);
-  
-      handle_return(res, response);
+        let response: any = await admin_services.editKeyValue(req);
+
+        console.log("rRESP", response);
+
+        handle_return(res, response);
     } catch (err) {
-      handle_catch(res, err);
+        handle_catch(res, err);
     }
-  };
+};
 
 
-  const getAllKeys = async (req: any, res: express.Response) => {
+const getAllKeys = async (req: any, res: express.Response) => {
     try {
-      console.log("req.param", req.params);
-      console.log("req.query", req.params);
-      console.log("req.body", req.body);
-    
-      let response: any = await admin_services.getAllKeys(req);
-  
-      handle_return(res, response);
+        console.log("req.param", req.params);
+        console.log("req.query", req.params);
+        console.log("req.body", req.body);
+
+        let response: any = await admin_services.getAllKeys(req);
+
+        handle_return(res, response);
     } catch (err) {
-      handle_catch(res, err);
+        handle_catch(res, err);
     }
-  };
+};
 
 export {
-  login,
-  access_token_login,
-  view_profile,
-  edit_profile,
-  change_password,
-  logout,
-  dashboard,
-  user_graph,
-  seller_graph,
-  product_graph,
-  sales_graph,
-  add_staff_members,
-  edit_staff_members,
-  list_staff_members,
-  staff_members_details,
-  mamage_staff_members,
-  list_users,
-  list_user_details,
-  manage_users,
-  login_as_user,
-  delete_a_user,
-  add_edit_res_msgs,
-  list_res_messages,
-  delete_res_messages,
-  add_edit_content,
-  content_detail,
-  list_content,
-  add_edit_faqs,
-  list_faqs,
-  delete_faqs,
-  list_product_faqs,
-  list_contact_us,
-  manage_contact_us,
-  add_edit_variables,
-  list_variables,
-  delete_variables,
-  add_edit_templates,
-  list_templates,
-  delete_templates,
-  send_notification,
-  add_category,
-  add_sub_category,
-  add_sub_subcategories,
-  add_brands,
-  add_banners,
-  list_banners,
-  seller_signup,
-  seller_listing,
-  seller_details,
-  manage_sellers,
-  login_as_seller,
-  delete_a_seller,
-  export_csv_users,
-  export_csv_seller,
-  export_csv_products,
-  add_deals,
-  add_hot_deals,
-  add_fashion_deals,
-  list_deals_of_the_day,
-  listing_deals_of_the_day_products,
-  list_hot_deals,
-  listing_hot_deals_products,
-  list_fashion_deals,
-  listing_fashion_deals_products,
-  delete_deals,
-  delete_hotdeals,
-  delete_fashiondeals,
-  add_edit_coupons,
-  get_coupons,
-  delete_coupons,
-  list_products,
-  product_details,
-  list_product_variants,
-  list_orders,
-  backup_db,
-  add_edit_languagekeys,
-  list_languagekeys,
-  add_a_parcel,
-  retrive_parcels,
-  delete_a_parcel,
-  get_notifications,
-  marked_all_read_notifications,
-  read_notification,
-  clear_all_notifications,
-  list_users_sellers,
-  mainKeys,
-  getMainKeys,
-  keyValues,
-  getAllKeys,
-  editKeyValue,
+    login,
+    access_token_login,
+    view_profile,
+    edit_profile,
+    change_password,
+    logout,
+    dashboard,
+    user_graph,
+    seller_graph,
+    product_graph,
+    sales_graph,
+    add_staff_members,
+    edit_staff_members,
+    list_staff_members,
+    staff_members_details,
+    mamage_staff_members,
+    list_users,
+    list_user_details,
+    manage_users,
+    login_as_user,
+    delete_a_user,
+    add_edit_res_msgs,
+    list_res_messages,
+    delete_res_messages,
+    add_edit_content,
+    content_detail,
+    list_content,
+    add_edit_faqs,
+    list_faqs,
+    delete_faqs,
+    list_product_faqs,
+    list_contact_us,
+    manage_contact_us,
+    add_edit_variables,
+    list_variables,
+    delete_variables,
+    add_edit_templates,
+    list_templates,
+    delete_templates,
+    send_notification,
+    add_category,
+    add_sub_category,
+    add_sub_subcategories,
+    add_brands,
+    add_banners,
+    list_banners,
+    // seller_signup,
+    seller_listing,
+    seller_details,
+    manage_sellers,
+    login_as_seller,
+    delete_a_seller,
+    export_csv_users,
+    export_csv_seller,
+    export_csv_products,
+    add_deals,
+    add_hot_deals,
+    add_fashion_deals,
+    list_deals_of_the_day,
+    listing_deals_of_the_day_products,
+    list_hot_deals,
+    listing_hot_deals_products,
+    list_fashion_deals,
+    listing_fashion_deals_products,
+    delete_deals,
+    delete_hotdeals,
+    delete_fashiondeals,
+    add_edit_coupons,
+    get_coupons,
+    delete_coupons,
+    list_products,
+    product_details,
+    list_product_variants,
+    list_orders,
+    backup_db,
+    add_edit_languagekeys,
+    list_languagekeys,
+    add_a_parcel,
+    retrive_parcels,
+    delete_a_parcel,
+    get_notifications,
+    marked_all_read_notifications,
+    read_notification,
+    clear_all_notifications,
+    list_users_sellers,
+    mainKeys,
+    getMainKeys,
+    keyValues,
+    getAllKeys,
+    editKeyValue,
 };

@@ -280,7 +280,7 @@ const fetch_oldest_backup = async () => {
 
 const fetch_total_backups = async () => {
   try {
-    let total_records = await DAO.count_data(Models.BackupLogs, {});
+    let total_records : any = await DAO.count_data(Models.BackupLogs, {});
     return total_records;
   } catch (err) {
     throw err;

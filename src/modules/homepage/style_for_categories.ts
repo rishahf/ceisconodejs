@@ -12,7 +12,7 @@ class admin_style_for_categories {
                 brand_id, language } = req.body;
 
             let query = { style_for_id: style_for_id, is_deleted: false }
-            let total_count = await DAO.count_data(StyleForCategories, query)
+            let total_count : any = await DAO.count_data(StyleForCategories, query)
             if (total_count < 4) {
                 let data_to_save: any = {
                     style_for_id: style_for_id,

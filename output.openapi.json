@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Shared Ecommerce Api Documentation",
-    "description": "Shared Ecommerce Api Documentation",
+    "title": "Watches Shared Ecommerce Api Documentation",
+    "description": "watches Shared Ecommerce Api Documentation",
     "version": "1.0.0"
   },
   "servers": [
@@ -1532,7 +1532,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/sellers": {
@@ -1575,7 +1576,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/seller_details": {
@@ -1603,7 +1605,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/seller/manage_sellers": {
@@ -1637,7 +1640,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/seller/login_as_seller": {
@@ -1740,7 +1744,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/products": {
@@ -5447,7 +5452,8 @@
           "default": {
             "description": "successful operation"
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/Seller/login": {
@@ -5474,7 +5480,8 @@
           "default": {
             "description": "successful operation"
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/Seller/email/verification": {
@@ -5508,7 +5515,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Seller/resend_otp": {
@@ -5535,7 +5543,8 @@
           "default": {
             "description": "successful operation"
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/Seller/edit_profile": {
@@ -5569,7 +5578,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Seller/change_password": {
@@ -5603,7 +5613,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Seller/forgot_password": {
@@ -5625,7 +5636,8 @@
           "default": {
             "description": "successful operation"
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/Seller/forgot_password/resend_otp": {
@@ -5647,7 +5659,8 @@
           "default": {
             "description": "successful operation"
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/Seller/forgot_password/verify_otp": {
@@ -5669,7 +5682,8 @@
           "default": {
             "description": "successful operation"
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/Seller/forgot_password/set_password": {
@@ -5691,7 +5705,8 @@
           "default": {
             "description": "successful operation"
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/Seller/logout": {
@@ -5711,7 +5726,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Seller/dashboard": {
@@ -9942,11 +9958,6 @@
       "login_as_seller": {
         "type": "object",
         "properties": {
-          "_id": {
-            "description": "Pass here _id",
-            "type": "string",
-            "format": "string"
-          },
           "language": {
             "description": "valid languages are ENGLISH & ARABIC",
             "type": "string",
@@ -9959,7 +9970,6 @@
           }
         },
         "required": [
-          "_id",
           "language"
         ]
       },
