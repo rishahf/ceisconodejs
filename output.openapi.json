@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "fashion Shared Ecommerce Api Documentation",
-    "description": "fashion Shared Ecommerce Api Documentation",
+    "title": "Shared Ecommerce Api Documentation",
+    "description": "Shared Ecommerce Api Documentation",
     "version": "1.0.0"
   },
   "servers": [
@@ -1812,7 +1812,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/product_details": {
@@ -1840,7 +1841,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/products/variants": {
@@ -1868,7 +1870,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/product_faqs": {
@@ -1902,7 +1905,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/products/export": {
@@ -2057,7 +2061,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       },
       "put": {
         "tags": [
@@ -2084,7 +2089,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       },
       "get": {
         "tags": [
@@ -2116,7 +2122,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/coupon/{_id}": {
@@ -2141,7 +2148,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       },
       "delete": {
         "tags": [
@@ -2164,7 +2172,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/homepage/coupon/{_id}": {
@@ -2192,7 +2201,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/fees": {
@@ -2489,7 +2499,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/orders/{_id}": {
@@ -2517,7 +2528,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/orders/cancel": {
@@ -2546,7 +2558,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/order/reviews": {
@@ -2592,7 +2605,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/order/invoice": {
@@ -2626,7 +2640,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/notifications": {
@@ -2761,7 +2776,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Admin/list_users_sellers": {

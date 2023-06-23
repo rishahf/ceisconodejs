@@ -1,0 +1,38 @@
+image: node:16
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Build
+          caches:
+            - node
+          script:
+            - npm install 
+            - npm run build
+          artifacts:
+            - build/**
+      - step:
+          name: Remove Build Folder
+          script:
+            - ssh $USER@$SERVER "rm -rf /var/www/html/sharedEcommerce/fashionecommercenodejs/build"
+      - step:
+          name: Add Build Folder
+          script:
+            - ssh $USER@$SERVER "mkdir /var/www/html/sharedEcommerce/fashionecommercenodejs/build"
+            
+      - step:
+          name: Deploy artifacts using SCP to PROD 
+          deployment: production
+          script:
+            - pipe: atlassian/scp-deploy:0.3.3
+              variables:
+                USER: $USER
+                SERVER: $SERVER
+                PASSWORD: $PASSWORD
+                REMOTE_PATH: '/var/www/html/sharedEcommerce/fashionecommercenodejs/build'
+                LOCAL_PATH: 'build/*'
+
+      - step:
+          name: Pm2 restart
+          script:
+            - ssh $USER@$SERVER "pm2 restart fashionecommercenodejs"
