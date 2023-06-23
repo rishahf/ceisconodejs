@@ -1,0 +1,13 @@
+declare const set_options: (pagination: any, limit: any) => Promise<any>;
+declare const generate_otp: () => Promise<any>;
+declare const generate_phone_otp: () => Promise<number>;
+declare const gen_unique_code: (collection: any) => Promise<string>;
+declare const bcrypt_password: (password: string) => Promise<any>;
+declare const decrypt_password: (password: string, hash: string) => Promise<any>;
+declare const genrate_order_id: () => Promise<string>;
+declare const genrate_product_order_id: () => Promise<string>;
+declare const genrate_product_id: () => Promise<string>;
+declare const genrate_coupon_code: () => Promise<string>;
+declare const generate_tax_no: () => Promise<string>;
+declare const generate_invoice_id: () => Promise<string>;
+export { set_options, generate_otp, gen_unique_code, bcrypt_password, decrypt_password, genrate_order_id, genrate_coupon_code, generate_phone_otp, genrate_product_order_id, genrate_product_id, generate_tax_no, generate_invoice_id, };

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Your order has been cancelled</title>
+
+    <style>
+
+    </style>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+    </style>
+
+</head>
+
+<body style="background-color: #D5D5D5; margin-top: 0px; margin-bottom: 0px;font-family: Montserrat,sans-serif;">
+
+    <table width="100%" style="font-size: 14px; max-width: 600px;margin: auto;">
+        <tbody>
+            <tr>
+                <td></td>
+                <td class="container">
+                    <div class="content" style="margin: 0 auto;  display: block;  padding: 0px; background: #f4f4f4;">
+                        <div class="content"
+                            style="background: linear-gradient(180deg, #48B047 0%, #52BC51 100%); height: 150px;"></div>
+                        <table class="main" width="430px" cellpadding="0" cellspacing="0"
+                            style="background-color: #FFF; border: 1px solid rgb(235 226 226 / 50%); margin:auto; border-radius: 8px; background-clip: padding-box; margin-top: -94px;">
+                            <tbody>
+                                <tr>
+                                    <td class="content-wrap"
+                                        style="padding: 30px; background-color: #fff; border-radius: 8px;">
+                                        <table cellpadding="0" cellspacing="0" style="margin: auto;">
+                                            <tbody>
+                                                <tr
+                                                    style=" background-color: #fff; text-align: center; border-radius: 8px;">
+                                                    <td>
+                                                        <img src="https://sharedecommerce.nyc3.digitaloceanspaces.com/sharedecommerce/original/cancel_1674543559241.png" alt="logo_white"
+                                                            style="width: 100%; max-width: 80px; padding: 14px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="content-block">
+                                                        <h2
+                                                            style="margin-top: 0px; margin-bottom: 6px; font-weight: 600; color: #000; text-align: center; letter-spacing: -0.02em; font-size: 24px;">
+                                                            Your order has been <br/> cancelled
+                                                        </h2>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <td class="content-block"
+                                                        style="padding-bottom: 0px; font-weight: 400; color: #333333; font-size: 14px; padding-top:20px ;">
+                                                        Hi {{user_name}},
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="content-block"
+                                                        style="padding-bottom: 14px; font-weight: 400; color: #333333; font-size: 14px; padding-top:20px ; text-align: center;">
+                                                        Your order has been cancelled by {{seller_company}}. Your refund will be initiated within 2 working days.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="content-block"
+                                                        style="padding-bottom: 32px;  text-align: center; border-bottom: 1px solid #E5E5E5; padding-top: 0px;">
+                                                        <p style="font-weight: 500; color: #000; font-size: 16px; letter-spacing: -0.02em;
+                                                     margin-top: 10px; margin-bottom: 10px;">
+                                                            Order Id :
+                                                            <span
+                                                                style="font-weight: 600; font-size: 20px; letter-spacing: -0.02em;">#{{order_id}}</span>
+                                                        </p>
+                                                        <span
+                                                            style="font-weight: 400; font-size: 14px; color: #333333;">Order
+                                                            Date: {{order_date}}</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="content-block"
+                                                        style="padding: 32px 0px; padding-bottom:0px;">
+                                                        <p
+                                                            style=" margin-top:0px; margin-bottom: 8px; font-size:16px; font-weight: 600; color: #333333; letter-spacing: -0.02em; text-transform: uppercase;">
+                                                            CANCELLED ON
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="content-block"
+                                                        style="padding-bottom: 20px; font-weight: 500; padding-top: 12px; color: #333333; font-size: 15px; line-height: 22px;">
+                                                       {{cancelled_date}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-bottom: 1px solid #E5E5E5; padding:10px 0px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=" padding:6px 0px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="content-block"
+                                                        style="padding: 32px 0px; padding-bottom:0px;">
+                                                        <p
+                                                            style=" margin-top:0px;font-size:16px; font-weight: 600; color: #333333; letter-spacing: -0.02em; text-transform: uppercase;">
+                                                            ITEMS CANCELLED
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr style="border-bottom: 1px solid #E5E5E5;">
+                                                    <td style="float: left; margin-right: 20px;">
+                                                        <span style="margin-top:0px;"><img src="{{image}}"
+                                                                alt="Not Found"></span>
+                                                    </td>
+                                                    <td style="margin-top: 50px; float: left">
+                                                        <span
+                                                            style=" font-weight: 600; font-size: 18px; letter-spacing: -0.02em; color: #000;">
+                                                            {{product_name}}
+                                                        </span>
+                                                    </td>
+                                                    <td style="float:right; margin-top: 52px;">
+                                                        <span>X 1</span>
+                                                        <strong>${{discount_price}}</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-bottom: 1px solid #E5E5E5; padding:10px 0px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=" padding:6px 0px;">
+                                                    </td>
+                                                </tr>
+                                                <tr style="padding-top: 10px;">
+                                                    <td style="float: left;">
+                                                        {{#if coupon_code}}
+                                                        <p style="font-weight: 500; font-size: 15px; color: #333333;">
+                                                            Discount ({{coupon_code}})</p>
+                                                          {{/if}}
+                                                        <p style="font-weight: 500; font-size: 15px; color: #333333;">
+                                                            Subtotal</p>
+                                                        <p style="font-weight: 500; font-size: 15px; color: #333333;">
+                                                            Delivery Charges</p>
+                                                    </td>
+                                                    <td style="float: right;">
+                                                        {{#if coupon_code}}
+                                                        <p style="font-weight: 400; font-size: 15px; color: #333333;">
+                                                            -${{coupon_discount}}</p>
+                                                          {{/if}}
+                                                        <p style="font-weight: 400; font-size: 15px; color: #333333;">
+                                                            ${{paid_price}}</p>
+                                                        <p style="font-weight: 400; font-size: 15px; color: #333333;">
+                                                            ${{delivery_price}}</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-bottom: 1px solid #E5E5E5; padding:10px 0px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=" padding:6px 0px;">
+                                                    </td>
+                                                </tr>
+                                                <tr style="padding-top: 10px;">
+                                                    <td style="float: left;">
+                                                        <p style="font-weight: 500; font-size: 15px; color: #333333;">
+                                                            <strong> Total </strong>
+                                                        </p>
+                                                    </td>
+                                                    <td style="float: right;">
+                                                        <p style="font-weight: 400; font-size: 15px; color: #333333;">
+                                                            <strong>${{paid_price}}</strong>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="footer" style="width: 92%; clear: both; color: #999; padding: 26px; margin: auto;">
+                            <table width="75%" style="margin: auto;">
+                                <tbody>
+                                    <tr>
+                                        <td class="aligncenter content-block"
+                                            style="text-align: center; font-size: 12px;"> <a href="#"
+                                                style="color: #999;  margin-right: 20px; list-style: none; text-decoration: none;"><img
+                                                    src="https://sharedecommerce.nyc3.digitaloceanspaces.com/sharedecommerce/original/twitter_1673596512877.png" alt="Not Found">
+                                            </a>
+                                            <a href="#"
+                                                style="color: #999;  margin-right: 20px; list-style: none; text-decoration: none;">
+                                                <img src="https://sharedecommerce.nyc3.digitaloceanspaces.com/sharedecommerce/original/teligram_1673596537014.png" alt="Not Found">
+                                            </a>
+                                            <a href="#"
+                                                style="color: #999;  margin-right: 20px; list-style: none; text-decoration: none;">
+                                                <img src="https://sharedecommerce.nyc3.digitaloceanspaces.com/sharedecommerce/original/linkedinn_1673596595009.png" alt="Not Found">
+                                            </a>
+                                            <a href="#"
+                                                style="color: #999;  margin-right: 20px; list-style: none; text-decoration: none;">
+                                                <img src="https://sharedecommerce.nyc3.digitaloceanspaces.com/sharedecommerce/original/mercidi_1673596746789.png" alt="Not Found">
+                                            </a>
+                                            <a href="#"
+                                                style="color: #999;  margin-right: 20px; list-style: none; text-decoration: none;">
+                                                <img src="https://sharedecommerce.nyc3.digitaloceanspaces.com/sharedecommerce/original/instagrama_1673596669749.png" alt="Not Found">
+                                            </a>
+                                            <a href="#" style="color: #999;"> <img src="https://sharedecommerce.nyc3.digitaloceanspaces.com/sharedecommerce/original/facebooka_1673596637013.png"
+                                                    alt="Not Found">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="aligncenter content-block "
+                                            style="text-align: center; font-size: 12px; padding-top:16px;"> <a href="#"
+                                                style="color: #999; text-decoration: none; font-weight: 400;">Copyright
+                                                © 2022 Shared
+                                                eCommerce, All rights reserved.
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <td class="aligncenter content-block "
+                                        style="text-align: center; font-size: 12px; padding-top:16px; border-bottom: 1px solid #D5D5D5; padding-bottom:26px; font-weight: 400;">
+                                        You are receiving this email because you opted in via our website.
+                                    </td>
+                                    <tr>
+                                        <td class="aligncenter content-block"
+                                            style="text-align: center; font-size: 12px; padding-top:22px;letter-spacing: -0.005em; color: #333333; font-weight: 600;">
+                                            Mailing address:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="aligncenter content-block "
+                                            style="text-align: center; font-size: 12px; padding:20px 0px 4px 0px; font-weight: 400;">
+                                            {{admin_address}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="aligncenter content-block "
+                                            style="text-align: center; font-size: 12px; padding:4px 20px 4px 20px; font-weight: 400;">
+                                            If you do not wish to receive communications from Shared eCommerce anymore,
+                                            you can unsubscribe by clicking on the following button: unsubscribe.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="aligncenter content-block"
+                                            style="text-align: center; font-size: 12px; padding-top:4px;letter-spacing: -0.005em; color: #333333; font-weight: 600;">
+                                            <u>Unsubscribe</u>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="aligncenter content-block "
+                                            style="text-align: center; padding-top:28px;">
+                                            <img src="https://sharedecommerce.nyc3.digitaloceanspaces.com/sharedecommerce/original/henceforthlogo_light_1673596785554.png" alt="Not Found"
+                                                style="max-width: 150px; object-fit: cover;">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
