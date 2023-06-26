@@ -5,7 +5,7 @@ export namespace mainKeysList {
         type: string;
         created_at: string;
         __v: {
-            $numberInt: string;
+            numberInt: string;
         };
     }[];
 }

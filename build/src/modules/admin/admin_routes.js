@@ -106,9 +106,12 @@ router.put("/notifications/read/:_id", authenticator_1.default, admin_controller
 router.get("/list_users_sellers", authenticator_1.default, admin_controller.list_users_sellers);
 router.post("/main-keys", authenticator_1.default, admin_controller.mainKeys);
 router.get("/main-keys", authenticator_1.default, admin_controller.getMainKeys);
+router.post("/main-keys", authenticator_1.default, admin_controller.mainKeys);
+router.post("/addmainkeys", admin_controller.add_main_keys);
 router.post("/key-values", authenticator_1.default, admin_controller.keyValues);
 router.patch("/key-values/:_id", authenticator_1.default, admin_controller.editKeyValue);
 router.get("/main-keys/:_id", authenticator_1.default, admin_controller.getAllKeys);
+router.post("/addkeys", admin_controller.add_keys);
 // router.get("/keys",authenticator, admin_controller.getAllKeys)
 exports.default = router;
 // router.post("/coupons", authenticator, admin_controller.add_edit_coupons)

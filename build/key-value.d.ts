@@ -1,6 +1,5 @@
 export namespace keyValuesList {
     const results: {
-        _id: any;
         main_key_id: any;
         key: string;
         value: string;

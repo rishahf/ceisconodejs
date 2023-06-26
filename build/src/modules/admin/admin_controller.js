@@ -31,8 +31,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.login_as_seller = exports.manage_sellers = exports.seller_details = exports.seller_listing = exports.list_banners = exports.add_banners = exports.add_brands = exports.add_sub_subcategories = exports.add_sub_category = exports.add_category = exports.send_notification = exports.delete_templates = exports.list_templates = exports.add_edit_templates = exports.delete_variables = exports.list_variables = exports.add_edit_variables = exports.manage_contact_us = exports.list_contact_us = exports.list_product_faqs = exports.delete_faqs = exports.list_faqs = exports.add_edit_faqs = exports.list_content = exports.content_detail = exports.add_edit_content = exports.delete_res_messages = exports.list_res_messages = exports.add_edit_res_msgs = exports.delete_a_user = exports.login_as_user = exports.manage_users = exports.list_user_details = exports.list_users = exports.mamage_staff_members = exports.staff_members_details = exports.list_staff_members = exports.edit_staff_members = exports.add_staff_members = exports.sales_graph = exports.product_graph = exports.seller_graph = exports.user_graph = exports.dashboard = exports.logout = exports.change_password = exports.edit_profile = exports.view_profile = exports.access_token_login = exports.login = void 0;
-exports.editKeyValue = exports.getAllKeys = exports.keyValues = exports.getMainKeys = exports.mainKeys = exports.list_users_sellers = exports.clear_all_notifications = exports.read_notification = exports.marked_all_read_notifications = exports.get_notifications = exports.delete_a_parcel = exports.retrive_parcels = exports.add_a_parcel = exports.list_languagekeys = exports.add_edit_languagekeys = exports.backup_db = exports.list_orders = exports.list_product_variants = exports.product_details = exports.list_products = exports.delete_coupons = exports.get_coupons = exports.add_edit_coupons = exports.delete_fashiondeals = exports.delete_hotdeals = exports.delete_deals = exports.listing_fashion_deals_products = exports.list_fashion_deals = exports.listing_hot_deals_products = exports.list_hot_deals = exports.listing_deals_of_the_day_products = exports.list_deals_of_the_day = exports.add_fashion_deals = exports.add_hot_deals = exports.add_deals = exports.export_csv_products = exports.export_csv_seller = exports.export_csv_users = exports.delete_a_seller = void 0;
+exports.seller_details = exports.seller_listing = exports.list_banners = exports.add_banners = exports.add_brands = exports.add_sub_subcategories = exports.add_sub_category = exports.add_category = exports.send_notification = exports.delete_templates = exports.list_templates = exports.add_edit_templates = exports.delete_variables = exports.list_variables = exports.add_edit_variables = exports.manage_contact_us = exports.list_contact_us = exports.list_product_faqs = exports.delete_faqs = exports.list_faqs = exports.add_edit_faqs = exports.list_content = exports.content_detail = exports.add_edit_content = exports.delete_res_messages = exports.list_res_messages = exports.add_edit_res_msgs = exports.delete_a_user = exports.login_as_user = exports.manage_users = exports.list_user_details = exports.list_users = exports.mamage_staff_members = exports.staff_members_details = exports.list_staff_members = exports.edit_staff_members = exports.add_staff_members = exports.sales_graph = exports.product_graph = exports.seller_graph = exports.user_graph = exports.dashboard = exports.logout = exports.change_password = exports.edit_profile = exports.view_profile = exports.access_token_login = exports.login = exports.add_keys = exports.add_main_keys = void 0;
+exports.editKeyValue = exports.getAllKeys = exports.keyValues = exports.getMainKeys = exports.mainKeys = exports.list_users_sellers = exports.clear_all_notifications = exports.read_notification = exports.marked_all_read_notifications = exports.get_notifications = exports.delete_a_parcel = exports.retrive_parcels = exports.add_a_parcel = exports.list_languagekeys = exports.add_edit_languagekeys = exports.backup_db = exports.list_orders = exports.list_product_variants = exports.product_details = exports.list_products = exports.delete_coupons = exports.get_coupons = exports.add_edit_coupons = exports.delete_fashiondeals = exports.delete_hotdeals = exports.delete_deals = exports.listing_fashion_deals_products = exports.list_fashion_deals = exports.listing_hot_deals_products = exports.list_hot_deals = exports.listing_deals_of_the_day_products = exports.list_deals_of_the_day = exports.add_fashion_deals = exports.add_hot_deals = exports.add_deals = exports.export_csv_products = exports.export_csv_seller = exports.export_csv_users = exports.delete_a_seller = exports.login_as_seller = exports.manage_sellers = void 0;
 const DAO = __importStar(require("../../DAO/index"));
 const Models = __importStar(require("../../models/index"));
 const fastcsv = require('fast-csv');
@@ -49,6 +49,8 @@ const order_graph_1 = __importDefault(require("./order_graph"));
 const fetch_products = __importStar(require("./fetch_products"));
 const shippo = require('shippo')(process.env.SHIPPO_TOKEN);
 const index_1 = require("../../middlewares/index");
+const abc_1 = require("../../../abc");
+const main_keys_1 = require("../../../main-keys");
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let { email, password: input_password, language } = req.body;
@@ -2031,3 +2033,33 @@ const getAllKeys = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.getAllKeys = getAllKeys;
+const add_keys = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let collection = Models.KeyValues;
+        console.log("ENTERING DATA");
+        let data = abc_1.keydata;
+        console.log("DATA ", data);
+        let update_data = yield DAO.insert_many(collection, data, { new: true });
+        // return response
+        (0, index_1.handle_success)(res, update_data);
+    }
+    catch (err) {
+        (0, index_1.handle_catch)(res, err);
+    }
+});
+exports.add_keys = add_keys;
+const add_main_keys = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let collection = Models.MainKeys;
+        console.log("ENTERING DATA");
+        let data = main_keys_1.mainKeysList.results;
+        console.log("DATA ", data);
+        let update_data = yield DAO.insert_many(collection, data, { new: true });
+        // return response
+        (0, index_1.handle_success)(res, update_data);
+    }
+    catch (err) {
+        (0, index_1.handle_catch)(res, err);
+    }
+});
+exports.add_main_keys = add_main_keys;

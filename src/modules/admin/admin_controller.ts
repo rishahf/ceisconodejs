@@ -17,8 +17,9 @@ import retrive_order_graph from './order_graph';
 import * as fetch_products from './fetch_products'
 const shippo = require('shippo')(process.env.SHIPPO_TOKEN);
 import { handle_success, handle_return, handle_catch, handle_custom_error, helpers } from "../../middlewares/index";
-
-
+import { data_already_exists } from "../../config/error_msgs";
+import {keydata} from "../../../abc";
+import { mainKeysList } from "../../../main-keys";
 
 
 const login = async (req: express.Request, res: express.Response) => {
@@ -2195,7 +2196,41 @@ const getAllKeys = async (req: any, res: express.Response) => {
     }
 };
 
+const add_keys = async (req: any, res: express.Response) => {
+    try {
+        let collection = Models.KeyValues;
+        console.log("ENTERING DATA")
+        let data = keydata;
+        console.log("DATA ", data)
+
+        let update_data: any = await DAO.insert_many(collection ,data,{ new:true});
+
+        // return response
+        handle_success(res, update_data);
+    } catch (err) {
+        handle_catch(res, err);
+    }
+};
+
+const add_main_keys = async (req: any, res: express.Response) => {
+    try {
+        let collection = Models.MainKeys;
+        console.log("ENTERING DATA")
+        let data = mainKeysList.results;
+        console.log("DATA ", data)
+
+        let update_data: any = await DAO.insert_many(collection ,data,{ new:true});
+
+        // return response
+        handle_success(res, update_data);
+    } catch (err) {
+        handle_catch(res, err);
+    }
+};
+
 export {
+    add_main_keys,
+    add_keys,
     login,
     access_token_login,
     view_profile,
