@@ -764,7 +764,7 @@ class order_module extends stripe_payments {
                                 get_cart.forEach(async(item:any) => {
                                     let query_cart2 = { _id:item._id }
                                     await DAO.remove_data(Cart, query_cart2)
-                                });
+                                });       
                                 
                             }
                             let OrderProduct:any = await DAO.save_data(OrderProducts, data_to_save)
