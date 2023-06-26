@@ -1,8 +1,8 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Shared Module With MongoDB Api Documentation",
-    "description": "Shared Module With MongoDB",
+    "title": "Fashion Module With MongoDB Api Documentation",
+    "description": "Fashion Module With MongoDB",
     "version": "1.0.0"
   },
   "servers": [

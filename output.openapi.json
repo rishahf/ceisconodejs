@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Shared Ecommerce Api Documentation",
-    "description": "Shared Ecommerce Api Documentation",
+    "title": "Fashion Ecommerce Api Documentation",
+    "description": "Fashion Ecommerce Api Documentation",
     "version": "1.0.0"
   },
   "servers": [
