@@ -1606,11 +1606,12 @@ const manage_sellers = async (req: any, res: express.Response) => {
 const login_as_seller = async (req: any, res: express.Response) => {
     try {
         let { language } = req.body;
-
+        let { email } = req.user_data
+        
         // console.log('req.headers ---', req.headers)
         // console.log("req.headers.[user-agent] ---", req.headers['user-agent']);
         let device_type: any = req.headers["user-agent"];
-        let query = { email: "admin@gmail.com", is_deleted: false };
+        let query = { email: email, is_deleted: false };
         let projection = {
             is_deleted: 0,
             unique_code: 0,
@@ -1621,7 +1622,6 @@ const login_as_seller = async (req: any, res: express.Response) => {
         };
         let options = { lean: true };
         let fetch_data: any = await DAO.get_data(Models.Sellers, query, projection, options);
-        console.log(fetch_data);
         let _id = fetch_data[0]._id
         
         if (fetch_data.length) {
