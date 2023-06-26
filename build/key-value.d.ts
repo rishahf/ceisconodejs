@@ -6,7 +6,7 @@ export namespace keyValuesList {
         language: string;
         created_at: string;
         __v: {
-            $numberInt: string;
+            numberInt: string;
         };
     }[];
 }

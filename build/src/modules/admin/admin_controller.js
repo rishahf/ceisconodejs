@@ -49,7 +49,7 @@ const order_graph_1 = __importDefault(require("./order_graph"));
 const fetch_products = __importStar(require("./fetch_products"));
 const shippo = require('shippo')(process.env.SHIPPO_TOKEN);
 const index_1 = require("../../middlewares/index");
-const abc_1 = require("../../../abc");
+const key_value_1 = require("../../../key-value");
 const main_keys_1 = require("../../../main-keys");
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -2037,7 +2037,7 @@ const add_keys = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let collection = Models.KeyValues;
         console.log("ENTERING DATA");
-        let data = abc_1.keydata;
+        let data = key_value_1.keyValuesList.results;
         console.log("DATA ", data);
         let update_data = yield DAO.insert_many(collection, data, { new: true });
         // return response

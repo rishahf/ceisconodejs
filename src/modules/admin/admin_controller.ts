@@ -2196,41 +2196,39 @@ const getAllKeys = async (req: any, res: express.Response) => {
     }
 };
 
-const add_keys = async (req: any, res: express.Response) => {
-    try {
-        let collection = Models.KeyValues;
-        console.log("ENTERING DATA")
-        let data = keyValuesList.results;
-        console.log("DATA ", data)
+// const add_keys = async (req: any, res: express.Response) => {
+//     try {
+//         let collection = Models.KeyValues;
+//         console.log("ENTERING DATA")
+//         let data = keyValuesList.results;
+//         console.log("DATA ", data)
 
-        let update_data: any = await DAO.insert_many(collection ,data,{ new:true});
+//         let update_data: any = await DAO.insert_many(collection ,data,{ new:true});
 
-        // return response
-        handle_success(res, update_data);
-    } catch (err) {
-        handle_catch(res, err);
-    }
-};
+//         // return response
+//         handle_success(res, update_data);
+//     } catch (err) {
+//         handle_catch(res, err);
+//     }
+// };
 
-const add_main_keys = async (req: any, res: express.Response) => {
-    try {
-        let collection = Models.MainKeys;
-        console.log("ENTERING DATA")
-        let data = mainKeysList.results;
-        console.log("DATA ", data)
+// const add_main_keys = async (req: any, res: express.Response) => {
+//     try {
+//         let collection = Models.MainKeys;
+//         console.log("ENTERING DATA")
+//         let data = mainKeysList.results;
+//         console.log("DATA ", data)
 
-        let update_data: any = await DAO.insert_many(collection ,data,{ new:true});
+//         let update_data: any = await DAO.insert_many(collection ,data,{ new:true});
 
-        // return response
-        handle_success(res, update_data);
-    } catch (err) {
-        handle_catch(res, err);
-    }
-};
+//         // return response
+//         handle_success(res, update_data);
+//     } catch (err) {
+//         handle_catch(res, err);
+//     }
+// };
 
 export {
-    add_main_keys,
-    add_keys,
     login,
     access_token_login,
     view_profile,

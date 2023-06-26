@@ -107,16 +107,16 @@ router.get("/list_users_sellers", authenticator, admin_controller.list_users_sel
 router.post("/main-keys", authenticator, admin_controller.mainKeys)
 router.get("/main-keys", authenticator, admin_controller.getMainKeys)
 router.post("/main-keys", authenticator, admin_controller.mainKeys)
-router.post("/addmainkeys", admin_controller.add_main_keys)
 
 router.post("/key-values", authenticator, admin_controller.keyValues)
 router.patch("/key-values/:_id", authenticator, admin_controller.editKeyValue)
 router.get("/main-keys/:_id", authenticator, admin_controller.getAllKeys)
-router.post("/addkeys", admin_controller.add_keys)
+
+// router.post("/addmainkeys", admin_controller.add_main_keys)
+// router.post("/addkeys", admin_controller.add_keys)
 // router.get("/keys",authenticator, admin_controller.getAllKeys)
 
 export default router;
-
 
 // router.post("/coupons", authenticator, admin_controller.add_edit_coupons)
 // router.get("/coupons", authenticator, admin_controller.get_coupons)
