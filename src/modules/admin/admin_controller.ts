@@ -18,7 +18,7 @@ import * as fetch_products from './fetch_products'
 const shippo = require('shippo')(process.env.SHIPPO_TOKEN);
 import { handle_success, handle_return, handle_catch, handle_custom_error, helpers } from "../../middlewares/index";
 import { data_already_exists } from "../../config/error_msgs";
-import {keydata} from "../../../abc";
+import {keyValuesList} from "../../../key-value";
 import { mainKeysList } from "../../../main-keys";
 
 
@@ -2200,7 +2200,7 @@ const add_keys = async (req: any, res: express.Response) => {
     try {
         let collection = Models.KeyValues;
         console.log("ENTERING DATA")
-        let data = keydata;
+        let data = keyValuesList.results;
         console.log("DATA ", data)
 
         let update_data: any = await DAO.insert_many(collection ,data,{ new:true});
