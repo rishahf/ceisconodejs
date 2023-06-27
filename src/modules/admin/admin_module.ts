@@ -147,15 +147,23 @@ class sub_category {
     static add = async (req: any) => {
         try {
             let { category_id, name ,language} = req.body;
-            let data_to_save = {
-                category_id: category_id,
-                name: name,
-                language:language,
-                updated_at: +new Date(),
-                created_at: +new Date(),
+            let query ={$and:[ {name: name} , {category_id:category_id}]}
+            let fetch_data : any = await DAO.get_data(Models.SubCategory , query , {__v:0} , {lean:true})
+            if (fetch_data && fetch_data.length) {
+                console.log('get-cat -- ', language)
+                throw await handle_custom_error("CATEGORY_EXIST",language);
+            }else{
+                let data_to_save = {
+                    category_id: category_id,
+                    name: name,
+                    language:language,
+                    updated_at: +new Date(),
+                    created_at: +new Date(),
+                }
+                let response = await DAO.save_data(Models.SubCategory, data_to_save)
+                return response;
             }
-            let response = await DAO.save_data(Models.SubCategory, data_to_save)
-            return response;
+          
         }
         catch (err) {
             throw err;
@@ -236,7 +244,8 @@ class sub_category {
             }
             let projection = { __v: 0 }
             let options = await helpers.set_options(pagination, limit);
-            let fetch_data = await DAO.get_data(Models.SubCategory, query, projection, options);
+            let populate = [{ path: "category_id", select: "name" }];
+            let fetch_data = await DAO.populate_data(Models.SubCategory, query, projection, options ,populate);
             let total_count = await DAO.count_data(Models.SubCategory, query);
             return {
                 total_count: total_count,
@@ -275,6 +284,12 @@ class sub_sub_category {
     static add = async (req: any) => {
         try {
             let { subcategory_id, name,language } = req.body;
+            let query ={$and:[ {name: name} , {subcategory_id:subcategory_id}]}
+            let fetch_data : any = await DAO.get_data(Models.Sub_subcategories , query , {__v:0} , {lean:true})
+            if (fetch_data && fetch_data.length) {
+                console.log('get-cat -- ', language)
+                throw await handle_custom_error("CATEGORY_EXIST",language);
+            }else{
             let data_to_save = {
                 subcategory_id: subcategory_id,
                 name: name,
@@ -285,6 +300,7 @@ class sub_sub_category {
             let response = await DAO.save_data(Models.Sub_subcategories, data_to_save)
             return response;
         }
+    }
         catch (err) {
             throw err;
         }
@@ -333,7 +349,8 @@ class sub_sub_category {
 
             let projection = { __v: 0 }
             let options = await helpers.set_options(pagination, limit);
-            let fetch_data = await DAO.get_data(Models.Sub_subcategories, query, projection, options);
+            let populate = [{ path: "subcategory_id", select: "name" }];
+            let fetch_data = await DAO.populate_data(Models.Sub_subcategories, query, projection, options , populate );
             let total_count = await DAO.count_data(Models.Sub_subcategories, query);
             return {
                 total_count: total_count,
