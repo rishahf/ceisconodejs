@@ -5849,7 +5849,8 @@
               "access_token"
             ]
           }
-        ]
+        ],
+        "deprecated": true
       }
     },
     "/Seller/shippo/parcel": {

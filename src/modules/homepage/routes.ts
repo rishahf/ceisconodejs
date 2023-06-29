@@ -19,6 +19,7 @@ router.get('/user/banner', controller.user_list_banners)
 // deal of the day module
 router.post('/admin/deal_of_the_day',authenticator,controller.add_deal_of_the_day)
 router.put('/admin/deal_of_the_day',authenticator,controller.update_deal_of_the_day)
+router.get('/admin/deal_of_the_day', controller.list_deal_of_the_day)
 router.get('/admin/deal_of_the_day/:_id',authenticator,controller.detail_deal_of_the_day)
 router.put('/admin/deals_of_the_day/enable-disable',authenticator,controller.enable_disable_deal_of_the_day)
 router.delete('/admin/deal_of_the_day/:_id',authenticator,controller.delete_a_deal_of_the_day)
