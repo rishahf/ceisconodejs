@@ -24,6 +24,8 @@ class stripe_payments {
             let { card_id } = req.body;
             let { _id: user_id, name, email, customer_id } = req.user_data;
             let card_details: any = await this.retrive_card_details(card_id, user_id)
+            console.log("+++++ card details" , card_details);
+            
             if (card_details.length) {
                 let { payment_method } = card_details[0]
                 let { total_price, total_cd, total_earnings } = price_data
@@ -45,6 +47,7 @@ class stripe_payments {
                         email: email
                     }
                 });
+                console.log("-----payment++++======intent=====",payment_intent);
                 // confirm_intent
                 let options = { payment_method: payment_method }
                 await stripe.paymentIntents.confirm(payment_intent.id, options);
@@ -168,6 +171,8 @@ class order_module extends stripe_payments {
             if (create_order_id != null) {
                 let save_order_products = await this.save_order_products(create_order_id, req, coupon_data)
                 let update_order = await this.update_total_price(req, create_order, save_order_products);
+                console.log("++==update order ",update_order);
+                
                 let response = await this.order_response(create_order_id)
                 response["_id"] = create_order._id
                  // console.log("response...", response)
@@ -760,7 +765,7 @@ class order_module extends stripe_payments {
                             let query_cart = { user_id:user_id, product_id:product_id}
                             let get_cart:any = await DAO.get_data(Cart,query_cart,projection,options)
                             if(!!get_cart){
-                                console.log('--inside card-- product id -- ', product_id);
+                                console.log('--inside cart-- product id -- ', product_id);
                                 get_cart.forEach(async(item:any) => {
                                     let query_cart2 = { _id:item._id }
                                     await DAO.remove_data(Cart, query_cart2)
@@ -893,9 +898,13 @@ class order_module extends stripe_payments {
                 let payment_intent: any = await this.create_pi(req, price_data, order_id)
                 let { payment_intent: pi } = payment_intent;
                 update.stripe_data = { payment_intent: pi }
+                console.log("-----add payment intent " ,payment_intent);
             }
             let options = { new: true }
-            return await DAO.find_and_update(Orders, query, update, options)
+            let pi = await DAO.find_and_update(Orders, query, update, options)
+            console.log(pi);
+            return pi
+
         }
         catch (err) {
             console.log("err...case4...", err)

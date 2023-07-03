@@ -314,9 +314,11 @@ const login = async (req: express.Request, res: express.Response) => {
                   throw await handle_custom_error("ACCOUNT_DELETED", language);
                 }
                 if (account_status == "DEACTIVATED") {
-                    throw await handle_custom_error("ACCOUNT_DEACTIVATED", language);
+                    let query = { _id: fetch_data[0]._id };
+                    let update= { account_status : "ACTIVATED", }
+                    let data: any = await DAO.find_and_update(Models.Users, query, update, {new:true});
                 }
-                else {
+
                     let query_ss = { user_id:_id, device_type:device_type} 
                     let session_data:any  = await DAO.get_data(Models.Sessions,query_ss,projection,options)
                     console.log('query_ss -- ', query_ss )
@@ -329,7 +331,6 @@ const login = async (req: express.Request, res: express.Response) => {
                     let generate_token: any = await user_services.generate_user_token(_id, req.body,device_type);
                     let response = await user_services.make_user_response(generate_token, language);
                     handle_success(res, response);
-                }
             }
 
 
