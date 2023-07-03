@@ -425,6 +425,11 @@ const list_users = async (req: any, res: express.Response) => {
                 { created_at: { $lte: set_end_date } }
             ]
         }
+        if (filter === undefined || filter===null || filter ==="") {
+            query.account_status = "ACTIVATED",
+            query.is_blocked = false,
+            query.is_deleted = false
+        }
         let options = await helpers.set_options(pagination, limit);
         let fetch_data: any = await admin_services.fetch_user_data(query, options);
         let total_count = await admin_services.fetch_total_count(Models.Users, query);
