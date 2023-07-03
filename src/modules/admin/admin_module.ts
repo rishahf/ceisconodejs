@@ -349,7 +349,12 @@ class sub_sub_category {
 
             let projection = { __v: 0 }
             let options = await helpers.set_options(pagination, limit);
-            let populate = [{ path: "subcategory_id", select: "name" }];
+            let populate = [{ path: "subcategory_id", select: "name",
+            populate: {
+                path: "category_id",
+                select: "name"
+              }
+           }];
             let fetch_data = await DAO.populate_data(Models.Sub_subcategories, query, projection, options , populate );
             let total_count = await DAO.count_data(Models.Sub_subcategories, query);
             return {
@@ -373,7 +378,11 @@ class sub_sub_category {
             let populate = [
                 { 
                     path: "subcategory_id", select: "name" ,
-                    populate: [ { path:"category_id" , select:"name"}]
+                    populate: [ { path:"category_id" , select:"name",
+                     populate: {
+                        path: "category_id",
+                        select: "name"
+                      }}]
                 }
             ];
             let fetch_data = await DAO.populate_data(Models.Sub_subcategories, query, projection, options,populate);

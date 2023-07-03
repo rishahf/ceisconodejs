@@ -45,6 +45,8 @@ const authenticator = async (req: any, res: any, next: any) => {
                     // console.log("<--split_api_path-->", split_api_path)
                     let new_path = split_api_path[2] || split_api_path[1]
                     let type = new_path.toUpperCase()
+                    console.log("<--split_api_path-->", type)
+                    console.log("<--All roles-->", roles)
                     console.log('super_admin ',super_admin)
                     if (super_admin != true) {
                         let check_roles = roles.includes(type)
