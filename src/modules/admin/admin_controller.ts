@@ -404,10 +404,14 @@ const list_users = async (req: any, res: express.Response) => {
         }
         if (!!filter) {
             if (filter == "ACTIVE_USERS") {
-                query.account_status = "ACTIVATED"
+                query.account_status = "ACTIVATED",
+                query.is_blocked = false,
+                query.is_deleted = false
             }
             else if (filter == "DEACTIVE_USERS") {
-                query.account_status = "DEACTIVATED"
+                query.account_status = "DEACTIVATED",
+                query.is_blocked = false
+                query.is_deleted = false
             }
             else if (filter == "BLOCKED_USERS") {
                 query.is_blocked = true

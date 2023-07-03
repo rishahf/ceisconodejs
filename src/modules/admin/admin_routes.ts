@@ -106,7 +106,6 @@ router.get("/list_users_sellers", authenticator, admin_controller.list_users_sel
 
 router.post("/main-keys", authenticator, admin_controller.mainKeys)
 router.get("/main-keys", authenticator, admin_controller.getMainKeys)
-router.post("/main-keys", authenticator, admin_controller.mainKeys)
 
 router.post("/key-values", authenticator, admin_controller.keyValues)
 router.patch("/key-values/:_id", authenticator, admin_controller.editKeyValue)

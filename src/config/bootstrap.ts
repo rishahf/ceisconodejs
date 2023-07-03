@@ -102,7 +102,7 @@ const response_messages = async () => {
         type: "ERROR",
         message_type: "ACCOUNT_BLOCKED",
         status_code: 400,
-        msg_in_english: "Sorry this account is temporary blocked by admin.",
+        msg_in_english: 'Sorry this account is temporary blocked please contact with "E-commerce fashion"',
         msg_in_arabic: "عذرا ، تم حظر هذا الحساب مؤقتا من قبل المشرف.",
         created_at: +new Date(),
       },

@@ -777,8 +777,8 @@ const add_edit_address = async (req: any, res: express.Response) => {
           location: { type: "Point", coordinates: [lng, lat] },
           is_deleted: false,
         };
-        // console.log(data)
-        if (_id != undefined) {
+        console.log(data)
+        if (!!_id ) {
             let query = { _id: _id };
             let update = await user_services.edit_address_data(req.body, req.user_data);
 
