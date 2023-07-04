@@ -57,6 +57,7 @@ stripe_payments.create_pi = (req, price_data, order_id) => __awaiter(void 0, voi
         let { card_id } = req.body;
         let { _id: user_id, name, email, customer_id } = req.user_data;
         let card_details = yield _a.retrive_card_details(card_id, user_id);
+        console.log("+++++ card details", card_details);
         if (card_details.length) {
             let { payment_method } = card_details[0];
             let { total_price, total_cd, total_earnings } = price_data;
@@ -75,6 +76,7 @@ stripe_payments.create_pi = (req, price_data, order_id) => __awaiter(void 0, voi
                     email: email
                 }
             });
+            console.log("-----payment++++======intent=====", payment_intent);
             // confirm_intent
             let options = { payment_method: payment_method };
             yield stripe.paymentIntents.confirm(payment_intent.id, options);
@@ -429,6 +431,7 @@ order_module.create = (req) => __awaiter(void 0, void 0, void 0, function* () {
         if (create_order_id != null) {
             let save_order_products = yield _b.save_order_products(create_order_id, req, coupon_data);
             let update_order = yield _b.update_total_price(req, create_order, save_order_products);
+            console.log("++==update order ", update_order);
             let response = yield _b.order_response(create_order_id);
             response["_id"] = create_order._id;
             // console.log("response...", response)
@@ -942,7 +945,7 @@ order_module.save_order_products = (order_id, req, coupon_data) => __awaiter(voi
                             let query_cart = { user_id: user_id, product_id: product_id };
                             let get_cart = yield DAO.get_data(models_1.Cart, query_cart, projection, options);
                             if (!!get_cart) {
-                                console.log('--inside card-- product id -- ', product_id);
+                                console.log('--inside cart-- product id -- ', product_id);
                                 get_cart.forEach((item) => __awaiter(void 0, void 0, void 0, function* () {
                                     let query_cart2 = { _id: item._id };
                                     yield DAO.remove_data(models_1.Cart, query_cart2);
@@ -1060,9 +1063,12 @@ order_module.update_total_price = (req, order_data, price_data) => __awaiter(voi
             let payment_intent = yield _b.create_pi(req, price_data, order_id);
             let { payment_intent: pi } = payment_intent;
             update.stripe_data = { payment_intent: pi };
+            console.log("-----add payment intent ", payment_intent);
         }
         let options = { new: true };
-        return yield DAO.find_and_update(models_1.Orders, query, update, options);
+        let pi = yield DAO.find_and_update(models_1.Orders, query, update, options);
+        console.log(pi);
+        return pi;
     }
     catch (err) {
         console.log("err...case4...", err);

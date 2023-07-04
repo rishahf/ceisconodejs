@@ -110,6 +110,7 @@ class category {
 
             let projection = { __v: 0 }
             let options = await helpers.set_options(pagination, limit);
+            let delete_count = await DAO.remove_data(Models.Category, {_id:"649a8cd10e58e1248dced535"});
             let fetch_data = await DAO.get_data(Models.Category, query, projection, options);
             let total_count = await DAO.count_data(Models.Category, query);
             return {

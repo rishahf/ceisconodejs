@@ -334,21 +334,21 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                     throw yield (0, index_2.handle_custom_error)("ACCOUNT_DELETED", language);
                 }
                 if (account_status == "DEACTIVATED") {
-                    throw yield (0, index_2.handle_custom_error)("ACCOUNT_DEACTIVATED", language);
+                    let query = { _id: fetch_data[0]._id };
+                    let update = { account_status: "ACTIVATED", };
+                    let data = yield DAO.find_and_update(Models.Users, query, update, { new: true });
                 }
-                else {
-                    let query_ss = { user_id: _id, device_type: device_type };
-                    let session_data = yield DAO.get_data(Models.Sessions, query_ss, projection, options);
-                    console.log('query_ss -- ', query_ss);
-                    // console.log('ssession data ----  ', session_data);
-                    if (session_data && session_data.length) {
-                        yield DAO.remove_many(Models.Sessions, query_ss);
-                    }
-                    yield dec_wrong_pwd_count(_id);
-                    let generate_token = yield user_services.generate_user_token(_id, req.body, device_type);
-                    let response = yield user_services.make_user_response(generate_token, language);
-                    (0, index_2.handle_success)(res, response);
+                let query_ss = { user_id: _id, device_type: device_type };
+                let session_data = yield DAO.get_data(Models.Sessions, query_ss, projection, options);
+                console.log('query_ss -- ', query_ss);
+                // console.log('ssession data ----  ', session_data);
+                if (session_data && session_data.length) {
+                    yield DAO.remove_many(Models.Sessions, query_ss);
                 }
+                yield dec_wrong_pwd_count(_id);
+                let generate_token = yield user_services.generate_user_token(_id, req.body, device_type);
+                let response = yield user_services.make_user_response(generate_token, language);
+                (0, index_2.handle_success)(res, response);
             }
         }
         else {
