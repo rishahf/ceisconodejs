@@ -3,6 +3,7 @@ import { verify_token, handle_catch, handle_custom_error } from './index';
 import * as DAO from "../DAO";
 import * as Models from '../models';
 import { error, app_constant } from '../config/index';
+import e from 'cors';
 const { scope } = app_constant
 const admin_scope = scope.admin
 const user_scope = scope.user
@@ -43,7 +44,13 @@ const authenticator = async (req: any, res: any, next: any) => {
                     let { roles, super_admin } = fetch_data[0]
                     let split_api_path = api_path.split('/').join(',').split('?').join(',').split(',')
                     // console.log("<--split_api_path-->", split_api_path)
-                    let new_path = split_api_path[2] || split_api_path[1]
+                    // console.log("<--homepage_path-->", homepage_path)
+                    let new_path : any
+                    if (homepage_path) {
+                         new_path = split_api_path[1] || split_api_path[2]
+                    }else{
+                         new_path = split_api_path[2] || split_api_path[1]
+                    }
                     let type = new_path.toUpperCase()
                     console.log("<--split_api_path-->", type)
                     console.log("<--All roles-->", roles)

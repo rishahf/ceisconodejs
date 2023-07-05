@@ -245,8 +245,6 @@ class sub_category {
             let projection = { __v: 0 }
             let options = await helpers.set_options(pagination, limit);
             let populate = [{ path: "category_id", select: "name" }];
-            const idsToDelete = ['649e62af50c09b441e92ec49', '649a8ced0e58e1248dced56d'];
-            let delete_count = await DAO.remove_many(Models.SubCategory, { $in: idsToDelete });
             let fetch_data = await DAO.populate_data(Models.SubCategory, query, projection, options ,populate);
             let total_count = await DAO.count_data(Models.SubCategory, query);
             return {
@@ -357,9 +355,6 @@ class sub_sub_category {
                 select: "name"
               }
            }];
-           const idsToDelete = ['649e62ca50c09b441e92ec91', '649e62ba50c09b441e92ec73' ,'649a925f0e58e1248dcedb6d','649a6d3b110a9849af290c65'];
-           let delete_count = await DAO.remove_many(Models.Sub_subcategories, { $in: idsToDelete });
-
             let fetch_data = await DAO.populate_data(Models.Sub_subcategories, query, projection, options , populate );
             let total_count = await DAO.count_data(Models.Sub_subcategories, query);
             return {
