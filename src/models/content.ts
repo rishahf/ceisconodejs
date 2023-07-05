@@ -1,6 +1,6 @@
 import { createSchema, Type, typedModel } from 'ts-mongoose';
 import * as Models from './index';
-const type = ['ABOUT_US', 'PRIVACY_POLICY', 'TERMS_AND_CONDITIONS',"CARRERS","SHIPPING","PAYMENTS","RETURN_POLICY"]
+const type = ['ABOUT_US', 'PRIVACY_POLICY', 'TERMS_AND_CONDITIONS',"CARRERS","SHIPPING","PAYMENTS","PAYMENTS_SECURITY","RETURN_POLICY"]
 const language = ["ENGLISH", "ARABIC"];
 const ContentSchema = createSchema({
   type: Type.string({ enum: type }),

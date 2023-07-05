@@ -3332,7 +3332,8 @@
                             "CARRERS",
                             "SHIPPING",
                             "PAYMENTS",
-                            "RETURN_POLICY"
+                            "RETURN_POLICY",
+                            "PAYMENTS_SECURITY"
                         ]
                     },
                     "description": {
