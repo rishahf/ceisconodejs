@@ -1,0 +1,36 @@
+import { Request, Response } from 'express';
+export default class controller {
+    static add_a_category: (req: Request, res: Response) => Promise<void>;
+    static edit_a_category: (req: Request, res: Response) => Promise<void>;
+    static list_categories: (req: Request, res: Response) => Promise<void>;
+    static get_category: (req: Request, res: Response) => Promise<void>;
+    static add_a_subcategory: (req: Request, res: Response) => Promise<void>;
+    static edit_a_subcategory: (req: Request, res: Response) => Promise<void>;
+    static list_subcategory: (req: Request, res: Response) => Promise<void>;
+    static get_subcategory: (req: Request, res: Response) => Promise<void>;
+    static add_a_sub_subcategory: (req: Request, res: Response) => Promise<void>;
+    static edit_a_sub_subcategory: (req: Request, res: Response) => Promise<void>;
+    static list_sub_subcategory: (req: Request, res: Response) => Promise<void>;
+    static get_sub_subcategory: (req: Request, res: Response) => Promise<void>;
+    static add_a_brand: (req: Request, res: Response) => Promise<void>;
+    static edit_a_brand: (req: Request, res: Response) => Promise<void>;
+    static list_brands: (req: Request, res: Response) => Promise<void>;
+    static get_brands: (req: Request, res: Response) => Promise<void>;
+    static add_a_coupon: (req: Request, res: Response) => Promise<void>;
+    static edit_a_coupon: (req: Request, res: Response) => Promise<void>;
+    static list_coupons: (req: Request, res: Response) => Promise<void>;
+    static list_coupon_details: (req: Request, res: Response) => Promise<void>;
+    static delete_a_coupon: (req: Request, res: Response) => Promise<void>;
+    static set_homepage_coupon: (req: Request, res: Response) => Promise<void>;
+    static add_fees: (req: Request, res: Response) => Promise<void>;
+    static edit_fees: (req: Request, res: Response) => Promise<void>;
+    static list_fees: (req: Request, res: Response) => Promise<void>;
+    static product_details: (req: Request, res: Response) => Promise<void>;
+    static list_orders: (req: Request, res: Response) => Promise<void>;
+    static order_details: (req: Request, res: Response) => Promise<void>;
+    static user_orders: (req: Request, res: Response) => Promise<void>;
+    static cancel_order: (req: Request, res: Response) => Promise<void>;
+    static list_orders_reviews: (req: Request, res: Response) => Promise<void>;
+    static invoice_data: (req: Request, res: Response) => Promise<void>;
+    static ordered_products_detail: (req: Request, res: Response) => Promise<void>;
+}

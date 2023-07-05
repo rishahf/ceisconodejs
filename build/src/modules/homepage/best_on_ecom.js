@@ -1,0 +1,335 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var _a, _b;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.user_best_on_ecom = exports.admin_best_on_ecom = void 0;
+const DAO = __importStar(require("../../DAO"));
+const models_1 = require("../../models");
+const index_1 = require("../../middlewares/index");
+const moment_1 = __importDefault(require("moment"));
+class admin_best_on_ecom {
+}
+exports.admin_best_on_ecom = admin_best_on_ecom;
+_a = admin_best_on_ecom;
+admin_best_on_ecom.add = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let { image, title, price, category_id, subcategory_id, sub_subcategory_id, brand_id, discount, language } = req.body;
+        console.log('req- body ---- ', req.body);
+        let data_to_save = {
+            image: image,
+            title: title,
+            price: price,
+            updated_at: +new Date(),
+            created_at: +new Date()
+        };
+        if (!!category_id) {
+            data_to_save.category_id = category_id;
+        }
+        if (!!subcategory_id) {
+            data_to_save.subcategory_id = subcategory_id;
+        }
+        if (!!sub_subcategory_id) {
+            data_to_save.sub_subcategory_id = sub_subcategory_id;
+        }
+        if (!!brand_id) {
+            data_to_save.brand_id = brand_id;
+        }
+        if (!!discount) {
+            data_to_save.discount = discount;
+        }
+        if (!!language) {
+            data_to_save.language = language;
+        }
+        let response = yield DAO.save_data(models_1.BestOnEcom, data_to_save);
+        console.log('response ----- ', response);
+        return response;
+    }
+    catch (err) {
+        throw err;
+    }
+});
+admin_best_on_ecom.update = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let { _id, image, title, price, category_id, subcategory_id, sub_subcategory_id, brand_id, discount, language } = req.body;
+        let query = { _id: _id };
+        let update = { updated_at: +new Date() };
+        if (!!image) {
+            update.image = image;
+        }
+        if (!!title) {
+            update.title = title;
+        }
+        if (!!price) {
+            update.price = price;
+        }
+        if (!!category_id) {
+            update.category_id = category_id;
+        }
+        if (!!subcategory_id) {
+            update.subcategory_id = subcategory_id;
+        }
+        if (!!sub_subcategory_id) {
+            update.sub_subcategory_id = sub_subcategory_id;
+        }
+        if (!!brand_id) {
+            update.brand_id = brand_id;
+        }
+        if (!!discount) {
+            update.discount = discount;
+        }
+        if (!!language) {
+            update.language = language;
+        }
+        let options = { new: true };
+        let response = yield DAO.find_and_update(models_1.BestOnEcom, query, update, options);
+        return response;
+    }
+    catch (err) {
+        throw err;
+    }
+});
+admin_best_on_ecom.enable_disable = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let { is_enable } = req.body;
+        let query = { is_deleted: false };
+        let option = { lean: true };
+        let get_Deals = yield DAO.get_data(models_1.BestOnEcom, query, { __v: 0 }, option);
+        let response;
+        if (get_Deals.length) {
+            get_Deals.forEach((deals) => __awaiter(void 0, void 0, void 0, function* () {
+                let options = { new: true };
+                let update = { is_enable: is_enable };
+                let queery = { _id: deals._id };
+                response = yield DAO.find_and_update(models_1.BestOnEcom, queery, update, options);
+            }));
+        }
+        else {
+            throw "No data found";
+        }
+        if (is_enable == true) {
+            let message = `Enabled Successfully`;
+            return message;
+        }
+        else if (is_enable == false) {
+            let message = `Disabled Successfully`;
+            return message;
+        }
+        else {
+            throw yield (0, index_1.handle_custom_error)("SOMETHING_WENT_WRONG", "ENGLISH");
+        }
+    }
+    catch (err) {
+        throw err;
+    }
+});
+admin_best_on_ecom.list = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let { _id, pagination, limit, language } = req.query;
+        let query = { is_deleted: false, language: language };
+        if (!!_id) {
+            query._id = _id;
+        }
+        let projection = { __v: 0, is_deleted: 0 };
+        let options = yield index_1.helpers.set_options(pagination, limit);
+        let populate = [
+            {
+                path: 'category_id',
+                select: 'name'
+            },
+            {
+                path: 'subcategory_id',
+                select: 'name'
+            },
+            {
+                path: 'sub_subcategory_id',
+                select: 'name'
+            },
+            {
+                path: 'brand_id',
+                select: 'name'
+            },
+        ];
+        let response = yield DAO.populate_data(models_1.BestOnEcom, query, projection, options, populate);
+        let total_count = yield DAO.count_data(models_1.BestOnEcom, query);
+        return {
+            total_count: total_count,
+            data: response
+        };
+    }
+    catch (err) {
+        throw err;
+    }
+});
+admin_best_on_ecom.detail = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let { _id } = req.params;
+        let query = { _id: _id, is_deleted: false };
+        let projection = { __v: 0, is_deleted: 0 };
+        let options = { lean: true };
+        let populate = [
+            {
+                path: 'category_id',
+                select: 'name'
+            },
+            {
+                path: 'subcategory_id',
+                select: 'name'
+            },
+            {
+                path: 'sub_subcategory_id',
+                select: 'name'
+            },
+            {
+                path: 'brand_id',
+                select: 'name'
+            },
+        ];
+        let response = yield DAO.populate_data(models_1.BestOnEcom, query, projection, options, populate);
+        return response[0];
+    }
+    catch (err) {
+        throw err;
+    }
+});
+admin_best_on_ecom.delete = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let { _id } = req.params;
+        let query = { _id: _id };
+        let update = { is_deleted: true };
+        let options = { new: true };
+        let response = yield DAO.find_and_update(models_1.BestOnEcom, query, update, options);
+        if (response.is_deleted == true) {
+            let message = `Fashion Deal Deleted Successfully`;
+            return message;
+        }
+        else {
+            throw yield (0, index_1.handle_custom_error)("SOMETHING_WENT_WRONG", "ENGLISH");
+        }
+    }
+    catch (err) {
+        throw err;
+    }
+});
+class user_best_on_ecom {
+}
+exports.user_best_on_ecom = user_best_on_ecom;
+_b = user_best_on_ecom;
+user_best_on_ecom.homepageCoupon = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let current_date = (0, moment_1.default)().format("YYYY-MM-DD");
+        let query = { for_homepage: true, end_date: { $gte: current_date } };
+        let projection = { __v: 0, is_deleted: 0 };
+        let options = { lean: true };
+        let response = yield DAO.get_data(models_1.Coupons, query, projection, options);
+        if (response && response.length) {
+            return response[0];
+        }
+        else {
+            return [];
+        }
+    }
+    catch (err) {
+        throw err;
+    }
+});
+user_best_on_ecom.list = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let retrive_sections = yield _b.retrive_sections_data();
+        if (retrive_sections.length) {
+            let { best_on_ecom } = retrive_sections[0];
+            if (best_on_ecom == true) {
+                let fetch_data = yield _b.retrive_boe(req);
+                return fetch_data;
+            }
+            else {
+                return {
+                    total_count: 0,
+                    data: []
+                };
+            }
+        }
+    }
+    catch (err) {
+        throw err;
+    }
+});
+user_best_on_ecom.retrive_sections_data = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let query = {};
+        let projection = { __v: 0 };
+        let options = { lean: true };
+        let response = yield DAO.get_data(models_1.HomePageSections, query, projection, options);
+        return response;
+    }
+    catch (err) {
+        throw err;
+    }
+});
+user_best_on_ecom.retrive_boe = (req) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let { _id, pagination, limit, language } = req.query;
+        let query = { is_deleted: false, is_enable: true, language: language };
+        if (!!_id) {
+            query._id = _id;
+        }
+        let projection = { __v: 0, is_deleted: 0 };
+        let options = yield index_1.helpers.set_options(pagination, limit);
+        let populate = [
+            {
+                path: 'category_id',
+                select: 'name'
+            },
+            {
+                path: 'subcategory_id',
+                select: 'name'
+            },
+            {
+                path: 'sub_subcategory_id',
+                select: 'name'
+            },
+            {
+                path: 'brand_id',
+                select: 'name'
+            },
+        ];
+        let response = yield DAO.populate_data(models_1.BestOnEcom, query, projection, options, populate);
+        let total_count = yield DAO.count_data(models_1.BestOnEcom, query);
+        return {
+            total_count: total_count,
+            data: response
+        };
+    }
+    catch (err) {
+        throw err;
+    }
+});
