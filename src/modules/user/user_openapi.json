@@ -3360,7 +3360,12 @@
                     "enum": [
                         "ABOUT_US",
                         "PRIVACY_POLICY",
-                        "TERMS_AND_CONDITIONS"
+                        "TERMS_AND_CONDITIONS",
+                        "CARRERS",
+                        "SHIPPING",
+                        "PAYMENTS",
+                        "RETURN_POLICY",
+                        "PAYMENTS_SECURITY"
                     ]
                 },
                 "style": "form",
