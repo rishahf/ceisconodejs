@@ -224,7 +224,7 @@
                 ]
             }
         },
-        "/Admin/graph/user": {
+        "/Admin/dashboard/graph/user": {
             "get": {
                 "tags": [
                     "Admin"
@@ -252,7 +252,7 @@
                 ]
             }
         },
-        "/Admin/graph/seller": {
+        "/Admin/dashboard/graph/seller": {
             "get": {
                 "tags": [
                     "Admin"
@@ -280,7 +280,7 @@
                 ]
             }
         },
-        "/Admin/graph/product": {
+        "/Admin/dashboard/graph/product": {
             "get": {
                 "tags": [
                     "Admin"
@@ -308,7 +308,7 @@
                 ]
             }
         },
-        "/Admin/graph/sales": {
+        "/Admin/dashboard/graph/sales": {
             "get": {
                 "tags": [
                     "Admin"
