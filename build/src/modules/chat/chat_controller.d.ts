@@ -1,0 +1,17 @@
+import * as express from 'express';
+declare const check_connection: (sent_by: string, sent_to: string) => Promise<unknown>;
+declare const make_connection: (sent_by: string, sent_to: string) => Promise<unknown>;
+declare const save_message: (payload_data: any, user_data: any, connection_id: string) => Promise<unknown>;
+declare const make_msg_response: (_id: string) => Promise<unknown>;
+declare const update_last_msg: (connection_id: string, message: string, local_identifier: string, token: string) => Promise<void>;
+declare const list_users: (req: any, res: express.Response) => Promise<void>;
+declare const list_chat_users: (req: any, res: express.Response) => Promise<void>;
+declare const list_chat_details: (req: any, res: express.Response) => Promise<void>;
+declare const read_all_messages: (connection_id: string, user_id: string) => Promise<void>;
+declare const new_message_response: (connection_id: string, sent_to: string) => Promise<any>;
+declare const read_message: (message_id: string, user_id: string) => Promise<unknown>;
+declare const update_last_seen: (data: any, user_data: any) => Promise<void>;
+declare const delete_message: (data: any, user_data: any) => Promise<void>;
+declare const get_receiver_data: (receiver_id: string) => Promise<any>;
+declare const get_user_data: (token: string) => Promise<any>;
+export { get_user_data, get_receiver_data, check_connection, make_connection, save_message, make_msg_response, update_last_msg, read_all_messages, list_users, list_chat_users, list_chat_details, new_message_response, read_message, update_last_seen, delete_message };

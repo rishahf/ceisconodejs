@@ -1,0 +1,17 @@
+declare const fetch_total_count: (collection: any, query: any) => Promise<unknown>;
+declare const make_products_response: (query: any, options: any) => Promise<any>;
+declare const get_product_detail: (query: any, options: any) => Promise<unknown>;
+declare const get_deals_detail: (query: any, options: any) => Promise<unknown>;
+declare const get_hotdeals_detail: (query: any, options: any) => Promise<unknown>;
+declare const get_fashiondeals_detail: (query: any, options: any) => Promise<unknown>;
+declare const get_variants_detail: (query: any, options: any) => Promise<unknown>;
+declare const make_category_response: (query: any, options: any) => Promise<unknown>;
+declare const make_subcategory_response: (query: any, options: any) => Promise<unknown>;
+declare const make_variants_response: (query: any, options: any) => Promise<unknown>;
+declare const make_Sub_subcategories: (query: any, options: any) => Promise<unknown>;
+declare const make_brand_response: (query: any, options: any) => Promise<unknown>;
+declare const make_banners_response: (query: any, options: any) => Promise<unknown>;
+declare const make_deals_response: (query: any, options: any) => Promise<unknown>;
+declare const make_hot_deals_response: (query: any, options: any) => Promise<unknown>;
+declare const make_fashion_deals_response: (query: any, options: any) => Promise<unknown>;
+export { fetch_total_count, make_products_response, make_category_response, make_subcategory_response, make_Sub_subcategories, make_brand_response, make_banners_response, get_product_detail, get_variants_detail, make_variants_response, make_deals_response, make_hot_deals_response, make_fashion_deals_response, get_deals_detail, get_hotdeals_detail, get_fashiondeals_detail };

@@ -1619,7 +1619,7 @@ const manage_sellers = async (req: any, res: express.Response) => {
 const login_as_seller = async (req: any, res: express.Response) => {
     try {
         let { language } = req.body;
-        let { email } = req.user_data
+        let { email , image} = req.user_data
 
         // console.log('req.headers ---', req.headers)
         // console.log("req.headers.[user-agent] ---", req.headers['user-agent']);
@@ -1643,6 +1643,7 @@ const login_as_seller = async (req: any, res: express.Response) => {
 
             let generate_token: any = await admin_services.generate_seller_token(_id, req.body, device_type);
             let response = await admin_services.make_seller_response(generate_token, language);
+            response.image= image
             handle_success(res, response);
         }
         else {

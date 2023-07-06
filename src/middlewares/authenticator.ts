@@ -46,17 +46,17 @@ const authenticator = async (req: any, res: any, next: any) => {
                     // console.log("<--split_api_path-->", split_api_path)
                     // console.log("<--homepage_path-->", homepage_path)
                     let new_path: any
-                    if (homepage_path){
+                    if (homepage_path) {
                         new_path = split_api_path[1] || split_api_path[2]
                     }
-                    else{
+                    else {
                         new_path = split_api_path[2] || split_api_path[1]
                     }
                     let type = new_path.toUpperCase()
                     console.log("<--split_api_path-->", type)
                     console.log("<--All roles-->", roles)
-                    console.log('super_admin ',super_admin != true )
-                    console.log("<-->",type != "NOTIFICATIONS");
+                    console.log('super_admin ', super_admin != true)
+                    console.log("<-->", type != "NOTIFICATIONS");
                     if (super_admin != true && type != "NOTIFICATIONS") {
                         let check_roles = roles.includes(type)
                         if (check_roles != true) {
@@ -98,7 +98,7 @@ const authenticator = async (req: any, res: any, next: any) => {
                 else {
                     throw await handle_custom_error('UNAUTHORIZED', set_language)
                 }
-            } 
+            }
             else {
                 throw await handle_custom_error('UNAUTHORIZED', set_language)
             }
