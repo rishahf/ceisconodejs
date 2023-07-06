@@ -2014,6 +2014,10 @@
                         ],
                         "default": "WAERABLE_PRODUCT"
                     },
+                    "size": {
+                        "description": "Pass Product size",
+                        "type": "string"
+                    },
                     "parcel_id": {
                         "description": "Pass here parcel _id",
                         "type": "string"
@@ -2144,6 +2148,10 @@
                             "ELECTRONIC_PRODUCT"
                         ],
                         "default": "WAERABLE_PRODUCT"
+                    },
+                    "size": {
+                        "description": "Pass Product size",
+                        "type": "string"
                     },
                     "parcel_id": {
                         "description": "Pass here parcel _id",

@@ -8,7 +8,7 @@ import { handle_return, handle_catch, handle_custom_error, helpers } from "../..
 class product_add_module {
   static add_a_product = async (req: any) => {
     try {
-      let {name,description,product_type,parcel_id,brand_id,category_id,subcategory_id,sub_subcategory_id,images,product_details,quantity,price,tax_percentage,discount_percantage,services,highlights,clone_product_id,language} = req.body;
+      let {name,description,size,product_type,parcel_id,brand_id,category_id,subcategory_id,sub_subcategory_id,images,product_details,quantity,price,tax_percentage,discount_percantage,services,highlights,clone_product_id,language} = req.body;
       let { _id: seller_id } = req.user_data;
 
       let discount = 0,discount_price = 0;
@@ -25,6 +25,7 @@ class product_add_module {
         name: name,
         prodct_id: random_product_id,
         description: description,
+        size:size,
         product_type: product_type,
         added_by: seller_id,
         parcel_id: parcel_id,
@@ -164,7 +165,7 @@ class product_edit_module {
     static edit_a_product = async (req: any) => {
         try {
 
-            let { _id : product_id, name, description, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, quantity, price, discount_percantage, tax_percentage, product_details, services, highlights, sold, is_blocked, is_deleted,is_delivery_available } = req.body;
+            let { _id : product_id, name, description,size, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, quantity, price, discount_percantage, tax_percentage, product_details, services, highlights, sold, is_blocked, is_deleted,is_delivery_available } = req.body;
 
             // console.log("edit_a_product...",req.body)
             
@@ -191,6 +192,7 @@ class product_edit_module {
             if (!!name) { set_data.name = name }
             if (!!description) { set_data.description = description }
             if (!!product_type) { set_data.product_type = product_type }
+            if (!!size) { set_data.size = size }
             if (!!parcel_id) { set_data.parcel_id = parcel_id }
             if (!!brand_id) { set_data.brand_id = brand_id }
             if (!!category_id) { set_data.category_id = category_id }

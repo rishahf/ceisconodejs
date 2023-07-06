@@ -44,6 +44,7 @@ const ProductsSchema = createSchema({
     is_delivery_available     : Type.boolean({ default : false }),
     is_blocked          : Type.boolean({ default : false }),
     is_deleted          : Type.boolean({ default : false }),
+    size                : Type.string({ default : null }),
     language            : Type.string({default: "ENGLISH", enum:language}), 
     updated_at          : Type.string({ default : +new Date() }),
     created_at          : Type.string({ default : +new Date() })
