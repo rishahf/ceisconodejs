@@ -502,13 +502,6 @@ const save_staff_data = async (data: any) => {
     try {
         let { name, email, password, image, phone_number, country_code, roles } = data
    
-        //neccessery roles for staff
-        let neccessery_rolse =["CHANGE_PASSWORD"]
-        roles= [...roles, ...neccessery_rolse]
-
-        if(roles.includes("DASHBOARD")){
-            roles.push("GRAPH")
-        }
         let hassed_password = await helpers.bcrypt_password(password)
         let set_data: any = {
             name: name,

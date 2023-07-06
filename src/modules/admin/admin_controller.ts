@@ -314,12 +314,6 @@ const edit_staff_members = async (req: any, res: express.Response) => {
             set_data.phone_number = phone_number;
         }
         if (roles != undefined) {
-            if (roles.includes("DASHBOARD")) {
-                roles.push("GRAPH")
-            }
-            //neccesery roles for staff
-            let neccessery_rolse = ["CHANGE_PASSWORD"]
-            roles = [...roles, ...neccessery_rolse]
             set_data.roles = roles;
         }
 
