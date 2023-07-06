@@ -45,17 +45,19 @@ const authenticator = async (req: any, res: any, next: any) => {
                     let split_api_path = api_path.split('/').join(',').split('?').join(',').split(',')
                     // console.log("<--split_api_path-->", split_api_path)
                     // console.log("<--homepage_path-->", homepage_path)
-                    let new_path : any
-                    if (homepage_path) {
-                         new_path = split_api_path[1] || split_api_path[2]
-                    }else{
-                         new_path = split_api_path[2] || split_api_path[1]
+                    let new_path: any
+                    if (homepage_path){
+                        new_path = split_api_path[1] || split_api_path[2]
+                    }
+                    else{
+                        new_path = split_api_path[2] || split_api_path[1]
                     }
                     let type = new_path.toUpperCase()
                     console.log("<--split_api_path-->", type)
                     console.log("<--All roles-->", roles)
-                    console.log('super_admin ',super_admin)
-                    if (super_admin != true) {
+                    console.log('super_admin ',super_admin != true )
+                    console.log("<-->",type != "NOTIFICATIONS");
+                    if (super_admin != true && type != "NOTIFICATIONS") {
                         let check_roles = roles.includes(type)
                         if (check_roles != true) {
                             throw await handle_custom_error('INSUFFICIENT_PERMISSIONS', set_language)

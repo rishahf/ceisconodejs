@@ -18,7 +18,7 @@ import * as fetch_products from './fetch_products'
 const shippo = require('shippo')(process.env.SHIPPO_TOKEN);
 import { handle_success, handle_return, handle_catch, handle_custom_error, helpers } from "../../middlewares/index";
 import { data_already_exists } from "../../config/error_msgs";
-import {keyValuesList} from "../../../key-value";
+import { keyValuesList } from "../../../key-value";
 import { mainKeysList } from "../../../main-keys";
 
 
@@ -314,6 +314,9 @@ const edit_staff_members = async (req: any, res: express.Response) => {
             set_data.phone_number = phone_number;
         }
         if (roles != undefined) {
+            if (roles.includes("DASHBOARD")) {
+                roles.push("GRAPH")
+            }
             set_data.roles = roles;
         }
 
@@ -405,12 +408,12 @@ const list_users = async (req: any, res: express.Response) => {
         if (!!filter) {
             if (filter == "ACTIVE_USERS") {
                 query.account_status = "ACTIVATED",
-                query.is_blocked = false,
-                query.is_deleted = false
+                    query.is_blocked = false,
+                    query.is_deleted = false
             }
             else if (filter == "DEACTIVE_USERS") {
                 query.account_status = "DEACTIVATED",
-                query.is_blocked = false
+                    query.is_blocked = false
                 query.is_deleted = false
             }
             else if (filter == "BLOCKED_USERS") {
@@ -425,10 +428,10 @@ const list_users = async (req: any, res: express.Response) => {
                 { created_at: { $lte: set_end_date } }
             ]
         }
-        if (filter === undefined || filter===null || filter ==="") {
+        if (filter === undefined || filter === null || filter === "") {
             query.account_status = "ACTIVATED",
-            query.is_blocked = false,
-            query.is_deleted = false
+                query.is_blocked = false,
+                query.is_deleted = false
         }
         let options = await helpers.set_options(pagination, limit);
         let fetch_data: any = await admin_services.fetch_user_data(query, options);
@@ -1617,7 +1620,7 @@ const login_as_seller = async (req: any, res: express.Response) => {
     try {
         let { language } = req.body;
         let { email } = req.user_data
-        
+
         // console.log('req.headers ---', req.headers)
         // console.log("req.headers.[user-agent] ---", req.headers['user-agent']);
         let device_type: any = req.headers["user-agent"];
@@ -1633,7 +1636,7 @@ const login_as_seller = async (req: any, res: express.Response) => {
         let options = { lean: true };
         let fetch_data: any = await DAO.get_data(Models.Sellers, query, projection, options);
         let _id = fetch_data[0]._id
-        
+
         if (fetch_data.length) {
             let query_ss: any = { seller_id: _id, device_type: device_type };
             await DAO.remove_many(Models.Sessions, query_ss)

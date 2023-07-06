@@ -4009,7 +4009,7 @@
         "summary": "User List Content Api",
         "parameters": [
           {
-            "$ref": "#/components/parameters/list_content2"
+            "$ref": "#/components/parameters/list_content"
           },
           {
             "$ref": "#/components/parameters/language"
@@ -15460,7 +15460,8 @@
             "CARRERS",
             "SHIPPING",
             "PAYMENTS",
-            "RETURN_POLICY"
+            "RETURN_POLICY",
+            "PAYMENTS_SECURITY"
           ]
         },
         "style": "form",
@@ -16061,22 +16062,6 @@
         "style": "form",
         "explode": true
       },
-      "list_content2": {
-        "name": "type",
-        "in": "query",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "format": "string",
-          "enum": [
-            "ABOUT_US",
-            "PRIVACY_POLICY",
-            "TERMS_AND_CONDITIONS"
-          ]
-        },
-        "style": "form",
-        "explode": true
-      },
       "find_by_product_id": {
         "name": "product_id",
         "in": "query",
@@ -16087,7 +16072,7 @@
         "style": "form",
         "explode": true
       },
-      "list_content3": {
+      "list_content2": {
         "name": "type",
         "in": "query",
         "required": false,
@@ -16289,7 +16274,7 @@
           "default": "TOP"
         }
       },
-      "list_content4": {
+      "list_content3": {
         "name": "type",
         "in": "query",
         "required": false,
@@ -16305,7 +16290,7 @@
         "style": "form",
         "explode": true
       },
-      "list_content5": {
+      "list_content4": {
         "name": "type",
         "in": "query",
         "required": false,
