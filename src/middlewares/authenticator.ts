@@ -56,8 +56,8 @@ const authenticator = async (req: any, res: any, next: any) => {
                     console.log("<--split_api_path-->", type)
                     console.log("<--All roles-->", roles)
                     console.log('super_admin ', super_admin != true)
-                    console.log("<-->", type != "NOTIFICATIONS");
-                    if (super_admin != true && type != "NOTIFICATIONS") {
+                    console.log("<-->", type);
+                    if (super_admin != true && type != "NOTIFICATIONS" && type !="PROFILE" && type != "CHANGE_PASSWORD") {
                         let check_roles = roles.includes(type)
                         if (check_roles != true) {
                             throw await handle_custom_error('INSUFFICIENT_PERMISSIONS', set_language)
