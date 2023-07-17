@@ -470,9 +470,6 @@ exports.verify_admin_info = verify_admin_info;
 const save_staff_data = (data) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let { name, email, password, image, phone_number, country_code, roles } = data;
-        if (roles.includes("DASHBOARD")) {
-            roles.push("GRAPH");
-        }
         let hassed_password = yield index_2.helpers.bcrypt_password(password);
         let set_data = {
             name: name,

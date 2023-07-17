@@ -9,7 +9,7 @@ const reference = [
     ts_mongoose_1.Type.ref(ts_mongoose_1.Type.objectId({ default: null })).to('categories', index_1.Category),
     ts_mongoose_1.Type.ref(ts_mongoose_1.Type.objectId({ default: null })).to('subcategories', index_1.SubCategory),
     ts_mongoose_1.Type.ref(ts_mongoose_1.Type.objectId({ default: null })).to('sub_subcategories', index_1.Sub_subcategories),
-    ts_mongoose_1.Type.ref(ts_mongoose_1.Type.objectId({ default: null })).to('brands', index_1.Brands)
+    ts_mongoose_1.Type.ref(ts_mongoose_1.Type.objectId({ default: null })).to('brands', index_1.Brands),
 ];
 const language = ["ENGLISH", "ARABIC"];
 const ProductsSchema = (0, ts_mongoose_1.createSchema)({
@@ -23,6 +23,7 @@ const ProductsSchema = (0, ts_mongoose_1.createSchema)({
     subcategory_id: reference[3],
     sub_subcategory_id: reference[4],
     brand_id: reference[5],
+    parent_id: ts_mongoose_1.Type.objectId({ default: null }),
     images: ts_mongoose_1.Type.array().of(ts_mongoose_1.Type.string({ default: [] })),
     quantity: ts_mongoose_1.Type.number({ default: null }),
     tax_percentage: ts_mongoose_1.Type.number({ default: 0 }),

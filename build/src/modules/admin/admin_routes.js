@@ -35,10 +35,10 @@ router.put("/profile", authenticator_1.default, admin_controller.edit_profile);
 router.put("/change_password", authenticator_1.default, admin_controller.change_password);
 router.put("/logout", authenticator_1.default, admin_controller.logout);
 router.get("/dashboard", authenticator_1.default, admin_controller.dashboard);
-router.get("/graph/user", authenticator_1.default, admin_controller.user_graph);
-router.get("/graph/seller", authenticator_1.default, admin_controller.seller_graph);
-router.get("/graph/product", authenticator_1.default, admin_controller.product_graph);
-router.get("/graph/sales", authenticator_1.default, admin_controller.sales_graph);
+router.get("/dashboard/graph/user", authenticator_1.default, admin_controller.user_graph);
+router.get("/dashboard/graph/seller", authenticator_1.default, admin_controller.seller_graph);
+router.get("/dashboard/graph/product", authenticator_1.default, admin_controller.product_graph);
+router.get("/dashboard/graph/sales", authenticator_1.default, admin_controller.sales_graph);
 // staff_members
 router.post("/staff_members/add", authenticator_1.default, admin_controller.add_staff_members);
 router.put("/staff_members/edit", authenticator_1.default, admin_controller.edit_staff_members);

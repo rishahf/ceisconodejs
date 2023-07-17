@@ -18,6 +18,7 @@ declare const Products: import("mongoose").Model<import("mongoose").Document<any
     parcel_id: any;
     sub_subcategory_id: any;
     brand_id: any;
+    parent_id: import("mongoose").Types.ObjectId;
     images: string[];
     quantity: number;
     tax_percentage: number;

@@ -5,9 +5,9 @@ declare const ProductDetails: import("mongoose").Model<import("mongoose").Docume
     _id: import("mongoose").Types.ObjectId;
     __v: number;
     created_at: string;
+    value: string;
     updated_at: string;
     product_id: any;
-    value: string;
     unique_number: number;
 } & {
     product_id?: unknown;

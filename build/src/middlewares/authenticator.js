@@ -79,8 +79,8 @@ const authenticator = (req, res, next) => __awaiter(void 0, void 0, void 0, func
                     console.log("<--split_api_path-->", type);
                     console.log("<--All roles-->", roles);
                     console.log('super_admin ', super_admin != true);
-                    console.log("<-->", type != "NOTIFICATIONS");
-                    if (super_admin != true && type != "NOTIFICATIONS") {
+                    console.log("<-->", type);
+                    if (super_admin != true && type != "NOTIFICATIONS" && type != "PROFILE" && type != "CHANGE_PASSWORD") {
                         let check_roles = roles.includes(type);
                         if (check_roles != true) {
                             throw yield (0, index_1.handle_custom_error)('INSUFFICIENT_PERMISSIONS', set_language);

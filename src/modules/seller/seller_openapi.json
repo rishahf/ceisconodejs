@@ -1997,6 +1997,10 @@
             "add_a_product": {
                 "type": "object",
                 "properties": {
+                    "parent_id": {
+                        "description": "Pass Parent Product id Here",
+                        "type": "string"
+                    },
                     "name": {
                         "description": "Pass Product Name Here",
                         "type": "string"

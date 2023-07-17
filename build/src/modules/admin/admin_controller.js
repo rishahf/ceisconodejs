@@ -315,9 +315,6 @@ const edit_staff_members = (req, res) => __awaiter(void 0, void 0, void 0, funct
             set_data.phone_number = phone_number;
         }
         if (roles != undefined) {
-            if (roles.includes("DASHBOARD")) {
-                roles.push("GRAPH");
-            }
             set_data.roles = roles;
         }
         let options = { new: true };
@@ -1515,7 +1512,7 @@ exports.manage_sellers = manage_sellers;
 const login_as_seller = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let { language } = req.body;
-        let { email } = req.user_data;
+        let { email, image } = req.user_data;
         // console.log('req.headers ---', req.headers)
         // console.log("req.headers.[user-agent] ---", req.headers['user-agent']);
         let device_type = req.headers["user-agent"];
@@ -1536,6 +1533,7 @@ const login_as_seller = (req, res) => __awaiter(void 0, void 0, void 0, function
             yield DAO.remove_many(Models.Sessions, query_ss);
             let generate_token = yield admin_services.generate_seller_token(_id, req.body, device_type);
             let response = yield admin_services.make_seller_response(generate_token, language);
+            response.image = image;
             (0, index_1.handle_success)(res, response);
         }
         else {

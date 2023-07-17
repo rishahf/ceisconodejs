@@ -1,15 +1,16 @@
 
 import { createSchema, Type, typedModel } from 'ts-mongoose';
 import { Sellers, Parcel, Category, SubCategory, Sub_subcategories, Brands  } from "./index";
+import { any } from 'joi';
 
 const product_type = ["WAERABLE_PRODUCT", "ELECTRONIC_PRODUCT"]
 const reference = [
     Type.ref(Type.objectId({ default  : null })).to('sellers', <any>Sellers),
     Type.ref(Type.objectId({ default  : null })).to('parcels', <any>Parcel),
-    Type.ref(Type.objectId({ default: null })).to('categories', <any>Category),
+    Type.ref(Type.objectId({ default  : null })).to('categories', <any>Category),
     Type.ref(Type.objectId({ default  : null })).to('subcategories', <any>SubCategory),
     Type.ref(Type.objectId({ default  : null })).to('sub_subcategories', <any>Sub_subcategories),
-    Type.ref(Type.objectId({ default  : null })).to('brands', <any>Brands)
+    Type.ref(Type.objectId({ default  : null })).to('brands', <any>Brands),
 ]
 const language = ["ENGLISH", "ARABIC"];
 
@@ -24,6 +25,7 @@ const ProductsSchema = createSchema({
     subcategory_id      : reference[3],
     sub_subcategory_id  : reference[4],
     brand_id            : reference[5],
+    parent_id           : Type.objectId({ default : null }),
     images              : Type.array().of(Type.string({ default : [] })),
     quantity            : Type.number({ default : null }),
     tax_percentage      : Type.number({ default : 0 }),
