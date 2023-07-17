@@ -159,7 +159,13 @@ const product_details = async (req: any, res: express.Response) => {
 const list_reviews = async (req: express.Request, res: express.Response) => {
     try {
         let { _id: product_id, pagination, limit } = req.query;
-        let query: any = { product_id: product_id };
+        let product = DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true })
+        let { parent_id } = product[0]
+        let query: any ={product_id: product_id} 
+        if (!!parent_id) {
+            query.$or = [{ product_id: product_id } , {product_id :parent_id}] 
+        }
+
         let populate = [
             { path: "user_id", select: "name profile_pic" }
         ]
@@ -167,31 +173,31 @@ const list_reviews = async (req: express.Request, res: express.Response) => {
         let projection = { __v: 0 };
         let options = await helpers.set_options(pagination, limit);
         let fetch_data = await DAO.populate_data(Models.Reviews, query, projection, options, populate);
-        let fetch_product = await DAO.get_data(Models.Products,{_id:product_id}, projection, options);
+        let fetch_product = await DAO.get_data(Models.Products, { _id: product_id }, projection, options);
         let {
-          total_reviews,
-          total_ratings,
-          average_rating,
-          one_star_ratings,
-          two_star_ratings,
-          three_star_ratings,
-          four_star_ratings,
-          five_star_ratings
+            total_reviews,
+            total_ratings,
+            average_rating,
+            one_star_ratings,
+            two_star_ratings,
+            three_star_ratings,
+            four_star_ratings,
+            five_star_ratings
         } = fetch_product[0];
         // fetch total count
         let total_count = await product_services.fetch_total_count(Models.Reviews, query);
 
         let response = {
             total_count: total_count,
-            total_reviews:total_reviews,
-            total_ratings:total_ratings,
-            average_rating:average_rating,
-             one_star_ratings:one_star_ratings,
-             two_star_ratings:two_star_ratings,
-             three_star_ratings:three_star_ratings,
-             four_star_ratings:four_star_ratings,
-             five_star_ratings:five_star_ratings,
-             data: fetch_data,
+            total_reviews: total_reviews,
+            total_ratings: total_ratings,
+            average_rating: average_rating,
+            one_star_ratings: one_star_ratings,
+            two_star_ratings: two_star_ratings,
+            three_star_ratings: three_star_ratings,
+            four_star_ratings: four_star_ratings,
+            five_star_ratings: five_star_ratings,
+            data: fetch_data,
         };
 
         // return data
@@ -237,10 +243,10 @@ const list_product_faqs = async (req: express.Request, res: express.Response) =>
 
         let projection = { __v: 0 };
         let options = await helpers.set_options(pagination, limit);
-        let populate:any =  [
-            { path: "seller_id", select: "name"}
+        let populate: any = [
+            { path: "seller_id", select: "name" }
         ]
-        let fetch_data: any = await DAO.populate_data(Models.FaqsProducts, query, projection, options,populate);
+        let fetch_data: any = await DAO.populate_data(Models.FaqsProducts, query, projection, options, populate);
 
         // fetch total count
         let total_count = fetch_data.length;
@@ -343,7 +349,7 @@ const list_brands = async (req: any, res: express.Response) => {
 
         let options = await helpers.set_options(pagination, limit);
         let fetch_data = await product_services.make_brand_response(query, options);
-        options.sort = { name : 1 }
+        options.sort = { name: 1 }
         // fetch total count
         let total_count = await product_services.fetch_total_count(Models.Brands, query);
 
@@ -433,7 +439,7 @@ const listing_deals_of_the_day_products = async (
         let query: any = { _id: _id };
         let options = { lean: true };
         let projection = { __v: 0 };
-        let response:any = await product_services.get_deals_detail(query, options);
+        let response: any = await product_services.get_deals_detail(query, options);
         let subCategories_id = response[0].subcategory_id._id;
         // console.log("-------check SUB-------", subCategories_id);
         let query_data = { subcategory_id: subCategories_id };
@@ -475,7 +481,7 @@ const listing_hot_deals_products = async (req: any, res: express.Response) => {
         let query: any = { _id: _id };
         let options = { lean: true };
         let projection = { __v: 0 };
-        let response:any = await product_services.get_hotdeals_detail(query, options);
+        let response: any = await product_services.get_hotdeals_detail(query, options);
         let subCategories_id = response[0].subcategory_id._id;
         // console.log("-------check SUB-------", subCategories_id);
         let query_data = { subcategory_id: subCategories_id };
@@ -523,7 +529,7 @@ const listing_fashion_deals_products = async (
         let query: any = { _id: _id };
         let options = { lean: true };
         let projection = { __v: 0 };
-        let response:any = await product_services.get_fashiondeals_detail(
+        let response: any = await product_services.get_fashiondeals_detail(
             query,
             options
         );
@@ -589,7 +595,7 @@ const retrive_filter_products = async (req: any, res: express.Response) => {
         let user_id = token != undefined ? await product_module.fetch_token_data(token) : null;
         console.log('filters req-query ', req.query)
 
-        let query:any = [
+        let query: any = [
             await filter_products.match_data(),
             await filter_products.filter_data(req.query),
             await filter_products.lookup_brands(),
@@ -637,7 +643,7 @@ const retrive_filter_products = async (req: any, res: express.Response) => {
         let count_data: any = await DAO.aggregate_data(Models.Products, count_query, options)
         let response = {
             total_count: count_data.length,
-            max_price:retrive_highest_price_data != undefined ? Math.ceil(retrive_highest_price_data[0]?.discount_price) : 0,
+            max_price: retrive_highest_price_data != undefined ? Math.ceil(retrive_highest_price_data[0]?.discount_price) : 0,
             data: retrive_data
         }
         handle_success(res, response);
@@ -652,7 +658,7 @@ const searchDeliveryLocation = async (req: any, res: express.Response) => {
     try {
 
         let { token } = req.headers;
-        let response:any;
+        let response: any;
         let user_id = token != undefined ? await product_module.fetch_token_data(token) : null;
         response = await product_module.searchLocation(req.query)
         handle_success(res, response);
@@ -665,24 +671,24 @@ const searchDeliveryLocation = async (req: any, res: express.Response) => {
 
 
 export {
-  list_products,
-  list_related_products,
-  product_details,
-  list_reviews,
-  list_faqs,
-  list_product_faqs,
-  list_categories,
-  list_sub_categories,
-  list_sub_subcategories,
-  list_brands,
-  list_banners,
-  list_product_variants,
-  list_deals_of_the_day,
-  listing_deals_of_the_day_products,
-  list_hot_deals,
-  list_fashion_deals,
-  listing_hot_deals_products,
-  listing_fashion_deals_products,
-  retrive_filter_products,
-  searchDeliveryLocation,
+    list_products,
+    list_related_products,
+    product_details,
+    list_reviews,
+    list_faqs,
+    list_product_faqs,
+    list_categories,
+    list_sub_categories,
+    list_sub_subcategories,
+    list_brands,
+    list_banners,
+    list_product_variants,
+    list_deals_of_the_day,
+    listing_deals_of_the_day_products,
+    list_hot_deals,
+    list_fashion_deals,
+    listing_hot_deals_products,
+    listing_fashion_deals_products,
+    retrive_filter_products,
+    searchDeliveryLocation,
 };
