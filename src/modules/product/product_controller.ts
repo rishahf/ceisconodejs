@@ -161,9 +161,9 @@ const list_reviews = async (req: express.Request, res: express.Response) => {
         let { _id: product_id, pagination, limit } = req.query;
         let product = DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true })
         let { parent_id } = product[0]
-        let query: any ={product_id: product_id} 
+        let query: any = { product_id: product_id }
         if (!!parent_id) {
-            query.$or = [{ product_id: product_id } , {product_id :parent_id}] 
+            query.$or = [{ product_id: product_id }, { product_id: parent_id }]
         }
 
         let populate = [
@@ -238,8 +238,14 @@ const list_faqs = async (req: express.Request, res: express.Response) => {
 
 const list_product_faqs = async (req: express.Request, res: express.Response) => {
     try {
-        let { _id: product_id, pagination, limit } = req.query,
-            query: any = { product_id: product_id };
+        let { _id: product_id, pagination, limit } = req.query
+
+        let product = DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true })
+        let { parent_id } = product[0]
+        let query: any = { product_id: product_id }
+        if (!!parent_id) {
+            query.$or = [{ product_id: product_id }, { product_id: parent_id }]
+        }
 
         let projection = { __v: 0 };
         let options = await helpers.set_options(pagination, limit);
