@@ -66,10 +66,10 @@ class add_review_module {
                     throw await handle_custom_error("REVIEW_ALREADY_ADDED","ENGLISH")
                 }
                 else {
-                    let { added_by } = product_info[0];
+                    let { added_by, parent_id } = product_info[0];
                     let data_to_save: any = {
                       user_id: user_id,
-                      product_id: product_id,
+                    //   product_id: product_id,
                       seller_id: added_by,
                       // order_product_id:order_product_id,
                       title: title,
@@ -85,6 +85,11 @@ class add_review_module {
                     }
                     if (order_id) {
                       data_to_save.order_id = order_id;
+                    }
+                    if(!!parent_id){
+                        data_to_save.product_id= parent_id
+                    }else{
+                        data_to_save.product_id= product_id
                     }
                     let response = await DAO.save_data(Models.Reviews, data_to_save);
                     await this.update_count_in_product(product_id, ratings)
