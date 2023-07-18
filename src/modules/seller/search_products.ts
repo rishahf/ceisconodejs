@@ -708,7 +708,7 @@ const group_variants_data = async () => {
         product_name: { $first: "$products.product_name" },
         product_images: { $first: "$products.product_images" },
         product_quantity: { $first: "$products.product_quantity" },
-        product_price: { $first: "$products.price" },
+        product_price: { $first: "$products.product_price" },
         // faqs_products : { "$first": "$faqs_products" },
         // ratings : { "$first": "$reviews" }
       },
