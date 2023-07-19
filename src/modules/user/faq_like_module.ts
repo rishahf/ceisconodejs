@@ -141,8 +141,13 @@ export default class faqlike_module {
             let { token } = req.headers;
             let { product_id, pagination, limit,language } = req.query;
             let user_id = token != undefined ? await this.fetch_token_data(token) : null;
-
-            let query = { product_id: product_id, language: language };
+            let product = await DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true })
+            let { parent_id } = product[0]
+            let query: any = { product_id: product_id, language: language}
+            if (!!parent_id) {
+                query = { product_id: parent_id , language: language}
+            }
+            // let query = { product_id: product_id, language: language };
             let projection = { __v: 0 }
             let options = await helpers.set_options(pagination, limit);
 
