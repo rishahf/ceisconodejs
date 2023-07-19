@@ -57,7 +57,7 @@ class add_review_module {
             let product_info = await this.retrive_all_product_info(product_id)
             let { parent_id } = product_info[0];
             if (!!parent_id) {
-                 product_info = await this.retrive_all_product_info(parent_id)
+                product_info = await this.retrive_all_product_info(parent_id)
             }
             if (product_info.length) {
                 let { added_by } = product_info[0];
@@ -141,7 +141,7 @@ class add_review_module {
     static retrive_product_info = async (product_id: string) => {
         try {
             let query: any = { _id: product_id }
-          
+
             let projection = { __v: 0 }
             let options = { lean: true }
             let retrive_product: any = await DAO.get_data(Models.Products, query, projection, options)
@@ -154,7 +154,7 @@ class add_review_module {
 
     static retrive_all_product_info = async (product_id: string) => {
         try {
-            let query: any={}
+            let query: any = {}
             query.$or = [{ _id: product_id }, { parent_id: product_id }]
             let projection = { __v: 0 }
             let options = { lean: true }
@@ -430,7 +430,14 @@ class list_review_module {
 
             let query: any = {}
             if (!!_id) { query._id = _id }
-            if (!!product_id) { query.product_id = product_id }
+            if (!!product_id) {
+                let product = await DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true })
+                let { parent_id } = product[0]
+                query.product_id = product_id
+                if (!!parent_id) {
+                    query.product_id = parent_id
+                }
+            }
 
             let projection = { __v: 0 }
             let options = await helpers.set_options(pagination, limit)
