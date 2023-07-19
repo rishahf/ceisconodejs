@@ -292,7 +292,12 @@ export default class product_module {
 
   static retrive_product_ratings = async (product_id: string) => {
     try {
-      let query = { product_id: product_id };
+      let product = await DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true })
+      let { parent_id } = product[0]
+      let query: any = { product_id: product_id }
+      if (!!parent_id) {
+          query = { product_id: parent_id }
+      }
       let projection = { __v: 0 };
       let options = { lean: true, sort:{updated_at:-1} };
      
