@@ -8,7 +8,7 @@ export default class product_faq_module {
         try {
             let { product_id, question, answer } = req.body;
             let { _id: seller_id } = req.user_data;
-            let product_info: any = DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true })
+            let product_info: any = await DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true })
             let { parent_id } = product_info[0]
             let data_to_save: any = {
                 // product_id: product_id,
@@ -56,8 +56,14 @@ export default class product_faq_module {
             let { _id, product_id, pagination, limit } = req.query;
             let query: any = {}
             if (!!_id) { query._id = _id }
-            if (!!product_id) { query.product_id = product_id }
-
+            if (!!product_id) {
+                let product_info: any = await DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true })
+                let { parent_id } = product_info[0]
+                query.product_id = product_id
+                if (!!parent_id) {
+                    query.product_id = parent_id
+                }
+            }
             let projection = { __v: 0 }
             let options = await helpers.set_options(pagination, limit)
             let retrive_data = await DAO.get_data(Models.FaqsProducts, query, projection, options)

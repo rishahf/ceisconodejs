@@ -25,7 +25,7 @@ const ProductsSchema = createSchema({
     subcategory_id      : reference[3],
     sub_subcategory_id  : reference[4],
     brand_id            : reference[5],
-    parent_id           : Type.objectId({ default : null }),
+    parent_id           : Type.string({ default : null }),
     images              : Type.array().of(Type.string({ default : [] })),
     quantity            : Type.number({ default : null }),
     tax_percentage      : Type.number({ default : 0 }),
@@ -47,6 +47,7 @@ const ProductsSchema = createSchema({
     is_blocked          : Type.boolean({ default : false }),
     is_deleted          : Type.boolean({ default : false }),
     size                : Type.string({ default : null }),
+    colour              : Type.string({ default : null }),
     language            : Type.string({default: "ENGLISH", enum:language}), 
     updated_at          : Type.string({ default : +new Date() }),
     created_at          : Type.string({ default : +new Date() })

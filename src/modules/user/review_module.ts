@@ -5,44 +5,45 @@ import * as user_services from "./user_services";
 import * as user_helper from "./user_helper";
 import * as email_services from "./email_services";
 import { handle_success, handle_catch, handle_custom_error, helpers } from "../../middlewares/index";
-import  Mongoose from "mongoose";
-import { common_module }  from '../../middlewares/common';
+import Mongoose from "mongoose";
+import { common_module } from '../../middlewares/common';
 import { send_notification_to_all } from "../../middlewares/index";
+import { any } from "joi";
 
 class add_review_module {
 
-    static can_add_review = async(req: any) => {
+    static can_add_review = async (req: any) => {
         try {
-            
+
             let { product_id } = req.query, { _id: user_id } = req.user_data;
             let query = {
-              product_id: Mongoose.Types.ObjectId(product_id),
-              user_id: Mongoose.Types.ObjectId(user_id),
-              order_status: "DELIVERED",
+                product_id: Mongoose.Types.ObjectId(product_id),
+                user_id: Mongoose.Types.ObjectId(user_id),
+                order_status: "DELIVERED",
             };
             console.log('query can add review ', query);
-            
+
             let projection = { __v: 0 }
             let options = { lean: true }
             let response: any = await DAO.get_data(Models.OrderProducts, query, projection, options)
             console.log('can add ', response);
-            
-            if(response.length) {
-                let retrive_data : any = await this.check_review_added(product_id, user_id)
+
+            if (response.length) {
+                let retrive_data: any = await this.check_review_added(product_id, user_id)
                 let can_review = retrive_data.length > 0 ? false : true
                 return {
-                    can_review : can_review
+                    can_review: can_review
                 }
             }
             else {
                 let can_review = false
                 return {
-                    can_review : can_review
+                    can_review: can_review
                 }
             }
 
         }
-        catch(err) {
+        catch (err) {
             throw err;
         }
     }
@@ -51,72 +52,82 @@ class add_review_module {
     static add_review = async (req: any) => {
         try {
 
-            let { product_id, title, description, ratings, images, order_product_id,order_id,language } = req.body;
+            let { product_id, title, description, ratings, images, order_product_id, order_id, language } = req.body;
             let { _id: user_id } = req.user_data;
-            let product_info = await this.retrive_product_info(product_id)
-            if(product_info.length) {
-                let purchased_product:any = await this.check_product_purchased(product_id, user_id)
-                if(purchased_product == null && undefined){
+            let product_info = await this.retrive_all_product_info(product_id)
+            let { parent_id } = product_info[0];
+            if (!!parent_id) {
+                 product_info = await this.retrive_all_product_info(parent_id)
+            }
+            if (product_info.length) {
+                let { added_by } = product_info[0];
+                let purchased_product: any
+                for (let value of product_info) {
+                    let { _id: updated_product_id } = value
+                    purchased_product = await this.check_product_purchased(updated_product_id, user_id)
+                    let retrive_data: any = await this.check_review_added(updated_product_id, user_id)
+                    if (retrive_data.length) {
+                        throw await handle_custom_error("REVIEW_ALREADY_ADDED", "ENGLISH")
+                    }
+                }
+                if (purchased_product == null && undefined) {
                     console.log("is purchased_product ", purchased_product);
                     throw 'You cannot add review'
                     // throw await handle_custom_error("YOU_CANNOT_ADD_REVIEW","ENGLISH")
                 }
-                let retrive_data : any = await this.check_review_added(product_id, user_id)
-                if(retrive_data.length) {
-                    throw await handle_custom_error("REVIEW_ALREADY_ADDED","ENGLISH")
-                }
-                else {
-                    let { added_by, parent_id } = product_info[0];
-                    let data_to_save: any = {
-                      user_id: user_id,
+
+                let data_to_save: any = {
+                    user_id: user_id,
                     //   product_id: product_id,
-                      seller_id: added_by,
-                      // order_product_id:order_product_id,
-                      title: title,
-                      description: description,
-                      ratings: ratings,
-                      images: images,
-                      language: language,
-                      updated_at: +new Date(),
-                      created_at: +new Date(),
-                    };
-                    if(order_product_id){
-                        data_to_save.order_product_id = order_product_id
-                    }
-                    if (order_id) {
-                      data_to_save.order_id = order_id;
-                    }
-                    if(!!parent_id){
-                        data_to_save.product_id= parent_id
-                    }else{
-                        data_to_save.product_id= product_id
-                    }
-                    let response = await DAO.save_data(Models.Reviews, data_to_save);
-                    await this.update_count_in_product(product_id, ratings)
-
-                    let projection = { __v:0 }
-                    let options = { lean: true }
-                    //email to seller 
-                    let seller_detail = await DAO.get_data(Models.Sellers,{_id:added_by},projection,options)
-
-                    //notification to seller
-                    let seller_fcm_ids:any = await common_module.seller_fcms(added_by)
-                    if (seller_fcm_ids && seller_fcm_ids.length) {
-                        let notification_to_seller: any = {
-                          type: "NEW_REVIEW",
-                          title: "New Review",
-                          message: "A new Review has been added on product.",
-                          seller_id: added_by,
-                        //   orderProduct_id: _id,
-                          product_id:product_id,
-                          created_at:+new Date(),
-                        };
-                        await DAO.save_data(Models.Notifications,notification_to_seller)
-                        await send_notification_to_all(notification_to_seller,seller_fcm_ids);
-                    }
-
-                    return response
+                    seller_id: added_by,
+                    // order_product_id:order_product_id,
+                    title: title,
+                    description: description,
+                    ratings: ratings,
+                    images: images,
+                    language: language,
+                    updated_at: +new Date(),
+                    created_at: +new Date(),
+                };
+                if (order_product_id) {
+                    data_to_save.order_product_id = order_product_id
                 }
+                if (order_id) {
+                    data_to_save.order_id = order_id;
+                }
+                if (!!parent_id) {
+                    data_to_save.product_id = parent_id
+                } else {
+                    data_to_save.product_id = product_id
+                }
+                let response = await DAO.save_data(Models.Reviews, data_to_save);
+                for (let value of product_info) {
+                    let { _id: updated_product_id } = value
+                    await this.update_count_in_product(updated_product_id, ratings)
+                }
+
+                let projection = { __v: 0 }
+                let options = { lean: true }
+                //email to seller 
+                let seller_detail = await DAO.get_data(Models.Sellers, { _id: added_by }, projection, options)
+
+                //notification to seller
+                let seller_fcm_ids: any = await common_module.seller_fcms(added_by)
+                if (seller_fcm_ids && seller_fcm_ids.length) {
+                    let notification_to_seller: any = {
+                        type: "NEW_REVIEW",
+                        title: "New Review",
+                        message: "A new Review has been added on product.",
+                        seller_id: added_by,
+                        //   orderProduct_id: _id,
+                        product_id: product_id,
+                        created_at: +new Date(),
+                    };
+                    await DAO.save_data(Models.Notifications, notification_to_seller)
+                    await send_notification_to_all(notification_to_seller, seller_fcm_ids);
+                }
+
+                return response
             }
             else {
                 throw await handle_custom_error("INVALID_OBJECT_ID", "ENGLSIH")
@@ -129,7 +140,8 @@ class add_review_module {
 
     static retrive_product_info = async (product_id: string) => {
         try {
-            let query = { _id: product_id }
+            let query: any = { _id: product_id }
+          
             let projection = { __v: 0 }
             let options = { lean: true }
             let retrive_product: any = await DAO.get_data(Models.Products, query, projection, options)
@@ -140,12 +152,26 @@ class add_review_module {
         }
     }
 
-    static check_review_added = async (product_id: string, user_id : string) => {
+    static retrive_all_product_info = async (product_id: string) => {
+        try {
+            let query: any={}
+            query.$or = [{ _id: product_id }, { parent_id: product_id }]
+            let projection = { __v: 0 }
+            let options = { lean: true }
+            let retrive_product: any = await DAO.get_data(Models.Products, query, projection, options)
+            return retrive_product
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
+    static check_review_added = async (product_id: string, user_id: string) => {
         try {
             let query = { user_id: user_id, product_id: product_id };
             let projection = { __v: 0 }
             let options = { lean: true }
-            let retrive_product: any = await DAO.get_data(Models.Products, query, projection, options)
+            let retrive_product: any = await DAO.get_data(Models.Reviews, query, projection, options)
             return retrive_product
         }
         catch (err) {
@@ -153,9 +179,9 @@ class add_review_module {
         }
     }
 
-    static check_product_purchased = async (product_id: string, user_id : string) => {
+    static check_product_purchased = async (product_id: string, user_id: string) => {
         try {
-            let query = { user_id: user_id, product_id : product_id, order_status:'DELIVERED' }
+            let query = { user_id: user_id, product_id: product_id, order_status: 'DELIVERED' }
             let projection = { __v: 0 }
             let options = { lean: true }
             let retrive_product: any = await DAO.get_data(Models.OrderProducts, query, projection, options)
@@ -235,7 +261,7 @@ class edit_review_module {
                 let { ratings: old_ratings } = retrive_ratings[0]
 
                 let query = { _id: _id, user_id: user_id }
-                let update: any = { updated_at: +new Date()}
+                let update: any = { updated_at: +new Date() }
                 if (!!title) { update.title = title }
                 if (!!description) { update.description = description }
                 if (!!ratings) { update.ratings = ratings }
@@ -463,9 +489,9 @@ class list_review_module {
             let { _id } = req.params;
             let { _id: user_id } = req.user_data;
 
-            let query: any = { _id : _id, user_id: user_id }
+            let query: any = { _id: _id, user_id: user_id }
             let projection = { __v: 0 }
-            let options = { lean : true }
+            let options = { lean: true }
             let populate = [
                 {
                     path: 'product_id',
@@ -473,7 +499,7 @@ class list_review_module {
                 }
             ]
             let reviews: any = await DAO.populate_data(Models.Reviews, query, projection, options, populate)
-            if(reviews.length) {
+            if (reviews.length) {
                 return reviews[0]
             }
             else {

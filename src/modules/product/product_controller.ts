@@ -12,7 +12,7 @@ import {
     handle_custom_error,
     helpers,
 } from "../../middlewares/index";
-
+import { Types } from 'mongoose'
 
 const list_products = async (req: any, res: express.Response) => {
     try {
@@ -159,14 +159,13 @@ const product_details = async (req: any, res: express.Response) => {
 const list_reviews = async (req: express.Request, res: express.Response) => {
     try {
         let { _id: product_id, pagination, limit } = req.query;
-        let product = DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true })
+        let product = await DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true })
         let { parent_id } = product[0]
         let query: any = { product_id: product_id }
         if (!!parent_id) {
-            query.$or = [{ product_id: product_id }, { product_id: parent_id }]
+            query = { product_id: parent_id }
         }
-
-        let populate = [
+       let populate = [
             { path: "user_id", select: "name profile_pic" }
         ]
 
@@ -240,11 +239,11 @@ const list_product_faqs = async (req: express.Request, res: express.Response) =>
     try {
         let { _id: product_id, pagination, limit } = req.query
 
-        let product = DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true })
+        let product = await DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true })
         let { parent_id } = product[0]
         let query: any = { product_id: product_id }
         if (!!parent_id) {
-            query.$or = [{ product_id: product_id }, { product_id: parent_id }]
+            query = { product_id: parent_id }
         }
 
         let projection = { __v: 0 };
