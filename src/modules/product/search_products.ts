@@ -247,6 +247,51 @@ const unwind_seller = async () => {
     }
 }
 
+const lookup_size = async () => {
+    try {
+        return {
+            $lookup: {
+                from: "sizes",
+                let: { size_id: "$size_id" },
+                pipeline: [
+                    {
+                        $match: {
+                            $expr: {
+                                $eq: ["$_id", "$$size_id"],
+                            },
+                        },
+                    },
+                    {
+                        $project: {
+                            category_id:1,
+                            size: 1
+                        }
+                    }
+                ],
+                as: "size_id"
+            }
+        };
+    }
+    catch (err) {
+        throw err;
+    }
+  }
+  
+  const unwind_size = async () => {
+    try {
+        return {
+            $unwind: {
+                path: "$size_id",
+                preserveNullAndEmptyArrays: true
+            }
+        };
+    }
+    catch (err) {
+        throw err;
+    }
+  }
+  
+
 const filter_data = async (payload_data: any) => {
     try {
         let { search, min_price, max_price } = payload_data
@@ -336,7 +381,7 @@ const group_data = async () => {
                 quantity: { "$first": "$quantity" },
                 price: { "$first": "$price" },
                 colour: { $first: "$colour" },
-                size: { $first: "$size" },
+                size_id: { $first: "$size_id" },
                 parent_id: { $first: "$parent_id" },
                 discount_percantage: { "$first": "$discount_percantage" },
                 discount: { "$first": "$discount" },
@@ -424,6 +469,8 @@ export {
     unwind_sub_subcategories,
     lookup_seller,
     unwind_seller,
+    lookup_size,
+    unwind_size,
     filter_data,
     group_data,
     sort_data,

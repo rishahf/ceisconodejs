@@ -41,6 +41,10 @@ export default class product_module {
           path: "brand_id",
           select: "name",
         },
+        {
+          path: "size_id",
+          select: "size",
+        },
       ];
       let retrive_data: any = await DAO.populate_data(Models.Products,query,projection,options,populate);
       if (retrive_data.length) {

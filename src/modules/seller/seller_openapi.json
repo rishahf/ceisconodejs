@@ -2140,6 +2140,10 @@
                         "description": "Pass Product Name Here",
                         "type": "string"
                     },
+                    "colour": {
+                        "description": "Pass colour Here",
+                        "type": "string"
+                    },
                     "name": {
                         "description": "Pass Product Name Here",
                         "type": "string"
@@ -2157,8 +2161,8 @@
                         ],
                         "default": "WAERABLE_PRODUCT"
                     },
-                    "size": {
-                        "description": "Pass Product size",
+                    "size_id": {
+                        "description": "Pass Product size id here",
                         "type": "string"
                     },
                     "parcel_id": {

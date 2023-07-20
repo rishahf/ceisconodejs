@@ -334,7 +334,6 @@ class product_list_module {
 
   static list = async (req: any) => {
     try {
-
       let { _id: seller_id } = req.user_data;
       let query = [
         await search_products.match_data(seller_id),
@@ -348,6 +347,8 @@ class product_list_module {
         await search_products.unwind_sub_subcategories(),
         await search_products.lookup_seller(),
         await search_products.unwind_seller(),
+        await search_products.lookup_size(),
+        await search_products.unwind_size(),
         await search_products.filter_data(req.query),
         await search_products.group_data(),
         await search_products.sort_data1(req.query),
