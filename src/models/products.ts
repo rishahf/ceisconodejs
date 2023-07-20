@@ -1,6 +1,6 @@
 
 import { createSchema, Type, typedModel } from 'ts-mongoose';
-import { Sellers, Parcel, Category, SubCategory, Sub_subcategories, Brands  } from "./index";
+import { Sellers, Parcel, Category, SubCategory, Sub_subcategories, Brands ,Size } from "./index";
 import { any } from 'joi';
 
 const product_type = ["WAERABLE_PRODUCT", "ELECTRONIC_PRODUCT"]
@@ -11,6 +11,7 @@ const reference = [
     Type.ref(Type.objectId({ default  : null })).to('subcategories', <any>SubCategory),
     Type.ref(Type.objectId({ default  : null })).to('sub_subcategories', <any>Sub_subcategories),
     Type.ref(Type.objectId({ default  : null })).to('brands', <any>Brands),
+    Type.ref(Type.objectId({ default  : null })).to('sizes', <any>Size),
 ]
 const language = ["ENGLISH", "ARABIC"];
 
@@ -25,6 +26,7 @@ const ProductsSchema = createSchema({
     subcategory_id      : reference[3],
     sub_subcategory_id  : reference[4],
     brand_id            : reference[5],
+    size_id             : reference[6],
     parent_id           : Type.string({ default : null }),
     images              : Type.array().of(Type.string({ default : [] })),
     quantity            : Type.number({ default : null }),
@@ -46,7 +48,6 @@ const ProductsSchema = createSchema({
     is_delivery_available     : Type.boolean({ default : false }),
     is_blocked          : Type.boolean({ default : false }),
     is_deleted          : Type.boolean({ default : false }),
-    size                : Type.string({ default : null }),
     colour              : Type.string({ default : null }),
     language            : Type.string({default: "ENGLISH", enum:language}), 
     updated_at          : Type.string({ default : +new Date() }),

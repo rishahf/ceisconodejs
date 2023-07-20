@@ -2207,6 +2207,87 @@ const getAllKeys = async (req: any, res: express.Response) => {
     }
 };
 
+
+const add_product_size = async (req: any, res: express.Response) => {
+    try {
+        let { category_id, size } = req.body
+        let data: any = {
+            category_id: category_id,
+            size: size
+        }
+        let response: any = await DAO.save_data(Models.Size, data)
+        handle_return(res, response);
+    } catch (err) {
+        handle_catch(res, err);
+    }
+};
+
+const get_product_size = async (req: any, res: express.Response) => {
+    try {
+        let { category_id, size_id } = req.query
+        let query: any = {}
+        if (!!size_id) {
+            query._id = size_id
+        }
+        if (!!category_id) {
+            query = { category_id: category_id }
+        }
+        let options: any = {
+            lean: true,
+            sort: { _id: -1 }
+        }
+        let response: any = await DAO.get_data(Models.Size, query, {}, options)
+        handle_return(res, response);
+    } catch (err) {
+        handle_catch(res, err);
+    }
+};
+
+const get_single_product_size = async (req: any, res: express.Response) => {
+    try {
+        let { _id } = req.params
+        let query: any = {
+            _id: _id
+        }
+        let response: any = await DAO.get_single_data(Models.Size, query, {}, { lean: true })
+        handle_return(res, response);
+    } catch (err) {
+        handle_catch(res, err);
+    }
+};
+
+const delete_product_size = async (req: any, res: express.Response) => {
+    try {
+        let { _id } = req.params
+        let query: any = {
+            _id: _id
+        }
+        let response: any = await DAO.remove_data(Models.Size, query)
+        handle_return(res, response);
+    } catch (err) {
+        handle_catch(res, err);
+    }
+};
+
+const edit_product_size = async (req: any, res: express.Response) => {
+    try {
+        let { _id, category_id, size } = req.body
+        let query: any = {
+            _id: _id
+        }
+        let update_data: any = {
+            size: size
+        }
+        if (!!category_id) {
+            update_data.category_id = category_id
+        }
+        let response: any = await DAO.find_and_update(Models.Size, query, update_data, { new: true })
+        handle_return(res, response);
+    } catch (err) {
+        handle_catch(res, err);
+    }
+};
+
 // const add_keys = async (req: any, res: express.Response) => {
 //     try {
 //         let collection = Models.KeyValues;
@@ -2330,4 +2411,9 @@ export {
     keyValues,
     getAllKeys,
     editKeyValue,
+    add_product_size,
+    get_product_size,
+    delete_product_size,
+    edit_product_size,
+    get_single_product_size
 };

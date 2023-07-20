@@ -2924,6 +2924,113 @@
                     }
                 ]
             }
+        },
+        "/Admin/size": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Add size Api",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_size"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin edit size Api",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_size"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin List Keys Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/size_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/category_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/Admin/size/{_id}": {
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin delete size Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -3034,6 +3141,44 @@
                         "format": "string"
                     }
                 }
+            },
+            "add_size": {
+                "type": "object",
+                "properties": {
+                    "category_id": {
+                        "description": "Add main key id here",
+                        "type": "string"
+                    },
+                    "size": {
+                        "description": "Add key name",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "category_id",
+                    "size"
+                ]
+            },
+            "edit_size": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "description": "Add main key id here",
+                        "type": "string"
+                    },
+                    "category_id": {
+                        "description": "Add Category id here",
+                        "type": "string"
+                    },
+                    "size": {
+                        "description": "Add key name",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "_id",
+                    "size"
+                ]
             },
             "seller_signup": {
                 "type": "object",
@@ -4777,6 +4922,16 @@
             },
             "seller_id": {
                 "name": "seller_id",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "form",
+                "explode": true
+            },
+            "size_id": {
+                "name": "size_id",
                 "in": "query",
                 "required": false,
                 "schema": {

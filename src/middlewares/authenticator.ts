@@ -53,10 +53,6 @@ const authenticator = async (req: any, res: any, next: any) => {
                         new_path = split_api_path[2] || split_api_path[1]
                     }
                     let type = new_path.toUpperCase()
-                    console.log("<--split_api_path-->", type)
-                    console.log("<--All roles-->", roles)
-                    console.log('super_admin ', super_admin != true)
-                    console.log("<-->", type);
                     if (super_admin != true && type != "NOTIFICATIONS" && type !="PROFILE" && type != "CHANGE_PASSWORD") {
                         let check_roles = roles.includes(type)
                         if (check_roles != true) {

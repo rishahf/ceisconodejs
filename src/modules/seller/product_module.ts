@@ -8,7 +8,7 @@ import { handle_return, handle_catch, handle_custom_error, helpers } from "../..
 class product_add_module {
   static add_a_product = async (req: any) => {
     try {
-      let { parent_id, name, description, size, colour, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, product_details, quantity, price, tax_percentage, discount_percantage, services, highlights, clone_product_id, language } = req.body;
+      let { parent_id, name, description, size_id, colour, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, product_details, quantity, price, tax_percentage, discount_percantage, services, highlights, clone_product_id, language } = req.body;
       let { _id: seller_id } = req.user_data;
 
       let discount = 0, discount_price = 0;
@@ -25,7 +25,7 @@ class product_add_module {
         name: name,
         prodct_id: random_product_id,
         description: description,
-        size: size,
+        size_id: size_id,
         colour:colour,
         product_type: product_type,
         added_by: seller_id,

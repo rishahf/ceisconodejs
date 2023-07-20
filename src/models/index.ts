@@ -60,6 +60,7 @@ import FaqLikes from './faq_likes';
 import AdminFees from './admin_fees'
 import Delivery_Locations from './delivery_locations';
 import Deals_Timer from "./deals_timer";
+import Size from "./product_size";
 
 import MainKeys from "./main_keys";
 import KeyValues from "./key_value";
@@ -120,6 +121,7 @@ export {
   Delivery_Locations,
   OrderInvoices,
   Deals_Timer,
+  Size,
   MainKeys,
   KeyValues
 };

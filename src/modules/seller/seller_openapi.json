@@ -1997,6 +1997,10 @@
             "add_a_product": {
                 "type": "object",
                 "properties": {
+                    "colour": {
+                        "description": "Pass colour Here",
+                        "type": "string"
+                    },
                     "parent_id": {
                         "description": "Pass Parent Product id Here",
                         "type": "string"
@@ -2018,8 +2022,8 @@
                         ],
                         "default": "WAERABLE_PRODUCT"
                     },
-                    "size": {
-                        "description": "Pass Product size",
+                    "size_id": {
+                        "description": "Pass size id here",
                         "type": "string"
                     },
                     "parcel_id": {
