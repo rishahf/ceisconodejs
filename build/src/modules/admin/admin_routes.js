@@ -109,11 +109,11 @@ router.get("/main-keys", authenticator_1.default, admin_controller.getMainKeys);
 router.post("/key-values", authenticator_1.default, admin_controller.keyValues);
 router.patch("/key-values/:_id", authenticator_1.default, admin_controller.editKeyValue);
 router.get("/main-keys/:_id", authenticator_1.default, admin_controller.getAllKeys);
-router.post("/size", authenticator_1.default, admin_controller.add_product_size);
-router.put("/size", authenticator_1.default, admin_controller.edit_product_size);
-router.get("/size", admin_controller.get_product_size);
-router.get("/size/:_id", admin_controller.get_single_product_size);
-router.delete("/size/:_id", authenticator_1.default, admin_controller.delete_product_size);
+// router.post("/size", authenticator, admin_controller.add_product_size)
+// router.put("/size", authenticator, admin_controller.edit_product_size)
+// router.get("/size", admin_controller.get_product_size)
+// router.get("/size/:_id", admin_controller.get_single_product_size)
+// router.delete("/size/:_id", authenticator, admin_controller.delete_product_size)
 // router.post("/addmainkeys", admin_controller.add_main_keys)
 // router.post("/addkeys", admin_controller.add_keys)
 // router.get("/keys",authenticator, admin_controller.getAllKeys)

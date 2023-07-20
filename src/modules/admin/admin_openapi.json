@@ -4161,6 +4161,16 @@
                         "type": "string",
                         "format": "string"
                     },
+                    "size_type":{
+                        "description": "select product size type",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "NUMBER",
+                            "STRING"
+                        ],
+                        "default": null
+                    },
                     "language": {
                         "description": "valid languages are ENGLISH & ARABIC",
                         "type": "string",
@@ -4195,6 +4205,16 @@
                     "is_deleted": {
                         "type": "boolean",
                         "default": false
+                    },
+                    "size_type":{
+                        "description": "select product size type",
+                        "type": "string",
+                        "format": "string",
+                        "enum": [
+                            "NUMBER",
+                            "STRING"
+                        ],
+                        "default": null
                     },
                     "language": {
                         "description": "valid languages are ENGLISH & ARABIC",

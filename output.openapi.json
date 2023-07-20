@@ -11002,6 +11002,16 @@
             "type": "string",
             "format": "string"
           },
+          "size_type": {
+            "description": "select product size type",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "NUMBER",
+              "STRING"
+            ],
+            "default": null
+          },
           "language": {
             "description": "valid languages are ENGLISH & ARABIC",
             "type": "string",
@@ -11036,6 +11046,16 @@
           "is_deleted": {
             "type": "boolean",
             "default": false
+          },
+          "size_type": {
+            "description": "select product size type",
+            "type": "string",
+            "format": "string",
+            "enum": [
+              "NUMBER",
+              "STRING"
+            ],
+            "default": null
           },
           "language": {
             "description": "valid languages are ENGLISH & ARABIC",
@@ -12815,8 +12835,8 @@
             ],
             "default": "WAERABLE_PRODUCT"
           },
-          "size_id": {
-            "description": "Pass size id here",
+          "size": {
+            "description": "Pass size here",
             "type": "string"
           },
           "parcel_id": {
@@ -12933,6 +12953,10 @@
             "description": "Pass Product Name Here",
             "type": "string"
           },
+          "colour": {
+            "description": "Pass colour Here",
+            "type": "string"
+          },
           "name": {
             "description": "Pass Product Name Here",
             "type": "string"
@@ -12951,7 +12975,7 @@
             "default": "WAERABLE_PRODUCT"
           },
           "size": {
-            "description": "Pass Product size",
+            "description": "Pass Product size here",
             "type": "string"
           },
           "parcel_id": {

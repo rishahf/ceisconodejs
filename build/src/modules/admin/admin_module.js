@@ -177,7 +177,7 @@ exports.sub_category = sub_category;
 _b = sub_category;
 sub_category.add = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { category_id, name, language } = req.body;
+        let { category_id, name, size_type, language } = req.body;
         let query = { $and: [{ name: name }, { category_id: category_id }] };
         let fetch_data = yield DAO.get_data(Models.SubCategory, query, { __v: 0 }, { lean: true });
         if (fetch_data && fetch_data.length) {
@@ -188,6 +188,7 @@ sub_category.add = (req) => __awaiter(void 0, void 0, void 0, function* () {
             let data_to_save = {
                 category_id: category_id,
                 name: name,
+                size_type: size_type,
                 language: language,
                 updated_at: +new Date(),
                 created_at: +new Date(),
@@ -202,7 +203,7 @@ sub_category.add = (req) => __awaiter(void 0, void 0, void 0, function* () {
 });
 sub_category.edit = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { _id, name, category_id, is_deleted, language } = req.body;
+        let { _id, name, category_id, size_type, is_deleted, language } = req.body;
         console.log('req-body ------ ', req.body);
         let options = { new: true };
         let query = { _id: _id };
@@ -212,6 +213,9 @@ sub_category.edit = (req) => __awaiter(void 0, void 0, void 0, function* () {
         }
         if (!!category_id) {
             update.category_id = category_id;
+        }
+        if (!!size_type) {
+            update.size_type = size_type;
         }
         if (typeof is_deleted !== undefined && is_deleted !== null && is_deleted !== undefined) {
             update.is_deleted = is_deleted;

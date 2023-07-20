@@ -9,6 +9,7 @@ declare const SubCategory: import("mongoose").Model<import("mongoose").Document<
     language: string;
     updated_at: string;
     category_id: any;
+    size_type: string;
 } & {
     category_id?: unknown;
 }> & {
