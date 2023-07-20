@@ -2997,17 +2997,26 @@
                     "default": {
                         "description": "successful operation"
                     }
-                },
-                "security": [
-                    {
-                        "access_token": [
-                            "access_token"
-                        ]
-                    }
-                ]
+                }
             }
         },
         "/Admin/size/{_id}": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin delete size Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/delete_by_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            },
             "delete": {
                 "tags": [
                     "Admin"
