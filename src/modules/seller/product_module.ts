@@ -167,7 +167,7 @@ class product_edit_module {
   static edit_a_product = async (req: any) => {
     try {
 
-      let { _id: product_id, name, description, size, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, quantity, price, discount_percantage, tax_percentage, product_details, services, highlights, sold, is_blocked, is_deleted, is_delivery_available } = req.body;
+      let { _id: product_id, name, colour,description, size, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, quantity, price, discount_percantage, tax_percentage, product_details, services, highlights, sold, is_blocked, is_deleted, is_delivery_available } = req.body;
 
       // console.log("edit_a_product...",req.body)
 
@@ -201,6 +201,7 @@ class product_edit_module {
       if (!!subcategory_id) { set_data.subcategory_id = subcategory_id }
       if (!!sub_subcategory_id) { set_data.sub_subcategory_id = sub_subcategory_id }
       if (!!images) { set_data.images = images }
+      if (!!colour) { set_data.colour = colour }
       if (!!quantity) {
         set_data.quantity = quantity
         set_data.sold = quantity > 0 ? false : true
