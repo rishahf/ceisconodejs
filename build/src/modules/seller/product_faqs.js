@@ -40,14 +40,22 @@ product_faq_module.add = (req) => __awaiter(void 0, void 0, void 0, function* ()
     try {
         let { product_id, question, answer } = req.body;
         let { _id: seller_id } = req.user_data;
+        let product_info = yield DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true });
+        let { parent_id } = product_info[0];
         let data_to_save = {
-            product_id: product_id,
+            // product_id: product_id,
             seller_id: seller_id,
             question: question,
             answer: answer,
             updated_at: +new Date(),
             created_at: +new Date()
         };
+        if (!!parent_id) {
+            data_to_save.product_id = parent_id;
+        }
+        else {
+            data_to_save.product_id = product_id;
+        }
         let response = yield DAO.save_data(Models.FaqsProducts, data_to_save);
         return response;
     }
@@ -82,7 +90,12 @@ product_faq_module.faq_list = (req) => __awaiter(void 0, void 0, void 0, functio
             query._id = _id;
         }
         if (!!product_id) {
+            let product_info = yield DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true });
+            let { parent_id } = product_info[0];
             query.product_id = product_id;
+            if (!!parent_id) {
+                query.product_id = parent_id;
+            }
         }
         let projection = { __v: 0 };
         let options = yield index_1.helpers.set_options(pagination, limit);

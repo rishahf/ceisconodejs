@@ -2022,8 +2022,8 @@
                         ],
                         "default": "WAERABLE_PRODUCT"
                     },
-                    "size_id": {
-                        "description": "Pass size id here",
+                    "size": {
+                        "description": "Pass size here",
                         "type": "string"
                     },
                     "parcel_id": {
@@ -2161,8 +2161,8 @@
                         ],
                         "default": "WAERABLE_PRODUCT"
                     },
-                    "size_id": {
-                        "description": "Pass Product size id here",
+                    "size": {
+                        "description": "Pass Product size here",
                         "type": "string"
                     },
                     "parcel_id": {

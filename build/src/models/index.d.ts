@@ -53,6 +53,7 @@ import FaqLikes from './faq_likes';
 import AdminFees from './admin_fees';
 import Delivery_Locations from './delivery_locations';
 import Deals_Timer from "./deals_timer";
+import Size from "./product_size";
 import MainKeys from "./main_keys";
 import KeyValues from "./key_value";
-export { Admin, Users, Sessions, Products, ResMessages, Content, Faqs, FaqsProducts, ContactUs, Templates, Variables, Notifications, Messages, Connections, BackupLogs, Orders, OrderProducts, Address, ProductDetails, ProductServices, ProductHighlights, DeliverableLocations, PinCodes, Cards, Reviews, Category, SubCategory, Brands, Discount, Sub_subcategories, Sellers, Hot_deals, Product_Variations, Wishlist, Cart, Coupons, Used_Coupons, LanguageKeys, Shipping, Parcel, HomePageSections, Banners, Deals_of_the_day, TopDeals, FashionDeals, StyleFor, StyleForCategories, FeaturedCategories, ShopWithUs, BestOnEcom, FaqLikes, AdminFees, Delivery_Locations, OrderInvoices, Deals_Timer, MainKeys, KeyValues };
+export { Admin, Users, Sessions, Products, ResMessages, Content, Faqs, FaqsProducts, ContactUs, Templates, Variables, Notifications, Messages, Connections, BackupLogs, Orders, OrderProducts, Address, ProductDetails, ProductServices, ProductHighlights, DeliverableLocations, PinCodes, Cards, Reviews, Category, SubCategory, Brands, Discount, Sub_subcategories, Sellers, Hot_deals, Product_Variations, Wishlist, Cart, Coupons, Used_Coupons, LanguageKeys, Shipping, Parcel, HomePageSections, Banners, Deals_of_the_day, TopDeals, FashionDeals, StyleFor, StyleForCategories, FeaturedCategories, ShopWithUs, BestOnEcom, FaqLikes, AdminFees, Delivery_Locations, OrderInvoices, Deals_Timer, Size, MainKeys, KeyValues };

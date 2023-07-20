@@ -4,6 +4,7 @@ declare class add_review_module {
     }>;
     static add_review: (req: any) => Promise<unknown>;
     static retrive_product_info: (product_id: string) => Promise<any>;
+    static retrive_all_product_info: (product_id: string) => Promise<any>;
     static check_review_added: (product_id: string, user_id: string) => Promise<any>;
     static check_product_purchased: (product_id: string, user_id: string) => Promise<any>;
     static update_count_in_product: (product_id: string, ratings: number) => Promise<void>;

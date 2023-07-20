@@ -23,7 +23,8 @@ const ProductsSchema = (0, ts_mongoose_1.createSchema)({
     subcategory_id: reference[3],
     sub_subcategory_id: reference[4],
     brand_id: reference[5],
-    parent_id: ts_mongoose_1.Type.objectId({ default: null }),
+    size: ts_mongoose_1.Type.string({ default: null }),
+    parent_id: ts_mongoose_1.Type.string({ default: null }),
     images: ts_mongoose_1.Type.array().of(ts_mongoose_1.Type.string({ default: [] })),
     quantity: ts_mongoose_1.Type.number({ default: null }),
     tax_percentage: ts_mongoose_1.Type.number({ default: 0 }),
@@ -44,7 +45,7 @@ const ProductsSchema = (0, ts_mongoose_1.createSchema)({
     is_delivery_available: ts_mongoose_1.Type.boolean({ default: false }),
     is_blocked: ts_mongoose_1.Type.boolean({ default: false }),
     is_deleted: ts_mongoose_1.Type.boolean({ default: false }),
-    size: ts_mongoose_1.Type.string({ default: null }),
+    colour: ts_mongoose_1.Type.string({ default: null }),
     language: ts_mongoose_1.Type.string({ default: "ENGLISH", enum: language }),
     updated_at: ts_mongoose_1.Type.string({ default: +new Date() }),
     created_at: ts_mongoose_1.Type.string({ default: +new Date() })

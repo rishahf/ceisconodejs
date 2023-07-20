@@ -122,6 +122,10 @@ product_module.details = (req) => __awaiter(void 0, void 0, void 0, function* ()
                 path: "brand_id",
                 select: "name",
             },
+            {
+                path: "size_id",
+                select: "size",
+            },
         ];
         let retrive_data = yield DAO.populate_data(Models.Products, query, projection, options, populate);
         if (retrive_data.length) {
@@ -349,7 +353,12 @@ product_module.retrive_order_product = (product_id, user_id) => __awaiter(void 0
 });
 product_module.retrive_product_ratings = (product_id) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        let product = yield DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true });
+        let { parent_id } = product[0];
         let query = { product_id: product_id };
+        if (!!parent_id) {
+            query = { product_id: parent_id };
+        }
         let projection = { __v: 0 };
         let options = { lean: true, sort: { updated_at: -1 } };
         let populate = [

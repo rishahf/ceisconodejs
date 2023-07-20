@@ -231,6 +231,15 @@ declare const group_data: () => Promise<{
         price: {
             $first: string;
         };
+        colour: {
+            $first: string;
+        };
+        size: {
+            $first: string;
+        };
+        parent_id: {
+            $first: string;
+        };
         discount_percantage: {
             $first: string;
         };

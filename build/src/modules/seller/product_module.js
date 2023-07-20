@@ -40,7 +40,7 @@ exports.product_add_module = product_add_module;
 _a = product_add_module;
 product_add_module.add_a_product = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { parent_id, name, description, size, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, product_details, quantity, price, tax_percentage, discount_percantage, services, highlights, clone_product_id, language } = req.body;
+        let { parent_id, name, description, size, colour, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, product_details, quantity, price, tax_percentage, discount_percantage, services, highlights, clone_product_id, language } = req.body;
         let { _id: seller_id } = req.user_data;
         let discount = 0, discount_price = 0;
         if (discount_percantage > 0) {
@@ -56,6 +56,7 @@ product_add_module.add_a_product = (req) => __awaiter(void 0, void 0, void 0, fu
             prodct_id: random_product_id,
             description: description,
             size: size,
+            colour: colour,
             product_type: product_type,
             added_by: seller_id,
             parcel_id: parcel_id,

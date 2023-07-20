@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BestOnEcom = exports.ShopWithUs = exports.FeaturedCategories = exports.StyleForCategories = exports.StyleFor = exports.FashionDeals = exports.TopDeals = exports.Deals_of_the_day = exports.Banners = exports.HomePageSections = exports.Parcel = exports.Shipping = exports.LanguageKeys = exports.Used_Coupons = exports.Coupons = exports.Cart = exports.Wishlist = exports.Product_Variations = exports.Hot_deals = exports.Sellers = exports.Sub_subcategories = exports.Discount = exports.Brands = exports.SubCategory = exports.Category = exports.Reviews = exports.Cards = exports.PinCodes = exports.DeliverableLocations = exports.ProductHighlights = exports.ProductServices = exports.ProductDetails = exports.Address = exports.OrderProducts = exports.Orders = exports.BackupLogs = exports.Connections = exports.Messages = exports.Notifications = exports.Variables = exports.Templates = exports.ContactUs = exports.FaqsProducts = exports.Faqs = exports.Content = exports.ResMessages = exports.Products = exports.Sessions = exports.Users = exports.Admin = void 0;
-exports.KeyValues = exports.MainKeys = exports.Deals_Timer = exports.OrderInvoices = exports.Delivery_Locations = exports.AdminFees = exports.FaqLikes = void 0;
+exports.KeyValues = exports.MainKeys = exports.Size = exports.Deals_Timer = exports.OrderInvoices = exports.Delivery_Locations = exports.AdminFees = exports.FaqLikes = void 0;
 const admins_1 = __importDefault(require("./admins"));
 exports.Admin = admins_1.default;
 const users_1 = __importDefault(require("./users"));
@@ -115,6 +115,8 @@ const delivery_locations_1 = __importDefault(require("./delivery_locations"));
 exports.Delivery_Locations = delivery_locations_1.default;
 const deals_timer_1 = __importDefault(require("./deals_timer"));
 exports.Deals_Timer = deals_timer_1.default;
+const product_size_1 = __importDefault(require("./product_size"));
+exports.Size = product_size_1.default;
 const main_keys_1 = __importDefault(require("./main_keys"));
 exports.MainKeys = main_keys_1.default;
 const key_value_1 = __importDefault(require("./key_value"));

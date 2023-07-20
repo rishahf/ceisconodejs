@@ -506,6 +506,9 @@ const group_data = () => __awaiter(void 0, void 0, void 0, function* () {
                 images: { $first: "$images" },
                 quantity: { $first: "$quantity" },
                 price: { $first: "$price" },
+                colour: { $first: "$colour" },
+                size: { $first: "$size" },
+                parent_id: { $first: "$parent_id" },
                 tax_percantage: { $first: "$tax_percantage" },
                 discount_percantage: { $first: "$discount_percantage" },
                 discount: { $first: "$discount" },
@@ -670,6 +673,8 @@ const lookup_variants = () => __awaiter(void 0, void 0, void 0, function* () {
                         $project: {
                             name: 1,
                             images: 1,
+                            quantity: 1,
+                            price: 1,
                         },
                     },
                     {
@@ -677,6 +682,8 @@ const lookup_variants = () => __awaiter(void 0, void 0, void 0, function* () {
                             _id: "$_id",
                             product_name: { $first: "$name" },
                             product_images: { $first: "$images" },
+                            product_quantity: { $first: "$quantity" },
+                            product_price: { $first: "$price" },
                         },
                     },
                 ],
@@ -711,8 +718,8 @@ const group_variants_data = () => __awaiter(void 0, void 0, void 0, function* ()
                 product_id: { $first: "$products._id" },
                 product_name: { $first: "$products.product_name" },
                 product_images: { $first: "$products.product_images" },
-                // updated_at: { $first: "$updated_at" },
-                created_at: { $first: "$created_at" },
+                product_quantity: { $first: "$products.product_quantity" },
+                product_price: { $first: "$products.product_price" },
                 // faqs_products : { "$first": "$faqs_products" },
                 // ratings : { "$first": "$reviews" }
             },

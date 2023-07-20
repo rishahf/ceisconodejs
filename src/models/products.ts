@@ -11,7 +11,6 @@ const reference = [
     Type.ref(Type.objectId({ default  : null })).to('subcategories', <any>SubCategory),
     Type.ref(Type.objectId({ default  : null })).to('sub_subcategories', <any>Sub_subcategories),
     Type.ref(Type.objectId({ default  : null })).to('brands', <any>Brands),
-    Type.ref(Type.objectId({ default  : null })).to('sizes', <any>Size),
 ]
 const language = ["ENGLISH", "ARABIC"];
 
@@ -26,7 +25,7 @@ const ProductsSchema = createSchema({
     subcategory_id      : reference[3],
     sub_subcategory_id  : reference[4],
     brand_id            : reference[5],
-    size_id             : reference[6],
+    size                : Type.string({ default : null }),
     parent_id           : Type.string({ default : null }),
     images              : Type.array().of(Type.string({ default : [] })),
     quantity            : Type.number({ default : null }),

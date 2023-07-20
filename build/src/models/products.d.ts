@@ -18,7 +18,7 @@ declare const Products: import("mongoose").Model<import("mongoose").Document<any
     parcel_id: any;
     sub_subcategory_id: any;
     brand_id: any;
-    parent_id: import("mongoose").Types.ObjectId;
+    parent_id: string;
     images: string[];
     quantity: number;
     tax_percentage: number;
@@ -37,6 +37,7 @@ declare const Products: import("mongoose").Model<import("mongoose").Document<any
     sold: boolean;
     is_visible: boolean;
     is_delivery_available: boolean;
+    colour: string;
 } & {
     category_id?: unknown;
     subcategory_id?: unknown;

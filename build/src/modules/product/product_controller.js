@@ -172,11 +172,11 @@ exports.product_details = product_details;
 const list_reviews = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let { _id: product_id, pagination, limit } = req.query;
-        let product = DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true });
+        let product = yield DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true });
         let { parent_id } = product[0];
         let query = { product_id: product_id };
         if (!!parent_id) {
-            query.$or = [{ product_id: product_id }, { product_id: parent_id }];
+            query = { product_id: parent_id };
         }
         let populate = [
             { path: "user_id", select: "name profile_pic" }
@@ -238,11 +238,11 @@ exports.list_faqs = list_faqs;
 const list_product_faqs = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let { _id: product_id, pagination, limit } = req.query;
-        let product = DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true });
+        let product = yield DAO.get_data(Models.Products, { _id: product_id }, {}, { lean: true });
         let { parent_id } = product[0];
         let query = { product_id: product_id };
         if (!!parent_id) {
-            query.$or = [{ product_id: product_id }, { product_id: parent_id }];
+            query = { product_id: parent_id };
         }
         let projection = { __v: 0 };
         let options = yield index_1.helpers.set_options(pagination, limit);

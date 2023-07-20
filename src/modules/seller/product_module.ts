@@ -8,7 +8,7 @@ import { handle_return, handle_catch, handle_custom_error, helpers } from "../..
 class product_add_module {
   static add_a_product = async (req: any) => {
     try {
-      let { parent_id, name, description, size_id, colour, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, product_details, quantity, price, tax_percentage, discount_percantage, services, highlights, clone_product_id, language } = req.body;
+      let { parent_id, name, description, size, colour, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, product_details, quantity, price, tax_percentage, discount_percantage, services, highlights, clone_product_id, language } = req.body;
       let { _id: seller_id } = req.user_data;
 
       let discount = 0, discount_price = 0;
@@ -25,7 +25,7 @@ class product_add_module {
         name: name,
         prodct_id: random_product_id,
         description: description,
-        size_id: size_id,
+        size: size,
         colour:colour,
         product_type: product_type,
         added_by: seller_id,
@@ -236,7 +236,6 @@ class product_edit_module {
             await DAO.remove_data(Models.Product_Variations, { _id: value._id });
           });
         }
-
       }
 
       // if (!!product_details) { await this.save_product_details(product_details, product_id) }
@@ -347,8 +346,6 @@ class product_list_module {
         await search_products.unwind_sub_subcategories(),
         await search_products.lookup_seller(),
         await search_products.unwind_seller(),
-        await search_products.lookup_size(),
-        await search_products.unwind_size(),
         await search_products.filter_data(req.query),
         await search_products.group_data(),
         await search_products.sort_data1(req.query),

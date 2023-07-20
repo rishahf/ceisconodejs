@@ -29,8 +29,6 @@ const list_products = async (req: any, res: express.Response) => {
             await search_products.unwind_sub_subcategories(),
             await search_products.lookup_seller(),
             await search_products.unwind_seller(),
-            await search_products.lookup_size(),
-            await search_products.unwind_size(),
             await search_products.filter_data(req.query),
             await search_products.group_data(),
             await search_products.sort_data(),

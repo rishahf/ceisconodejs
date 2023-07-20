@@ -276,6 +276,15 @@ declare const group_data: () => Promise<{
         price: {
             $first: string;
         };
+        colour: {
+            $first: string;
+        };
+        size: {
+            $first: string;
+        };
+        parent_id: {
+            $first: string;
+        };
         tax_percantage: {
             $first: string;
         };
@@ -398,6 +407,8 @@ declare const lookup_variants: () => Promise<{
             $project: {
                 name: number;
                 images: number;
+                quantity: number;
+                price: number;
             };
             $match?: undefined;
             $group?: undefined;
@@ -408,6 +419,12 @@ declare const lookup_variants: () => Promise<{
                     $first: string;
                 };
                 product_images: {
+                    $first: string;
+                };
+                product_quantity: {
+                    $first: string;
+                };
+                product_price: {
                     $first: string;
                 };
             };
@@ -435,7 +452,10 @@ declare const group_variants_data: () => Promise<{
         product_images: {
             $first: string;
         };
-        created_at: {
+        product_quantity: {
+            $first: string;
+        };
+        product_price: {
             $first: string;
         };
     };
