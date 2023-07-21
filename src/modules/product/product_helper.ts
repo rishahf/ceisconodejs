@@ -806,6 +806,8 @@ const group_variants_data = async () => {
         product_id: { $first: "$products._id" },
         name: { $first: "$products.name" },
         images: { $first: "$products.images" },
+        size: { $first: "$products.size" },
+        colour: { $first: "$products.colour" },
         price: { $first: "$products.price" },
         discount_percantage: { $first: "$products.discount_percantage" },
         discount: { $first: "$products.discount" },
