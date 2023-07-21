@@ -64,6 +64,8 @@ const lookup_variants = async () => {
               images: 1,
               price: 1,
               discount: 1,
+              colour:1,
+              size:1,
               discount_percantage: 1,
               discount_price: 1,
             },

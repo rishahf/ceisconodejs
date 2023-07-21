@@ -3,6 +3,7 @@ import * as DAO from './../DAO/index';
 import * as Models from './../models/index';
 import * as lodash from 'lodash';
 import { helpers } from '../middlewares/index'
+import { brands } from '../../Brand_list';
 
 const create_admin = async () => {
   try {
@@ -67,6 +68,16 @@ const create_admin_seller = async () => {
   }
 }
 
+const add_all_brands = async () => {
+  try {
+    await DAO.remove_many(Models.Brands, {})
+    let options = { multi: true }
+    await DAO.save_data(Models.Brands, brands);
+  }
+  catch (err) {
+    throw err;
+  }
+}
 
 const response_messages = async () => {
   try {
@@ -564,7 +575,7 @@ const bootstrap_data = async () => {
     await bootstrap_res_msgs()
     await bootstrap_homepage_sections()
     await create_admin_seller()
-
+    await add_all_brands()
   }
   catch (err) {
     throw err;
