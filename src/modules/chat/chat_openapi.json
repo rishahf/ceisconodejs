@@ -7,11 +7,11 @@
       },
       "servers": [
         {
-          "url": "http://localhost:3004/",
+          "url": "http://localhost:3005/",
           "description": "local server"
         },
         {
-          "url": "http://67.205.182.28:3004/",
+          "url": "http://192.168.29.55:3004/",
           "description": "production server"
         },
         {
