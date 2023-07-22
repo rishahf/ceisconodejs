@@ -35,6 +35,8 @@ declare const lookup_variants: () => Promise<{
                 images: number;
                 price: number;
                 discount: number;
+                colour: number;
+                size: number;
                 discount_percantage: number;
                 discount_price: number;
             };
@@ -380,6 +382,12 @@ declare const group_variants_data: () => Promise<{
             $first: string;
         };
         images: {
+            $first: string;
+        };
+        size: {
+            $first: string;
+        };
+        colour: {
             $first: string;
         };
         price: {

@@ -76,6 +76,7 @@ product_add_module.add_a_product = (req) => __awaiter(void 0, void 0, void 0, fu
             created_at: +new Date(),
         };
         if (!!parent_id) {
+            yield _a.check_product_varient(parent_id);
             data_to_save.parent_id = parent_id;
         }
         let response = yield DAO.save_data(Models.Products, data_to_save);
@@ -185,13 +186,29 @@ product_add_module.save_product_highlights = (highlights, product_id) => __await
         throw err;
     }
 });
+product_add_module.check_product_varient = (product_id) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let query = {
+            _id: product_id
+        };
+        let product = yield DAO.get_data(Models.Products, query, {}, { lean: true });
+        let { parent_id } = product[0];
+        if (!!parent_id) {
+            let err = { type: "CAN'T ADD PRODUCT", status_code: 400, error_message: "YOU CAN'T ADD PRODUCT VARIENT VARIENT" };
+            throw err;
+        }
+    }
+    catch (err) {
+        throw err;
+    }
+});
 class product_edit_module {
 }
 exports.product_edit_module = product_edit_module;
 _b = product_edit_module;
 product_edit_module.edit_a_product = (req) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { _id: product_id, name, description, size, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, quantity, price, discount_percantage, tax_percentage, product_details, services, highlights, sold, is_blocked, is_deleted, is_delivery_available } = req.body;
+        let { _id: product_id, name, colour, description, size, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, quantity, price, discount_percantage, tax_percentage, product_details, services, highlights, sold, is_blocked, is_deleted, is_delivery_available } = req.body;
         // console.log("edit_a_product...",req.body)
         let { _id: seller_id } = req.user_data;
         let query = { _id: product_id, added_by: seller_id };
@@ -240,6 +257,9 @@ product_edit_module.edit_a_product = (req) => __awaiter(void 0, void 0, void 0, 
         }
         if (!!images) {
             set_data.images = images;
+        }
+        if (!!colour) {
+            set_data.colour = colour;
         }
         if (!!quantity) {
             set_data.quantity = quantity;

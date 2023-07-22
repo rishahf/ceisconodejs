@@ -31,6 +31,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const DAO = __importStar(require("./../DAO/index"));
 const Models = __importStar(require("./../models/index"));
 const index_1 = require("../middlewares/index");
+const Brand_list_1 = require("../../Brand_list");
 const create_admin = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // check admin exist or not
@@ -75,6 +76,16 @@ const create_admin_seller = () => __awaiter(void 0, void 0, void 0, function* ()
             };
             yield DAO.save_data(Models.Sellers, save_data);
         }
+    }
+    catch (err) {
+        throw err;
+    }
+});
+const add_all_brands = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        yield DAO.remove_many(Models.Brands, {});
+        let options = { multi: true };
+        yield DAO.save_data(Models.Brands, Brand_list_1.brands);
     }
     catch (err) {
         throw err;
@@ -543,6 +554,7 @@ const bootstrap_data = () => __awaiter(void 0, void 0, void 0, function* () {
         yield bootstrap_res_msgs();
         yield bootstrap_homepage_sections();
         yield create_admin_seller();
+        yield add_all_brands();
     }
     catch (err) {
         throw err;

@@ -5,6 +5,7 @@ declare class product_add_module {
     static retrive_unique_number: (product_id: string) => Promise<number>;
     static save_product_services: (services: any, product_id: string) => Promise<void>;
     static save_product_highlights: (highlights: any, product_id: string) => Promise<void>;
+    static check_product_varient: (product_id: any) => Promise<void>;
 }
 declare class product_edit_module {
     static edit_a_product: (req: any) => Promise<unknown>;

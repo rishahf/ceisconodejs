@@ -26,7 +26,7 @@ class product_add_module {
         prodct_id: random_product_id,
         description: description,
         size: size,
-        colour:colour,
+        colour: colour,
         product_type: product_type,
         added_by: seller_id,
         parcel_id: parcel_id,
@@ -46,7 +46,11 @@ class product_add_module {
         created_at: +new Date(),
       };
 
-      if (!!parent_id) { data_to_save.parent_id = parent_id }
+      if (!!parent_id) {
+        await this.check_product_varient(parent_id)
+        data_to_save.parent_id = parent_id
+      }
+
       let response: any = await DAO.save_data(Models.Products, data_to_save);
       let { _id: product_id } = response;
       await this.save_product_details(product_details, product_id);
@@ -159,7 +163,26 @@ class product_add_module {
       throw err;
     }
   };
+
+  static check_product_varient = async (
+    product_id: any,
+  ) => {
+    try {
+      let query={
+        _id:product_id
+      }
+      let product: any = await DAO.get_data(Models.Products,query,{},{lean:true})
+      let { parent_id } = product[0]
+      if (!!parent_id) {
+       let err= { type:"CAN'T ADD PRODUCT", status_code:400, error_message:"YOU CAN'T ADD PRODUCT VARIENT VARIENT" }
+        throw err
+      }
+    } catch (err) {
+      throw err;
+    }
+  };
 }
+
 
 
 class product_edit_module {
@@ -167,7 +190,7 @@ class product_edit_module {
   static edit_a_product = async (req: any) => {
     try {
 
-      let { _id: product_id, name, colour,description, size, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, quantity, price, discount_percantage, tax_percentage, product_details, services, highlights, sold, is_blocked, is_deleted, is_delivery_available } = req.body;
+      let { _id: product_id, name, colour, description, size, product_type, parcel_id, brand_id, category_id, subcategory_id, sub_subcategory_id, images, quantity, price, discount_percantage, tax_percentage, product_details, services, highlights, sold, is_blocked, is_deleted, is_delivery_available } = req.body;
 
       // console.log("edit_a_product...",req.body)
 
