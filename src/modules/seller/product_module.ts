@@ -168,13 +168,13 @@ class product_add_module {
     product_id: any,
   ) => {
     try {
-      let query={
-        _id:product_id
+      let query = {
+        _id: product_id
       }
-      let product: any = await DAO.get_data(Models.Products,query,{},{lean:true})
+      let product: any = await DAO.get_data(Models.Products, query, {}, { lean: true })
       let { parent_id } = product[0]
       if (!!parent_id) {
-       let err= { type:"CAN'T ADD PRODUCT", status_code:400, error_message:"YOU CAN'T ADD PRODUCT VARIENT VARIENT" }
+        let err = { type: "CAN'T ADD PRODUCT", status_code: 400, error_message: "YOU CAN'T ADD PRODUCT VARIENT VARIENT" }
         throw err
       }
     } catch (err) {

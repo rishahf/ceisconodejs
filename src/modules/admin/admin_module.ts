@@ -153,13 +153,15 @@ class sub_category {
                 console.log('get-cat -- ', language)
                 throw await handle_custom_error("CATEGORY_EXIST",language);
             }else{
-                let data_to_save = {
+                let data_to_save: any = {
                     category_id: category_id,
                     name: name,
-                    size_type: size_type,
                     language:language,
                     updated_at: +new Date(),
                     created_at: +new Date(),
+                }
+                if(!!size_type){
+                    data_to_save.size_type= size_type
                 }
                 let response = await DAO.save_data(Models.SubCategory, data_to_save)
                 return response;

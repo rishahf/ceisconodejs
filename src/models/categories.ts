@@ -5,7 +5,7 @@ const language = ["ENGLISH","ARABIC"]
 
 const CategorySchema = createSchema({
   name: Type.string({ default: null }),
-  design_type: Type.number({ default: 1 }),
+  design_type: Type.number({ default: 2 }),
   is_deleted: Type.boolean({ default: false }),
   updated_at: Type.string({ default: +new Date() }),
   language: Type.string({ default: "ENGLISH", enum: language }),
