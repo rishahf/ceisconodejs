@@ -860,7 +860,7 @@ class order_module extends stripe_payments {
             let query = { _id: product_id }
             let update = {
                 $inc: {
-                    quantity: -Number(quantity)
+                    quantity: -1
                 }
             }
             let options = { new: true }

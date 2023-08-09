@@ -20,7 +20,7 @@ class card_module {
                 type: 'card',
                 card: {
                     number: '4242424242424242',
-                    exp_month: 7,
+                    exp_month: 12,
                     exp_year: 2023,
                     cvc: '314',
                 },
