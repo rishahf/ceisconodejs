@@ -29,6 +29,7 @@
         "@aws-sdk/client-s3": "^3.54.0",
         "@aws-sdk/lib-storage": "^3.54.0",
         "aws-sdk": "^2.1397.0",
+        "axios": "^1.6.2",
         "bcrypt": "^5.1.0",
         "body-parser": "^1.19.2",
         "cors": "^2.8.5",

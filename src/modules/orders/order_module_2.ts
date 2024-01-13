@@ -1346,7 +1346,7 @@ class order_listing_module {
               await order_details.sort_data(),
             ];
             let options = { lean: true }
-            let orders: any = await DAO.aggregate_data(Orders, query, options)
+            let orders: any = await DAO.aggregate_data(OrderProducts, query, options)
             if (orders.length) {
                 console.log("orders[0].order_id", orders[0].order_id);
                 

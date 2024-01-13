@@ -227,13 +227,13 @@ const create_new_user = async (data: any) => {
         let { id: customer_id } = stripe_customer;
         if (social_type == "GOOGLE") {
             let decode_token = await jwt.decode(social_token);
-            let { sub, email: google_email, name: google_name } = decode_token
+            // let { sub, email: google_email, name: google_name } = decode_token
             console.log("decode_token....", decode_token)
             let data_to_save: any = {
                 social_type: social_type,
-                social_token: sub,
-                name: google_name,
-                email: google_email.toLowerCase(),
+                // social_token: sub,
+                // name: google_name,
+                // email: google_email.toLowerCase(),
                 email_verified: true,
                 customer_id:customer_id,
                 created_at: +new Date()
