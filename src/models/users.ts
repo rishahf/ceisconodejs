@@ -20,6 +20,8 @@ const UserSchema = createSchema({
     email               : Type.string({ default: null }),
     country_code        : Type.string({ default: null }),
     phone_no            : Type.number({ default: 0 }),
+    date_of_birth            : Type.number({ default: 0 }),
+    gender            : Type.string({ default: null }),
     password            : Type.string({ default: null }),
     otp                 : Type.number({ default: 0 }),
     phone_otp           : Type.number({ default: 0 }),

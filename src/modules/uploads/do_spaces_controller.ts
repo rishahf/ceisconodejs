@@ -10,7 +10,7 @@ import { handle_catch, handle_success, handle_custom_error, handle_joi_error } f
 // DO_ACCESS_KEY=FPR3OQAVBJTMD4TZMJNJ
 // DO_SECRET_ACCESS_KEY=GgjLr+5C7//4JVJD4/Qaffepp32iCCUeL2vsgY461Tk
 // DO_ENDPOINT=nyc3.digitaloceanspaces.com
-// Url=https://sharedecommerce.nyc3.digitaloceanspaces.com
+// Url=https://b2ecom.s3.ap-south-1.amazonaws.com
 // DO_REGION=nyc3
 
 // const do_spaces_endpoint = process.env.DO_SPACES_ENDPOINT
@@ -18,10 +18,10 @@ import { handle_catch, handle_success, handle_custom_error, handle_joi_error } f
 // let do_spaces_secret = process.env.DO_SPACES_SECRET
 // let do_spaces_bucket_name = process.env.DO_SPACES_NAME
 
-const do_spaces_endpoint = "nyc3.digitaloceanspaces.com"
-let do_spaces_key = "FPR3OQAVBJTMD4TZMJNJ"
-let do_spaces_secret = "GgjLr+5C7//4JVJD4/Qaffepp32iCCUeL2vsgY461Tk"
-let do_spaces_bucket_name = "sharedecommerce"
+const do_spaces_endpoint = process.env.DO_SPACES_ENDPOINT;
+let do_spaces_key = process.env.DO_SPACES_KEY;
+let do_spaces_secret = process.env.DO_SPACES_SECRET;
+let do_spaces_bucket_name = process.env.DO_SPACES_NAME;
 
 // console.log("--------------------do_spaces_endpoint-----", do_spaces_endpoint)
 // console.log("--------------------do_spaces_key-----", do_spaces_key)
@@ -101,7 +101,7 @@ const upload_images = async (name: string, data: any, mime_type: string) => {
         
 
         let response = {
-            base_url: 'https://sharedecommerce.nyc3.digitaloceanspaces.com',
+            base_url: 'https://b2ecom.s3.ap-south-1.amazonaws.com',
             type: 'IMAGE',
             folders: ['original', 'medium', 'small'],
             file_name: file_name
@@ -120,7 +120,7 @@ const create_original_file = async (name: string, data: any, mime_type: string) 
 
         let params = {
             Bucket: do_spaces_bucket_name,
-            Key: `sharedecommerce/original/${name}`,
+            Key: `b2ecom/original/${name}`,
             ACL: 'public-read',
             Body: data,
             ContentType: mime_type
@@ -145,7 +145,7 @@ const create_medium_file = async (name: string, data: any, mime_type: string) =>
 
         let params = {
             Bucket: do_spaces_bucket_name,
-            Key: `sharedecommerce/medium/${name}`,
+            Key: `b2ecom/medium/${name}`,
             ACL: 'public-read',
             Body: after_resize,
             ContentType: mime_type
@@ -169,7 +169,7 @@ const create_small_file = async (name: string, data: any, mime_type: string) => 
 
         let params = {
             Bucket: do_spaces_bucket_name,
-            Key: `sharedecommerce/small/${name}`,
+            Key: `b2ecom/small/${name}`,
             ACL: 'public-read',
             Body: after_resize,
             ContentType: mime_type
@@ -194,7 +194,7 @@ const upload_audio = async (name: string, data: any, mime_type: string) => {
 
         let params = {
             Bucket: do_spaces_bucket_name,
-            Key: `sharedecommerce/audio/${file_name}`,
+            Key: `b2ecom/audio/${file_name}`,
             ACL: 'public-read',
             Body: data,
             ContentType: mime_type
@@ -204,7 +204,7 @@ const upload_audio = async (name: string, data: any, mime_type: string) => {
         await upload_file_to_spaces(params)
 
         let response = {
-            base_url: 'https://sharedecommerce.nyc3.digitaloceanspaces.com',
+            base_url: 'https://b2ecom.s3.ap-south-1.amazonaws.com',
             type: 'AUDIO',
             folders: ['audio'],
             file_name: file_name
@@ -227,7 +227,7 @@ const upload_video = async (name: string, data: any, mime_type: string) => {
 
         let params = {
             Bucket: do_spaces_bucket_name,
-            Key: `sharedecommerce/video/${file_name}`,
+            Key: `b2ecom/video/${file_name}`,
             ACL: 'public-read',
             Body: data,
             ContentType: mime_type
@@ -237,7 +237,7 @@ const upload_video = async (name: string, data: any, mime_type: string) => {
         await upload_file_to_spaces(params)
 
         let response = {
-            base_url: 'https://sharedecommerce.nyc3.digitaloceanspaces.com',
+            base_url: 'https://b2ecom.s3.ap-south-1.amazonaws.com',
             type: 'VIDEO',
             folders: ['video'],
             file_name: file_name
@@ -259,7 +259,7 @@ const upload_doc = async (name: string, data: any, mime_type: string) => {
 
         let params = {
             Bucket: do_spaces_bucket_name,
-            Key: `sharedecommerce/documents/${file_name}`,
+            Key: `b2ecom/documents/${file_name}`,
             ACL: 'public-read',
             Body: data,
             ContentType: mime_type
@@ -269,7 +269,7 @@ const upload_doc = async (name: string, data: any, mime_type: string) => {
         await upload_file_to_spaces(params)
 
         let response = {
-            base_url: 'https://sharedecommerce.nyc3.digitaloceanspaces.com',
+            base_url: 'https://b2ecom.s3.ap-south-1.amazonaws.com',
             type: 'DOCUMENT',
             folders: ['documents'],
             file_name: file_name

@@ -623,6 +623,7 @@ const edit_profile = async (req: any, res: express.Response) => {
 
         let query = { _id: _id };
         let update = await user_services.edit_profile_data(req.body, req.user_data);
+        console.log(update,'update profile data');
         let options = { new: true };
         await DAO.find_and_update(Models.Users, query, update, options);
 

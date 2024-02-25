@@ -269,6 +269,8 @@ const create_new_user = async (data: any) => {
 };
 
 const edit_profile_data = async (data: any, user_data: any) => {
+    console.log(data,'dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+    console.log(user_data,'userdatattaaa')
     try {
 
         let { _id: user_id, name, email, phone_no, country_code } = user_data;
@@ -278,6 +280,8 @@ const edit_profile_data = async (data: any, user_data: any) => {
         if (data.name) { set_data.name = data.name }
         if (data.work) { set_data.work = data.work }
         if (data.about) { set_data.about = data.about }
+        if (data.date_of_birth) { set_data.date_of_birth = data.date_of_birth }
+        if (data.gender) { set_data.gender = data.gender }
 
         if (data.email) {
             let to_lower_case = data.email.toLowerCase();

@@ -4,7 +4,7 @@ import * as Models from './../models/index';
 import * as lodash from 'lodash';
 import { helpers } from '../middlewares/index'
 import { brands } from '../../Brand_list';
-import {seeding} from '../../script/categories'
+// import {seeding} from '../../script/categories'
 
 const create_admin = async () => {
   try {
