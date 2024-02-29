@@ -7,17 +7,18 @@ class admin_shop_with_us {
     static add = async (req: any) => {
         try {
 
-            let { image, title, price, category_id,language } = req.body;
+            let { image, title, subcategory_id, category_id,language } = req.body;
 
             let data_to_save: any = {
                 image: image,
                 title: title,
-                price: price,
+                subcategory_id: subcategory_id,
                 is_enable:true,
                 updated_at: +new Date(),
                 created_at: +new Date()
             }
             if (!!category_id) { data_to_save.category_id = category_id }
+            if (!!subcategory_id) { data_to_save.subcategory_id = subcategory_id }
             if (!!language) { data_to_save.language = language }
 
             let response = await DAO.save_data(ShopWithUs, data_to_save);
@@ -32,14 +33,14 @@ class admin_shop_with_us {
     static update = async (req: any) => {
         try {
 
-            let { _id, image, title, price, category_id, is_enable,language } = req.body;
+            let { _id, image, title, subcategory_id, category_id, is_enable,language } = req.body;
             
             let query = { _id: _id }
             let update: any = { updated_at: +new Date() }
 
             if (!!image) { update.image = image }
             if (!!title) { update.title = title }
-            if (!!price) { update.price = price }
+            if (!!subcategory_id) { update.subcategory_id = subcategory_id }
             if (is_enable!= undefined || null) {update.is_enable = is_enable}
             if (!!category_id) { update.category_id = category_id }
             if (!!language) { update.language = language }
