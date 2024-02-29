@@ -99,7 +99,21 @@ router.get("/notifications", authenticator, admin_controller.get_notifications);
 router.put("/notifications", authenticator, admin_controller.marked_all_read_notifications);
 router.put("/notifications/clear", authenticator, admin_controller.clear_all_notifications);
 router.put("/notifications/read/:_id", authenticator, admin_controller.read_notification);
-
+ //seller
+ router.get("/sellers", authenticator, admin_controller.seller_listing)
+ router.get("/seller_details", authenticator, admin_controller.seller_details)
+ router.put("/seller/manage_sellers", authenticator, admin_controller.manage_sellers)
+ router.get("/seller/export", authenticator, admin_controller.export_csv_seller)
+ router.delete("/seller/:_id", authenticator, admin_controller.delete_a_seller)
+ router.get("/seller/orders", authenticator, admin_controller.delete_a_seller);
+ 
+ // products
+ router.get("/products", authenticator, admin_controller.list_products)
+ router.get("/product_details", authenticator, controller.product_details)
+ router.get("/products/variants", authenticator, admin_controller.list_product_variants)
+ router.get("/product_faqs", authenticator, admin_controller.list_product_faqs)
+ router.get("/products/export", authenticator, admin_controller.export_csv_products)
+ 
 
 
 router.get("/list_users_sellers", authenticator, admin_controller.list_users_sellers);
@@ -169,22 +183,6 @@ export default router;
 
 // router.get("/orders", authenticator, admin_controller.list_orders)
 
- //seller
-// router.post("/seller/create", authenticator, admin_controller.seller_signup)
-// router.get("/sellers", authenticator, admin_controller.seller_listing)
-// router.get("/seller_details", authenticator, admin_controller.seller_details)
-// router.put("/seller/manage_sellers", authenticator, admin_controller.manage_sellers)
-// // router.get("/seller/export", authenticator, admin_controller.export_csv_seller)
-// router.delete("/seller/:_id", authenticator, admin_controller.delete_a_seller)
-
-// router.get("/seller/orders", authenticator, admin_controller.delete_a_seller);
-
-// products
-// router.get("/products", authenticator, admin_controller.list_products)
-// router.get("/product_details", authenticator, controller.product_details)
-// router.get("/products/variants", authenticator, admin_controller.list_product_variants)
-// router.get("/product_faqs", authenticator, admin_controller.list_product_faqs)
-// router.get("/products/export", authenticator, admin_controller.export_csv_products)
 
 // coupons
 // router.post("/coupon", authenticator, controller.add_a_coupon)

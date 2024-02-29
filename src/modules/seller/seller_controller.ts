@@ -13,47 +13,47 @@ import { handle_return, handle_success, handle_catch, handle_custom_error, helpe
 const shippo = require('shippo')(process.env.SHIPPO_TOKEN);
 
 
-// const seller_signup = async (req: express.Request, res: express.Response) => {
-//     try {
-//         let { email, password, phone_number, language } = req.body;
-//         let device_type: any = req.headers["user-agent"];
-//         // console.log("DEVICE TYPE  ----***** ----- ****  --- ", device_type);
-//         // verify email address
-//         let query_email = { email: email.toLowerCase() };
-//         let fetch_data: any = await seller_service.verify_seller_info(query_email);
+const seller_signup = async (req: express.Request, res: express.Response) => {
+    try {
+        let { email, password, phone_number, language } = req.body;
+        let device_type: any = req.headers["user-agent"];
+        // console.log("DEVICE TYPE  ----***** ----- ****  --- ", device_type);
+        // verify email address
+        let query_email = { email: email.toLowerCase() };
+        let fetch_data: any = await seller_service.verify_seller_info(query_email);
 
-//         if (fetch_data.length) {
-//             throw await handle_custom_error("EMAIL_ALREADY_EXISTS", language);
-//         } else {
-//             // verify phone_no
-//             let query_phone_no = { phone_number: phone_number };
-//             let verify_data: any = await seller_service.verify_seller_info(query_phone_no);
-//             if (verify_data.length) {
-//                 throw await handle_custom_error("PHONE_NO_ALREADY_EXISTS", language);
-//             } else {
-//                 // create new user
-//                 let create_user = await seller_service.set_seller_data(req.body);
+        if (fetch_data.length) {
+            throw await handle_custom_error("EMAIL_ALREADY_EXISTS", language);
+        } else {
+            // verify phone_no
+            let query_phone_no = { phone_number: phone_number };
+            let verify_data: any = await seller_service.verify_seller_info(query_phone_no);
+            if (verify_data.length) {
+                throw await handle_custom_error("PHONE_NO_ALREADY_EXISTS", language);
+            } else {
+                // create new user
+                let create_user = await seller_service.set_seller_data(req.body);
 
-//                 let { _id } = create_user;
+                let { _id } = create_user;
 
-//                 // generate access token
-//                 let generate_token: any = await seller_service.generate_seller_token(_id, req.body, device_type);
+                // generate access token
+                let generate_token: any = await seller_service.generate_seller_token(_id, req.body, device_type);
 
-//                 // fetch user response
-//                 let response = await seller_service.make_seller_response(generate_token, language);
-//                 // console.log("seller-response--> ", response);
+                // fetch user response
+                let response = await seller_service.make_seller_response(generate_token, language);
+                // console.log("seller-response--> ", response);
 
-//                 // send welcome email to user
-//                 await email_seller.send_welcome_mail(create_user, password);
+                // send welcome email to user
+                await email_seller.send_welcome_mail(create_user, password);
 
-//                 // return response
-//                 handle_success(res, response);
-//             }
-//         }
-//     } catch (err) {
-//         handle_catch(res, err);
-//     }
-// };
+                // return response
+                handle_success(res, response);
+            }
+        }
+    } catch (err) {
+        handle_catch(res, err);
+    }
+};
 
 const login = async (req: express.Request, res: express.Response) => {
     try {
@@ -1165,7 +1165,7 @@ const retrive_parcels = async (req: express.Request, res: express.Response) => {
 
 
 export {
-    // seller_signup,
+    seller_signup,
     login,
     email_verification,
     resend_email_otp,

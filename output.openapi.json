@@ -5474,8 +5474,7 @@
           "default": {
             "description": "successful operation"
           }
-        },
-        "deprecated": true
+        }
       }
     },
     "/Seller/login": {
@@ -5502,8 +5501,7 @@
           "default": {
             "description": "successful operation"
           }
-        },
-        "deprecated": true
+        }
       }
     },
     "/Seller/email/verification": {
@@ -5538,7 +5536,7 @@
             ]
           }
         ],
-        "deprecated": true
+        "deprecated": false
       }
     },
     "/Seller/resend_otp": {
@@ -5566,7 +5564,7 @@
             "description": "successful operation"
           }
         },
-        "deprecated": true
+        "deprecated": false
       }
     },
     "/Seller/edit_profile": {
@@ -5601,7 +5599,7 @@
             ]
           }
         ],
-        "deprecated": true
+        "deprecated": false
       }
     },
     "/Seller/change_password": {
@@ -5636,7 +5634,7 @@
             ]
           }
         ],
-        "deprecated": true
+        "deprecated": false
       }
     },
     "/Seller/forgot_password": {
@@ -5659,7 +5657,7 @@
             "description": "successful operation"
           }
         },
-        "deprecated": true
+        "deprecated": false
       }
     },
     "/Seller/forgot_password/resend_otp": {
@@ -5682,7 +5680,7 @@
             "description": "successful operation"
           }
         },
-        "deprecated": true
+        "deprecated": false
       }
     },
     "/Seller/forgot_password/verify_otp": {
@@ -5705,7 +5703,7 @@
             "description": "successful operation"
           }
         },
-        "deprecated": true
+        "deprecated": false
       }
     },
     "/Seller/forgot_password/set_password": {
@@ -5728,7 +5726,7 @@
             "description": "successful operation"
           }
         },
-        "deprecated": true
+        "deprecated": false
       }
     },
     "/Seller/logout": {
@@ -5749,7 +5747,7 @@
             ]
           }
         ],
-        "deprecated": true
+        "deprecated": false
       }
     },
     "/Seller/dashboard": {
@@ -5856,7 +5854,7 @@
             ]
           }
         ],
-        "deprecated": true
+        "deprecated": false
       }
     },
     "/Seller/shippo/parcel": {
