@@ -12,12 +12,11 @@ const language = ["ENGLISH", "ARABIC"];
 const BestOnEcomSchema = createSchema({
     image               : Type.string({ default: null }),
     title               : Type.string({ default: null }),
-    price               : Type.number({ default: 0 }),
+    sub_title               : Type.string({ default: null }),
     category_id         : reference[0],
     subcategory_id      : reference[1],
     sub_subcategory_id  : reference[2],
     brand_id            : reference[3],
-    discount            : Type.number({ default: 0 }),
     is_deleted          : Type.boolean({ default: false }),
     is_enable          : Type.boolean({ default: true }),
     language  : Type.string({ default: "ENGLISH", enum:language }),

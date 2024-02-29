@@ -1,5 +1,5 @@
 import * as DAO from "../../DAO";
-import { BestOnEcom, HomePageSections, Coupons} from "../../models";
+import { BestOnEcom, HomePageSections, Coupons } from "../../models";
 import { helpers, handle_custom_error } from "../../middlewares/index";
 import moment, { lang } from "moment";
 
@@ -8,15 +8,15 @@ class admin_best_on_ecom {
     static add = async (req: any) => {
         try {
 
-            let { 
-                image, title, price, category_id, subcategory_id,
-                sub_subcategory_id, brand_id, discount, language } = req.body;
+            let {
+                image, title, sub_title, category_id, subcategory_id,
+                sub_subcategory_id, brand_id, language } = req.body;
             console.log('req- body ---- ', req.body)
 
             let data_to_save: any = {
                 image: image,
                 title: title,
-                price: price,
+                sub_title: sub_title,
                 updated_at: +new Date(),
                 created_at: +new Date()
             }
@@ -24,7 +24,6 @@ class admin_best_on_ecom {
             if (!!subcategory_id) { data_to_save.subcategory_id = subcategory_id }
             if (!!sub_subcategory_id) { data_to_save.sub_subcategory_id = sub_subcategory_id }
             if (!!brand_id) { data_to_save.brand_id = brand_id }
-            if (!!discount) { data_to_save.discount = discount }
             if (!!language) { data_to_save.language = language }
 
             let response = await DAO.save_data(BestOnEcom, data_to_save);
@@ -42,7 +41,7 @@ class admin_best_on_ecom {
 
             let {
                 _id, image, title, price, category_id, subcategory_id,
-                sub_subcategory_id, brand_id, discount,language
+                sub_subcategory_id, brand_id, discount, language
             } = req.body;
 
             let query = { _id: _id }
@@ -71,31 +70,31 @@ class admin_best_on_ecom {
     static enable_disable = async (req: any) => {
         try {
             let { is_enable } = req.body;
-          let query = { is_deleted: false };
-          let option = { lean: true };
-          let get_Deals: any = await DAO.get_data(BestOnEcom, query,{ __v: 0 },option);
-          let response: any;
+            let query = { is_deleted: false };
+            let option = { lean: true };
+            let get_Deals: any = await DAO.get_data(BestOnEcom, query, { __v: 0 }, option);
+            let response: any;
 
-          if (get_Deals.length) {
-            get_Deals.forEach(async (deals: any) => {
-              let options = { new: true };
-              let update = { is_enable: is_enable };
-              let queery = { _id: deals._id };
-              response = await DAO.find_and_update(BestOnEcom,queery,update,options);
-            });
-          } else {
-            throw "No data found";
-          }
+            if (get_Deals.length) {
+                get_Deals.forEach(async (deals: any) => {
+                    let options = { new: true };
+                    let update = { is_enable: is_enable };
+                    let queery = { _id: deals._id };
+                    response = await DAO.find_and_update(BestOnEcom, queery, update, options);
+                });
+            } else {
+                throw "No data found";
+            }
 
-          if (is_enable == true) {
-            let message = `Enabled Successfully`;
-            return message;
-          } else if (is_enable == false) {
-            let message = `Disabled Successfully`;
-            return message;
-          } else {
-            throw await handle_custom_error("SOMETHING_WENT_WRONG", "ENGLISH");
-          }
+            if (is_enable == true) {
+                let message = `Enabled Successfully`;
+                return message;
+            } else if (is_enable == false) {
+                let message = `Disabled Successfully`;
+                return message;
+            } else {
+                throw await handle_custom_error("SOMETHING_WENT_WRONG", "ENGLISH");
+            }
         }
         catch (err) {
             throw err;
@@ -105,9 +104,9 @@ class admin_best_on_ecom {
     static list = async (req: any) => {
         try {
 
-            let { _id, pagination, limit,language } = req.query;
+            let { _id, pagination, limit, language } = req.query;
 
-            let query: any = { is_deleted: false, language:language }
+            let query: any = { is_deleted: false, language: language }
             if (!!_id) { query._id = _id }
 
             let projection = { __v: 0, is_deleted: 0 }
@@ -148,10 +147,10 @@ class admin_best_on_ecom {
 
             let { _id } = req.params;
 
-            let query: any = {_id:_id, is_deleted: false }
+            let query: any = { _id: _id, is_deleted: false }
 
             let projection = { __v: 0, is_deleted: 0 }
-            let options = { lean: true}
+            let options = { lean: true }
             let populate = [
                 {
                     path: 'category_id',
@@ -211,10 +210,10 @@ class user_best_on_ecom {
             let query = { for_homepage: true, end_date: { $gte: current_date } };
             let projection = { __v: 0, is_deleted: 0 };
             let options = { lean: true }
-            let response:any = await DAO.get_data(Coupons,query,projection,options)
-            if(response && response.length){
+            let response: any = await DAO.get_data(Coupons, query, projection, options)
+            if (response && response.length) {
                 return response[0];
-            }else{
+            } else {
                 return []
             }
         }
@@ -265,9 +264,9 @@ class user_best_on_ecom {
     static retrive_boe = async (req: any) => {
         try {
 
-            let { _id, pagination, limit,language } = req.query;
+            let { _id, pagination, limit, language } = req.query;
 
-            let query: any = { is_deleted: false, is_enable:true, language:language }
+            let query: any = { is_deleted: false, is_enable: true, language: language }
             if (!!_id) { query._id = _id }
 
             let projection = { __v: 0, is_deleted: 0 }
