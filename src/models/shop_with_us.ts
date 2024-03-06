@@ -7,18 +7,18 @@ const reference = [
     Type.ref(Type.objectId({ default: null })).to('brands', <any>Brands)
 ]
 
-const language = ["ENGLISH","ARABIC"]
+const language = ["ENGLISH", "ARABIC"]
 
 const ShopWithUsSchema = createSchema({
-    image               : Type.string({ default: null }),
-    title               : Type.string({ default: null }),
-    price               : Type.number({ default: 0 }),
-    category_id         : reference[0],
-    is_enable           : Type.boolean({ default: false }),
-    is_deleted          : Type.boolean({ default: false }),
-     language  : Type.string({ default: "ENGLISH", enum:language }),
-    updated_at          : Type.string({ default: +new Date() }),
-    created_at          : Type.string({ default: +new Date() })
+    image: Type.string({ default: null }),
+    title: Type.string({ default: null }),
+    category_id: reference[0],
+    subcategory_id: reference[1],
+    is_enable: Type.boolean({ default: false }),
+    is_deleted: Type.boolean({ default: false }),
+    language: Type.string({ default: "ENGLISH", enum: language }),
+    updated_at: Type.string({ default: +new Date() }),
+    created_at: Type.string({ default: +new Date() })
 
 })
 const ShopWithUs = typedModel('shop_with_us', ShopWithUsSchema)
