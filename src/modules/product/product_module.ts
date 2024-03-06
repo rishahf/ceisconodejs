@@ -47,6 +47,8 @@ export default class product_module {
         },
       ];
       let retrive_data: any = await DAO.populate_data(Models.Products,query,projection,options,populate);
+      console.log(retrive_data[0],'retrive_data');
+      
       if (retrive_data.length) {
         let { _id: product_id } = retrive_data[0];
         let in_cart = await this.check_product_in_cart(product_id, user_id);

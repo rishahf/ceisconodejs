@@ -37,9 +37,13 @@ export class product_list_module {
                 }
             ]
             let retrive_data: any = await DAO.populate_data(Models.Products, query, projection, options, populate)
+            
             if (retrive_data.length) {
                 let { _id: product_id } = retrive_data[0]
+                console.log(retrive_data[0],'retrive_data');
                 let product_details = await this.retrive_product_details(product_id)
+                console.log(product_details,'product_detailsproduct_detailsproduct_details');
+                
                 let product_services = await this.retrive_product_services(product_id)
                 let product_highlights = await this.retrive_product_highlights(product_id)
                 let product_variations = await this.retrive_product_variations(product_id)
@@ -47,6 +51,7 @@ export class product_list_module {
                 let ratings = await this.retrive_product_ratings(product_id)
                 let delivery_locations = await this.retrive_product_locations(product_id)
                 
+                retrive_data[0].is_new_arrival = true
                 retrive_data[0].productdetails = product_details
                 retrive_data[0].product_services = product_services
                 retrive_data[0].product_highlights = product_highlights

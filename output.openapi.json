@@ -1429,8 +1429,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/users/orders": {
@@ -1538,8 +1537,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/sellers": {
@@ -1582,8 +1580,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/seller_details": {
@@ -1611,8 +1608,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/seller/manage_sellers": {
@@ -1646,8 +1642,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/seller/login_as_seller": {
@@ -1724,8 +1719,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/seller/{_id}": {
@@ -1750,8 +1744,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/products": {
@@ -1818,8 +1811,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/product_details": {
@@ -1847,8 +1839,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/products/variants": {
@@ -1876,8 +1867,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/product_faqs": {
@@ -1911,8 +1901,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/products/export": {
@@ -1946,8 +1935,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/shippo/parcel": {
@@ -2067,8 +2055,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       },
       "put": {
         "tags": [
@@ -2095,8 +2082,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       },
       "get": {
         "tags": [
@@ -2128,8 +2114,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/coupon/{_id}": {
@@ -2154,8 +2139,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       },
       "delete": {
         "tags": [
@@ -2178,8 +2162,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/homepage/coupon/{_id}": {
@@ -2207,8 +2190,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/fees": {
@@ -2505,8 +2487,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/orders/{_id}": {
@@ -2534,8 +2515,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/orders/cancel": {
@@ -2564,8 +2544,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/order/reviews": {
@@ -2611,8 +2590,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/order/invoice": {
@@ -2646,8 +2624,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/notifications": {
@@ -2782,8 +2759,7 @@
               "access_token"
             ]
           }
-        ],
-        "deprecated": true
+        ]
       }
     },
     "/Admin/list_users_sellers": {

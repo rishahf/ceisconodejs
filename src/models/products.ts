@@ -44,6 +44,7 @@ const ProductsSchema = createSchema({
     five_star_ratings   : Type.number({ default : 0 }),
     sold                : Type.boolean({ default : false }),
     is_visible          : Type.boolean({ default : false }),
+    is_new_arrival          : Type.boolean({ default : false }),
     is_delivery_available     : Type.boolean({ default : false }),
     is_blocked          : Type.boolean({ default : false }),
     is_deleted          : Type.boolean({ default : false }),

@@ -1873,6 +1873,7 @@ const product_details = async (req: any, res: express.Response) => {
         let query: any = { _id: _id, is_deleted: false };
         let options = { lean: true };
         let response_product: any = await admin_services.get_product_detail(query, options);
+        console.log(response_product[0], 'response_product');
 
         let query_data = { product_id: _id }, projection = { __v: 0 }
         let populate_data = [
